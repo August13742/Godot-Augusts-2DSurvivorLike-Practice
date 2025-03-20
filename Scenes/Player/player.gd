@@ -2,8 +2,13 @@ extends CharacterBody2D
 
 const MAX_SPEED = 200
 # Called when the node enters the scene tree for the first time.
+
+var component_manager
+
 func _ready() -> void:
-	pass # Replace with function body.
+	component_manager = $ComponentManager #if component_manager.has_component...
+	#if component_manager.has_component("DashComponent"):
+		#print(true)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
