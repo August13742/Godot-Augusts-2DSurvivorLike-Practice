@@ -1,6 +1,6 @@
 extends Camera2D
-## Higher Means Lower Initial Camera Acceleration
-@export var damping_factor:float = 10
+## Higher Means higher Initial Camera Acceleration Growth
+@export var damping_factor:float = 20
 
 var target_position = Vector2.ZERO
 

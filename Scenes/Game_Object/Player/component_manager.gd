@@ -3,8 +3,8 @@ extends Node
 
 enum available_components {Dash,Shoot}
 const COMPONENT_MAP = {
-	available_components.Dash: preload("res://Components/dash_component.gd"),
-	available_components.Shoot: preload("res://Components/shoot_component.gd")
+	available_components.Dash: preload("res://Scenes/Component/Components/dash_component.gd"),
+	available_components.Shoot: preload("res://Scenes/Component/Components/shoot_component.gd")
 }
 
 @export var component_list:Array[available_components]
