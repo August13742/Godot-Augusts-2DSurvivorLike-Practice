@@ -1,14 +1,29 @@
 extends Node
 
-var current_experience:float =0
+signal experience_updated(current_experience:float, target_experience:int)
 
+
+var current_experience:float =0
+var current_level:int = 1
+var target_experience:int = 5
+
+## how much MORE exp needed every level up 
+@export var experience_growth:int = 5
 func _ready():
 	GameEvents.experience_vial_collected.connect(on_experience_vial_collected)
 	
 	
 func increment_experience(number:float):
-	current_experience += number
-	print(current_experience)
+	# need to make carry over
+	current_experience = min(current_experience + number, target_experience)
+	
+	experience_updated.emit(current_experience, target_experience)
+	
+	if current_experience == target_experience:
+		current_level += 1
+		target_experience += experience_growth
+		current_experience = 0
+		experience_updated.emit(current_experience,target_experience)
 	
 	
 func on_experience_vial_collected(number:float):

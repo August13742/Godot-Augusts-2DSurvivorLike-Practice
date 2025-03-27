@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://4i14k4arpg2d"]
+[gd_scene load_steps=9 format=4 uid="uid://4i14k4arpg2d"]
 
 [ext_resource type="PackedScene" uid="uid://dqcbdc62xmk4c" path="res://Scenes/Game_Object/Player/player.tscn" id="1_1r6ip"]
 [ext_resource type="TileSet" uid="uid://62e86syg0vd" path="res://Resources/new_tile_set.tres" id="1_lixft"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b7whxbpn20jcy" path="res://Scenes/Managers/EnemyManger.tscn" id="3_5yls4"]
 [ext_resource type="PackedScene" uid="uid://dupsc6g05jhca" path="res://Scenes/UI/arena_time_ui.tscn" id="5_p6jpk"]
 [ext_resource type="PackedScene" uid="uid://t8ryo2sg1dch" path="res://Scenes/Managers/experience_manager.tscn" id="7_xlvfx"]
+[ext_resource type="PackedScene" uid="uid://cgq10518s8ugb" path="res://Scenes/UI/experience_bar.tscn" id="8_y3v7k"]
 
 [node name="Main" type="Node"]
 
@@ -28,3 +29,5 @@ tile_set = ExtResource("1_lixft")
 
 [node name="Player" parent="." instance=ExtResource("1_1r6ip")]
 position = Vector2(356, 221)
+
+[node name="ExperienceBar" parent="." instance=ExtResource("8_y3v7k")]
