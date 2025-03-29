@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b6vxbuekv01jm"]
+
+[ext_resource type="Script" uid="uid://bufhpdpoqk7qg" path="res://Resources/Upgrades/ability_upgrade.gd" id="1_mxsw1"]
+
+[resource]
+script = ExtResource("1_mxsw1")
+id = "sword_rate"
+name = "Sword Cooldown"
+description = "Reduces Cooldown between sword spawns."
