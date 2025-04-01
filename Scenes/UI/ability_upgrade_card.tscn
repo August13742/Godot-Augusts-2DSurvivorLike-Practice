@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2ib6ff2cn44w"]
+
+[ext_resource type="Script" uid="uid://bwwa2lu6bfcxr" path="res://Scenes/UI/ability_upgrade_card.gd" id="1_4ci0n"]
+
+[node name="AbilityUpgradeCard" type="PanelContainer"]
+custom_minimum_size = Vector2(120, 150)
+script = ExtResource("1_4ci0n")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Name"
+
+[node name="DescriptionLabel" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Sample Description line change"
+autowrap_mode = 3

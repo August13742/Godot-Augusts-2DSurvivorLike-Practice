@@ -6,7 +6,7 @@ signal level_up(new_level:int)
 
 var current_experience:float =0
 var current_level:int = 1
-var target_experience:int = 5
+var target_experience:int = 1
 
 ## how much MORE exp needed every level up 
 @export var experience_growth:int = 5
