@@ -29,7 +29,9 @@ func on_timer_timeout():
 	)
 	
 	var sword_instance:SwordAbility = sword_ability.instantiate()
-	player.get_parent().add_child(sword_instance) #get_parent returns parent of player
+	
+	var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
+	foreground_layer.add_child(sword_instance) #get_parent returns parent of player
 	sword_instance.hitbox_component.damage = damage
 	
 	sword_instance.global_position = enemies[0].global_position
