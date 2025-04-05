@@ -116,6 +116,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_gtet2")
 }
 autoplay = "swing"
+speed_scale = 1.25
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
 texture = ExtResource("1_se4ah")
