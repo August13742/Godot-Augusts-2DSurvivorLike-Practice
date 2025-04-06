@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c4d6ureftk44p" path="res://Scenes/Component/hurtbox_component.tscn" id="4_bm6qy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3j2k7"]
+radius = 11.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_arl0f"]
 radius = 6.0

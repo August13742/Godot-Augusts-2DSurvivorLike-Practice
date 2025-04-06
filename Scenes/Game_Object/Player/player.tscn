@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqcbdc62xmk4c"]
+[gd_scene load_steps=11 format=3 uid="uid://dqcbdc62xmk4c"]
 
 [ext_resource type="Script" uid="uid://bl8x4n8ib5ij7" path="res://Scenes/Game_Object/Player/player.gd" id="1_a3d8c"]
 [ext_resource type="PackedScene" uid="uid://c7cuj2fj0ontc" path="res://Scenes/Component/health_component.tscn" id="2_honxs"]
@@ -6,29 +6,58 @@
 [ext_resource type="PackedScene" uid="uid://b6do11xjbjuky" path="res://Scenes/Ability/sword_ability_controller/sword_ability_controller.tscn" id="2_xpcdj"]
 [ext_resource type="Texture2D" uid="uid://538ped3b55iu" path="res://Scenes/Game_Object/Player/front.png" id="4_c1ppa"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_c1ppa"]
-radius = 18.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_honxs"]
+bg_color = Color(0.247059, 0.14902, 0.192157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_142ei"]
+bg_color = Color(0.262745, 0.882353, 0.701961, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.247059, 0.14902, 0.192157, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uvnfx"]
 radius = 11.92
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_142ei"]
-radius = 9.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_c1ppa"]
+radius = 18.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_honxs"]
+radius = 7.0
+height = 24.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 0
 motion_mode = 1
 script = ExtResource("1_a3d8c")
 
-[node name="HealthComponent" parent="." instance=ExtResource("2_honxs")]
-
 [node name="ComponentManager" type="Node" parent="."]
 script = ExtResource("2_htcer")
 component_list = Array[int]([0, 0])
 
+[node name="HealthComponent" parent="." instance=ExtResource("2_honxs")]
+
 [node name="AbilityManager" type="Node" parent="."]
 
 [node name="SwordAbilityController" parent="AbilityManager" instance=ExtResource("2_xpcdj")]
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(32, 6)
+offset_left = -16.0
+offset_top = -24.0
+offset_right = 16.0
+offset_bottom = -18.0
+pivot_offset = Vector2(16, 3)
+theme_override_styles/background = SubResource("StyleBoxFlat_honxs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_142ei")
+max_value = 1.0
+value = 0.5
+show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uvnfx")
+debug_color = Color(0.7, 0.641667, 0, 0.419608)
 
 [node name="PickUpArea2D" type="Area2D" parent="."]
 collision_layer = 16
@@ -42,17 +71,13 @@ shape = SubResource("CircleShape2D_c1ppa")
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("4_c1ppa")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_uvnfx")
-debug_color = Color(0.7, 0.641667, 0, 0.419608)
-
 [node name="CollisionArea2D" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea2D"]
-position = Vector2(0, 2)
-shape = SubResource("CircleShape2D_142ei")
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_honxs")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="CollisionDamageInterval" type="Timer" parent="."]
