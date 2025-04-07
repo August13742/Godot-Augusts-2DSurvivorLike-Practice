@@ -10,6 +10,20 @@ var current_health:float
 func _ready():
 	current_health = max_health
 	
+
+func heal(amount:float):
+	if amount < 0:
+		print("cannot heal a negative amount, 
+		current_health %f, heal amount %f" % [current_health, amount])
+		return
+	elif current_health <= 0:
+		print("Target is dead, returning early")
+		return
+	else:
+		current_health = min(current_health + amount, max_health)
+		health_changed.emit()
+
+	
 	
 func damaged(damage:float):
 	current_health = max(current_health - damage, 0)

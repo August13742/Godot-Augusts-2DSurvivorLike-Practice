@@ -1,14 +1,21 @@
 extends Node
-@export_range(0,1) var drop_perecent:float = 1.0
+@export_range(0,1) var drop_chance:float = 1.0
 @export var vial_scene:PackedScene
-@export var health_component:Node
 
+
+## to drop multiple types of vials
+@export var vial_scenes:Array[PackedScene] 
+@onready var health_component:HealthComponent = $"../HealthComponent"
 
 func _ready():
+	if health_component == null:
+		push_error("Health Component Not Found") 
+		return
+
 	(health_component as HealthComponent).died.connect(on_died)
 
 func on_died():
-	if randf() >= drop_perecent: return
+	if randf() >= drop_chance: return
 	if vial_scene ==null: return
 	if !(owner is Node2D):return
 	
