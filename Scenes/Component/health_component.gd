@@ -23,12 +23,12 @@ func heal(amount:float):
 		current_health = min(current_health + amount, max_health)
 		health_changed.emit()
 
-	
-	
+
 func damaged(damage:float):
 	current_health = max(current_health - damage, 0)
 	health_changed.emit()
 	Callable(check_death).call_deferred()
+
 
 func check_death():
 	if current_health == 0:

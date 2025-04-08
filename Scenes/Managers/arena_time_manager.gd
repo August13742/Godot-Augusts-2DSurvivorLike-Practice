@@ -27,6 +27,7 @@ func raise_difficulty_base_on_minute_passed():
 		minutes_passed = time[0]
 		
 		#placeholder, replace with actual algorithm
+		#currently, this effects the spawn rate of spawners
 		difficulty_factor +=1
 		
 		GameEvents.emit_difficulty_factor_updated(difficulty_factor)
