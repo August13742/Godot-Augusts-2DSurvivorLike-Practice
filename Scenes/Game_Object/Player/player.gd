@@ -43,7 +43,7 @@ func check_deal_collision_damage():
 	health_component.damaged(1)
 	collision_interval_timer.start()
 	
-	print(health_component.current_health)
+	print("Current Player Health: %d"%health_component.current_health)
 	
 func update_health_display():
 	health_bar.value = health_component.get_health_percent()
