@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="VialData" load_steps=3 format=3 uid="uid://csoabs735dxip"]
+
+[ext_resource type="PackedScene" uid="uid://bsb8tp0kqgchf" path="res://Scenes/Game_Object/Drops/gold_drop.tscn" id="1_3em8d"]
+[ext_resource type="Script" uid="uid://ohktg6gtq1ki" path="res://Scenes/Game_Object/Drops/Resources/drop_data.gd" id="2_wdrum"]
+
+[resource]
+script = ExtResource("2_wdrum")
+name = "Gold"
+drop_rate = 0.3
+scene = ExtResource("1_3em8d")
+metadata/_custom_type_script = "uid://ohktg6gtq1ki"

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://54y5g7ygdf7a"]
+
+[ext_resource type="Script" uid="uid://bofbmpjrflb0t" path="res://Scenes/Managers/experience_manager.gd" id="1_m43bk"]
+[ext_resource type="Script" uid="uid://b5bvv2myggska" path="res://Scenes/Managers/gold_manager.gd" id="2_hk25f"]
+[ext_resource type="Script" uid="uid://cs7xpx4q0dmq0" path="res://Scenes/Managers/healing_drop_manager.gd" id="3_m43bk"]
+[ext_resource type="PackedScene" uid="uid://cfyf8bbjll07k" path="res://Scenes/Managers/upgrade_manager.tscn" id="4_m43bk"]
+
+[node name="ResourceManagers" type="Node"]
+
+[node name="ExperienceManager" type="Node" parent="."]
+script = ExtResource("1_m43bk")
+
+[node name="GoldManager" type="Node" parent="."]
+script = ExtResource("2_hk25f")
+
+[node name="HealingDropManager" type="Node" parent="."]
+script = ExtResource("3_m43bk")
+
+[node name="UpgradeManager" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("4_m43bk")]
+experience_manager = NodePath("../ExperienceManager")

@@ -1,4 +1,4 @@
-class_name VialTable
+class_name VialData
 extends Resource
 
 

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="VialData" load_steps=3 format=3 uid="uid://eiwbv44wfktc"]
+
+[ext_resource type="PackedScene" uid="uid://4h1eov5g6nje" path="res://Scenes/Game_Object/Drops/experienceDrop.tscn" id="1_5yb02"]
+[ext_resource type="Script" uid="uid://ohktg6gtq1ki" path="res://Scenes/Game_Object/Drops/Resources/drop_data.gd" id="2_cuxnu"]
+
+[resource]
+script = ExtResource("2_cuxnu")
+name = "Experience"
+drop_rate = 1.0
+scene = ExtResource("1_5yb02")
+metadata/_custom_type_script = "uid://ohktg6gtq1ki"

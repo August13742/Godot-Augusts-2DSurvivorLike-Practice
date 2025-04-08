@@ -22,7 +22,7 @@ max_speed = 50
 [node name="HealthComponent" parent="." instance=ExtResource("2_xvtdr")]
 max_health = 2.0
 
-[node name="VialDropComponent" parent="." instance=ExtResource("3_760iq")]
+[node name="LootDropComponent" parent="." instance=ExtResource("3_760iq")]
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_bm6qy")]
 health_component = NodePath("../HealthComponent")

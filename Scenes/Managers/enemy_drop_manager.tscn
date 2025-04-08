@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://vitp4t1tpdlo"]
+
+[ext_resource type="Script" uid="uid://1bolwefv0xnv" path="res://Scenes/Game_Object/Drops/loot_drop_component.gd" id="1_134wc"]
+
+[node name="EnemyDropManager" type="Node"]
+script = ExtResource("1_134wc")

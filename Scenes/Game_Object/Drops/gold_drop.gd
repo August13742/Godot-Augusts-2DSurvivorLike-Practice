@@ -7,5 +7,5 @@ func _ready() -> void:
 	
 	
 func on_area_entered(_other_area:Area2D):
-	GameEvents.emit_healing_drop_collected(1)
+	GameEvents.emit_gold_drop_collected(1)
 	queue_free()

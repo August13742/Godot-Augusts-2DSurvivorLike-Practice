@@ -5,7 +5,8 @@ extends Node
 
 func _ready():
 	$%Player.health_component.died.connect(on_player_died)
-	
+	$ExperienceBar.set_experience_manager($ResourceManagers/ExperienceManager)
+	$ResourceManagers/HealingDropManager.set_player($%Player)
 
 func on_player_died():
 	var end_screen_instance = end_screen_scene.instantiate()

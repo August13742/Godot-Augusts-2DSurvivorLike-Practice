@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="VialTable" load_steps=2 format=3 uid="uid://csoabs735dxip"]
-
-[ext_resource type="Script" uid="uid://ohktg6gtq1ki" path="res://Scenes/Game_Object/Vials/vial_data.gd" id="1_yw74s"]
-
-[resource]
-script = ExtResource("1_yw74s")
-name = ""
-drop_rate = null
-metadata/_custom_type_script = "uid://ohktg6gtq1ki"
