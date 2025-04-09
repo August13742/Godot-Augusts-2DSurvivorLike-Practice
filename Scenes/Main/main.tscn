@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=4 uid="uid://4i14k4arpg2d"]
 
-[ext_resource type="PackedScene" uid="uid://dqcbdc62xmk4c" path="res://Scenes/Game_Object/Player/player.tscn" id="1_1r6ip"]
+[ext_resource type="PackedScene" uid="uid://dqcbdc62xmk4c" path="res://Scenes/GameObject/Player/player.tscn" id="1_1r6ip"]
 [ext_resource type="Script" uid="uid://b86pc77ciiinv" path="res://Scenes/Main/main.gd" id="1_imbg2"]
 [ext_resource type="TileSet" uid="uid://62e86syg0vd" path="res://Resources/new_tile_set.tres" id="1_lixft"]
-[ext_resource type="PackedScene" uid="uid://dt54soakpftl3" path="res://Scenes/Game_Object/game_camera/game_camera.tscn" id="1_qw60k"]
+[ext_resource type="PackedScene" uid="uid://dt54soakpftl3" path="res://Scenes/GameObject/GameCamera/game_camera.tscn" id="1_qw60k"]
 [ext_resource type="PackedScene" uid="uid://b1hfksqlfuget" path="res://Scenes/Managers/ArenaTimeManager.tscn" id="2_2a143"]
 [ext_resource type="PackedScene" uid="uid://b4275t4s7e4my" path="res://Scenes/UI/end_screen.tscn" id="2_hfg1r"]
 [ext_resource type="PackedScene" uid="uid://b7whxbpn20jcy" path="res://Scenes/Managers/EnemyManger.tscn" id="3_5yls4"]
@@ -37,6 +37,7 @@ y_sort_enabled = true
 [node name="Player" parent="Entities" instance=ExtResource("1_1r6ip")]
 unique_name_in_owner = true
 position = Vector2(356, 221)
+collision_layer = 2
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
 

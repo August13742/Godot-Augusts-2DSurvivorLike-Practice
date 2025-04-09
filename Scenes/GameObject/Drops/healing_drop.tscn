@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://deu464036hbsb"]
+
+[ext_resource type="Script" uid="uid://c2fqbya4bkjch" path="res://Scenes/GameObject/Drops/healing_drop.gd" id="1_h1n3i"]
+[ext_resource type="Texture2D" uid="uid://dsixjiaeek1e1" path="res://Scenes/GameObject/Drops/Srpites/Healing.png" id="2_l17oa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7mmgg"]
+radius = 11.0
+
+[node name="HealingOrb" type="Node2D"]
+script = ExtResource("1_h1n3i")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_7mmgg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_l17oa")

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="VialData" load_steps=3 format=3 uid="uid://w3ipxvavtu8x"]
+
+[ext_resource type="PackedScene" uid="uid://deu464036hbsb" path="res://Scenes/GameObject/Drops/healing_drop.tscn" id="1_b4xpj"]
+[ext_resource type="Script" uid="uid://ohktg6gtq1ki" path="res://Scenes/GameObject/Drops/Resources/drop_data.gd" id="2_6y07y"]
+
+[resource]
+script = ExtResource("2_6y07y")
+name = "Healing"
+drop_rate = 0.1
+scene = ExtResource("1_b4xpj")
+metadata/_custom_type_script = "uid://ohktg6gtq1ki"

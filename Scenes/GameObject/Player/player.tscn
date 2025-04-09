@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=3 uid="uid://dqcbdc62xmk4c"]
+
+[ext_resource type="Script" uid="uid://by4iquybdbc5j" path="res://Scenes/GameObject/Player/player.gd" id="1_142ei"]
+[ext_resource type="PackedScene" uid="uid://c7cuj2fj0ontc" path="res://Scenes/Component/HealthComponent/health_component.tscn" id="2_honxs"]
+[ext_resource type="Script" uid="uid://c086nejdgsecs" path="res://Scenes/GameObject/Player/component_manager.gd" id="2_htcer"]
+[ext_resource type="PackedScene" uid="uid://b6do11xjbjuky" path="res://Scenes/Ability/sword_ability_controller/sword_ability_controller.tscn" id="2_xpcdj"]
+[ext_resource type="PackedScene" uid="uid://dgk0e3p350es" path="res://Scenes/Component/MovementControlComponent/movement_control_component.tscn" id="3_q3lib"]
+[ext_resource type="PackedScene" uid="uid://cnq32dmcgppq" path="res://Scenes/Component/HealthBarComponent/health_bar_component.tscn" id="4_2ibr2"]
+[ext_resource type="Texture2D" uid="uid://538ped3b55iu" path="res://Scenes/GameObject/Player/front.png" id="4_c1ppa"]
+[ext_resource type="PackedScene" uid="uid://cihryd5fc6t0i" path="res://Scenes/Component/CollisionDamageComponent/collision_damage_component.tscn" id="7_q3lib"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uvnfx"]
+radius = 11.92
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c1ppa"]
+radius = 18.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_honxs"]
+radius = 7.0
+height = 24.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 0
+motion_mode = 1
+script = ExtResource("1_142ei")
+
+[node name="ComponentManager" type="Node" parent="."]
+script = ExtResource("2_htcer")
+component_list = Array[int]([0, 0])
+
+[node name="MovementControlComponent" parent="." instance=ExtResource("3_q3lib")]
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_honxs")]
+
+[node name="HealthBarComponent" parent="." instance=ExtResource("4_2ibr2")]
+
+[node name="AbilityManager" type="Node" parent="."]
+
+[node name="SwordAbilityController" parent="AbilityManager" instance=ExtResource("2_xpcdj")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uvnfx")
+debug_color = Color(0.7, 0.641667, 0, 0.419608)
+
+[node name="PickUpArea2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="PickUpRadius" type="CollisionShape2D" parent="PickUpArea2D"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_c1ppa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("4_c1ppa")
+
+[node name="CollisionDamageComponent" parent="." instance=ExtResource("7_q3lib")]
+position = Vector2(0, 1)
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionDamageComponent"]
+shape = SubResource("CapsuleShape2D_honxs")
+debug_color = Color(1, 0, 0, 0.419608)

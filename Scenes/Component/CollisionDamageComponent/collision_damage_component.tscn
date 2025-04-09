@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cihryd5fc6t0i"]
+
+[ext_resource type="Script" uid="uid://dg5oxm5oq5krx" path="res://Scenes/Component/CollisionDamageComponent/collision_damage_component.gd" id="1_68ucf"]
+
+[node name="CollisionDamageComponent" type="Area2D"]
+script = ExtResource("1_68ucf")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

@@ -4,7 +4,7 @@ extends Node
 @export var end_screen_scene:PackedScene
 
 func _ready():
-	$%Player.health_component.died.connect(on_player_died)
+	$%Player.get_node("HealthComponent").died.connect(on_player_died) #no push_error here because other would trigger error
 	$ExperienceBar.set_experience_manager($ResourceManagers/ExperienceManager)
 	$ResourceManagers/HealingDropManager.set_player($%Player)
 
