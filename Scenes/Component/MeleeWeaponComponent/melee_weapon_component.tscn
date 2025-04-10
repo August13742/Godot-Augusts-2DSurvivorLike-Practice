@@ -1,0 +1,133 @@
+[gd_scene load_steps=8 format=3 uid="uid://cjhx5dmdah8m2"]
+
+[ext_resource type="Script" uid="uid://c46285fn8w542" path="res://Scenes/Component/MeleeWeaponComponent/melee_weapon_component.gd" id="1_g0ok0"]
+[ext_resource type="Texture2D" uid="uid://dj1bceryx0i17" path="res://Scenes/Component/MeleeWeaponComponent/sword.png" id="2_r4j02"]
+[ext_resource type="PackedScene" uid="uid://tgxphjcs1fsc" path="res://Scenes/Component/HitboxComponent/hitbox_component.tscn" id="3_nmqoy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xaqto"]
+size = Vector2(10, 15)
+
+[sub_resource type="Animation" id="Animation_r4j02"]
+resource_name = "MeleeWeaponSwing"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Visuals:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.133333, 0.866667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Visuals/HitboxComponent/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.133333, 0.866667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Visuals:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0.133333, 0.866667),
+"transitions": PackedFloat32Array(0.210224, 1),
+"update": 0,
+"values": [-1.5708, 1.5708]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.966667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_one_loop_finished"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_no4vh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Visuals:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Visuals/HitboxComponent/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Visuals:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5708]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nmqoy"]
+_data = {
+&"MeleeWeaponSwing": SubResource("Animation_r4j02"),
+&"RESET": SubResource("Animation_no4vh")
+}
+
+[node name="MeleeWeaponComponent" type="Node"]
+script = ExtResource("1_g0ok0")
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Visuals" type="Node2D" parent="Pivot"]
+rotation = -1.5708
+
+[node name="WeaponSprite" type="Sprite2D" parent="Pivot/Visuals"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_r4j02")
+offset = Vector2(0, -8)
+
+[node name="HitboxComponent" parent="Pivot/Visuals" instance=ExtResource("3_nmqoy")]
+position = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Visuals/HitboxComponent"]
+position = Vector2(5.58933e-05, 2.5)
+shape = SubResource("RectangleShape2D_xaqto")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_nmqoy")
+}

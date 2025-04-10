@@ -1,4 +1,4 @@
-class_name VialData
+class_name LootDropData
 extends Resource
 
 

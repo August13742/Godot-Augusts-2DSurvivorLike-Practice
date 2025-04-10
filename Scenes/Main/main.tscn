@@ -15,8 +15,9 @@
 script = ExtResource("1_imbg2")
 end_screen_scene = ExtResource("2_hfg1r")
 
-[node name="ArenaTimeUI" parent="." node_paths=PackedStringArray("arena_time_manger") instance=ExtResource("5_p6jpk")]
+[node name="ArenaTimeUI" parent="." node_paths=PackedStringArray("arena_time_manger", "resource_managers") instance=ExtResource("5_p6jpk")]
 arena_time_manger = NodePath("../ArenaTimeManager")
+resource_managers = NodePath("../ResourceManagers")
 
 [node name="ArenaTimeManager" parent="." instance=ExtResource("2_2a143")]
 

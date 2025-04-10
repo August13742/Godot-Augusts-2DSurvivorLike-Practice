@@ -4,6 +4,12 @@ class_name HealingDropManager
 var health_component:HealthComponent
 var player
 
+
+#func _ready():
+	#player = get_tree().get_first_node_in_group("Player")
+	
+	
+	
 func set_player(player_in_main):
 	if player_in_main == null: return
 	player = player_in_main

@@ -6,7 +6,7 @@ extends Node
 	#Healing
 #}
 ## to drop multiple types of vials
-@export var drops: Array[VialData]
+@export var drops: Array[LootDropData]
 @onready var health_component:HealthComponent = $"../HealthComponent"
 
 

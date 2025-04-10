@@ -1,7 +1,7 @@
 extends Object
 
 ## Helper Functions Related to GameTime Calculation
-class_name TimeUltility
+class_name TimeUtility
 
 
 ## Calculate Minute, remaining Seconds from Seconds input

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf52hky58evak"]
+
+[ext_resource type="Script" uid="uid://cohglfb7wl4g8" path="res://Scenes/Ability/WeaponSwing/weapon_swing.gd" id="1_eoiq0"]
+
+[node name="WeaponSwingController" type="Node"]
+script = ExtResource("1_eoiq0")
+
+[node name="Timer" type="Timer" parent="."]

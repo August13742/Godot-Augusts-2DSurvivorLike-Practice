@@ -18,7 +18,7 @@ func _ready():
 	
 func _process(_delta):
 	time_elapsed = get_time_elapsed()
-	time = TimeUltility.get_minute_seconds(time_elapsed)
+	time = TimeUtility.get_minute_seconds(time_elapsed)
 	
 	raise_difficulty_base_on_minute_passed()
 

@@ -1,5 +1,8 @@
 extends Node
 
+enum essential_components {Health,}
+enum utility_components {InputMovementControl,HealthBar,CollisionDamage, DropLoot}
+enum functional_components {Dash,Shoot}
 
 enum available_components {Dash,Shoot}
 const COMPONENT_MAP = {
