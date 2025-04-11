@@ -10,6 +10,7 @@ extends Node
 @onready var timer = $Timer
 
 var difficulty_factor:float
+var player:Node2D
 
 var spawn_radius:int = (
 	ProjectSettings.get_setting("display/window/size/viewport_width")/2 + spawn_radius_offset
@@ -20,20 +21,45 @@ func _ready() -> void:
 	timer.timeout.connect(on_timer_timeout)
 	GameEvents.difficulty_factor_updated.connect(on_difficulty_factor_updated)
 	timer.wait_time = spawn_interval
+	
+	player = get_tree().get_first_node_in_group("player")
+	if player == null: push_error("Player Not Found [%s]"%self.name)
+
+func get_spawn_position()->Vector2:
+	if player == null: return Vector2.ZERO
+	
+	var spawn_position:Vector2 = Vector2.ZERO
+	var random_direction:Vector2 = Vector2.RIGHT.rotated(randf_range(0,TAU))
+	
+	for i in 4:
+		spawn_position = player.global_position + random_direction * spawn_radius
+		
+		# 1 is terrain layer 1<<0 shift 0 bit is stil l1. useful if layer bit is high, 
+		# such as layer index 5 => 2^4 = 16, we can just 1<<4
+		var query_parameters = PhysicsRayQueryParameters2D.create(player.global_position,spawn_position,1) 
+
+		var result = get_tree().root.world_2d.direct_space_state.intersect_ray(query_parameters) #ray cast
+	
+		if result.is_empty():
+			# all clear
+			return spawn_position
+		else:
+			# collision
+			random_direction = random_direction.rotated(deg_to_rad(90))
+		
+	return spawn_position
 
 func on_timer_timeout():
-	var player:Node2D = get_tree().get_first_node_in_group("player")
 	if player == null :return
 	
 	timer.start()
-	var random_direction:Vector2 = Vector2.RIGHT.rotated(randf_range(0,TAU))
-	var spawn_position:Vector2 = player.global_position + random_direction * spawn_radius
+
 
 	var enemy:Node2D = basic_enemy_scene.instantiate()
 	
 	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
 	entities_layer.add_child(enemy)
-	enemy.global_position = spawn_position
+	enemy.global_position = get_spawn_position()
 
 
 func on_difficulty_factor_updated(number):
