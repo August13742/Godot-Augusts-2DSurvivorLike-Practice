@@ -4,14 +4,15 @@ extends Node
 @export var sword_ability: PackedScene
 @export var damage:float = 1
 @export var base_cooldown:float = 1.5
-# Called when the node enters the scene tree for the first time.
+var player:Node2D
 func _ready() -> void:
+	
+	player = get_tree().get_first_node_in_group("player")
 	$Timer.wait_time = base_cooldown
 	$Timer.timeout.connect(on_timer_timeout)
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
 func on_timer_timeout():
-	var player:Node2D = get_tree().get_first_node_in_group("player")
 	if player==null: return
 	
 	var enemies = get_tree().get_nodes_in_group("enemy")

@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://ki2otgxo3cv6"]
+
+[ext_resource type="Texture2D" uid="uid://cvstmyravbl51" path="res://Scenes/Ability/axe_ability/axe.png" id="1_0am0c"]
+[ext_resource type="Script" uid="uid://cwokknxgbt2uw" path="res://Scenes/Ability/axe_ability/axe_ability.gd" id="1_p2lmi"]
+[ext_resource type="PackedScene" uid="uid://tgxphjcs1fsc" path="res://Scenes/Component/HitboxComponent/hitbox_component.tscn" id="2_slwk5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2lmi"]
+size = Vector2(16, 18)
+
+[sub_resource type="Animation" id="Animation_snqvv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_p2lmi"]
+resource_name = "default"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wtl8t"]
+_data = {
+&"RESET": SubResource("Animation_snqvv"),
+&"default": SubResource("Animation_p2lmi")
+}
+
+[node name="AxeAbility" type="Node2D"]
+script = ExtResource("1_p2lmi")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+texture = ExtResource("1_0am0c")
+
+[node name="HitboxComponent" parent="Visuals" instance=ExtResource("2_slwk5")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/HitboxComponent"]
+shape = SubResource("RectangleShape2D_p2lmi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wtl8t")
+}
+autoplay = "default"

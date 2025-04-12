@@ -38,7 +38,7 @@ func on_one_loop_finished():
 	if player==null: return
 	var player_position:Vector2 = player.global_position
 	
-	var angle_to_cursor = (get_global_mouse_position() - player.global_position).angle()
+	var angle_to_cursor = (get_global_mouse_position() - player_position).angle()
 
 
 	#var player_direction:Vector2 = player.global_position

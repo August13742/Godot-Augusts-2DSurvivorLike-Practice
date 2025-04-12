@@ -1,7 +1,7 @@
 class_name GoldManager
 extends Node
 
-signal gold_updated(current_experience:float, target_experience:int)
+#signal gold_updated(current_experience:float, target_experience:int)
 
 
 
