@@ -11,4 +11,4 @@ func on_ability_upgrade_added(ability_upgrade:AbilityUpgrade, _current_upgrades:
 		return
 	var ability = ability_upgrade as AbilityEquipment
 	self.add_child(ability.ability_controller_component_scene.instantiate())
-	print("Debug/EquipmentUpgrade: [%s] Equipment Added"%ability.name)
+	print("[Debug/EquipmentUpgrade]: {%s} Equipment Added"%ability.name)
