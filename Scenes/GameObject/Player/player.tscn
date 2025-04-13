@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dqcbdc62xmk4c"]
+[gd_scene load_steps=15 format=3 uid="uid://dqcbdc62xmk4c"]
 
 [ext_resource type="Script" uid="uid://by4iquybdbc5j" path="res://Scenes/GameObject/Player/player.gd" id="1_142ei"]
 [ext_resource type="PackedScene" uid="uid://c7cuj2fj0ontc" path="res://Scenes/Component/HealthComponent/health_component.tscn" id="2_honxs"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dgk0e3p350es" path="res://Scenes/Component/MovementControlComponent/movement_control_component.tscn" id="3_q3lib"]
 [ext_resource type="PackedScene" uid="uid://cnq32dmcgppq" path="res://Scenes/Component/HealthBarComponent/health_bar_component.tscn" id="4_2ibr2"]
 [ext_resource type="Texture2D" uid="uid://538ped3b55iu" path="res://Scenes/GameObject/Player/front.png" id="4_c1ppa"]
+[ext_resource type="Script" uid="uid://b2u23550pj1e" path="res://Scenes/GameObject/Player/ability_manager.gd" id="6_0ai8q"]
 [ext_resource type="PackedScene" uid="uid://cihryd5fc6t0i" path="res://Scenes/Component/CollisionDamageComponent/collision_damage_component.tscn" id="7_q3lib"]
 [ext_resource type="PackedScene" uid="uid://bt010cakhivvf" path="res://Scenes/Ability/axe_ability_controller/axe_ability_controller.tscn" id="7_uk6yj"]
 [ext_resource type="PackedScene" uid="uid://cjhx5dmdah8m2" path="res://Scenes/Component/MeleeWeaponComponent/melee_weapon_component.tscn" id="9_ppan8"]
@@ -37,6 +38,7 @@ component_list = Array[int]([0, 0])
 [node name="HealthBarComponent" parent="." instance=ExtResource("4_2ibr2")]
 
 [node name="AbilityManager" type="Node" parent="."]
+script = ExtResource("6_0ai8q")
 
 [node name="SwordAbilityController" parent="AbilityManager" instance=ExtResource("2_xpcdj")]
 

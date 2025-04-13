@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://d0f47m1oaup68"]
+
+[ext_resource type="Script" uid="uid://bufhpdpoqk7qg" path="res://Resources/Upgrades/ability_upgrade.gd" id="1_s42oy"]
+
+[resource]
+script = ExtResource("1_s42oy")
+id = "auto_damage"
+name = "AutoAttack Damage"
+description = "Increase AutoAttack Damage by 1"

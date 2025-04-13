@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://c3gg5g862g3aq"]
+
+[ext_resource type="Script" uid="uid://bufhpdpoqk7qg" path="res://Resources/Upgrades/ability_upgrade.gd" id="1_qc18i"]
+
+[resource]
+script = ExtResource("1_qc18i")
+id = "auto_size"
+name = "AutoAttack Size"
+description = "Increase the Size of AutoAttack Weapon Range by 10%"
