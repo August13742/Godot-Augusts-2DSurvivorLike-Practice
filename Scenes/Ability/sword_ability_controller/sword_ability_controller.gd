@@ -1,40 +1,42 @@
 extends Node
+class_name SwordAbilityController
+
 
 @export var max_range:int = 100
 @export var sword_ability: PackedScene
 @export var damage:float = 1
 @export var base_cooldown:float = 1.5
-var player:Node2D
+
+@onready var enemies_detector:EntityDetectionHelperComponent
+@onready var timer:Timer = $Timer
+
+var root_entity:Node2D
+
 func _ready() -> void:
+	enemies_detector = owner.get_node("EnemyDetectionHelperComponent")
+
+	if enemies_detector == null:
+		push_error("[Debug/AbilityEquipment]: {%s} Cannot Find Enemy Detection Helper Component"%self.name)
+		
+	root_entity = owner
 	
-	player = get_tree().get_first_node_in_group("player")
-	$Timer.wait_time = base_cooldown
-	$Timer.timeout.connect(on_timer_timeout)
+	timer.wait_time = base_cooldown
+	timer.timeout.connect(on_timer_timeout)
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
 func on_timer_timeout():
-	if player==null: return
+	if root_entity==null: return
 	
-	var enemies = get_tree().get_nodes_in_group("enemy")
-
-
-	var player_position:Vector2 = player.global_position 
+	var enemies:Array[Node] = enemies_detector.get_nearby_enemies(max_range)
+	if enemies.is_empty(): return
 	
-	enemies = enemies.filter(func(enemy:Node2D):
-		return enemy.global_position.distance_squared_to(player_position) < pow(max_range,2)
-	)
-	if enemies.size() == 0:return
-	enemies.sort_custom(func(a:Node2D,b:Node2D):
-		var a_distance = a.global_position.distance_squared_to(player_position)
-		var b_distance = b.global_position.distance_squared_to(player_position)
-		return a_distance < b_distance
-	)
 	
 	var sword_instance:SwordAbility = sword_ability.instantiate()
-	
+
 	var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
 	foreground_layer.add_child(sword_instance) #get_parent returns parent of player
 	sword_instance.hitbox_component.damage = damage
+	
 	
 	sword_instance.global_position = enemies[0].global_position
 	sword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0,TAU))*4
@@ -43,8 +45,7 @@ func on_timer_timeout():
 
 
 func on_ability_upgrade_added(upgrade:AbilityUpgrade,current_upgrades:Dictionary):
-	if upgrade.id != "sword_rate": return
-	
-	var percent_reduction = current_upgrades["sword_rate"]["quantity"] * 0.1
-	$Timer.wait_time = base_cooldown * (1-percent_reduction)
-	$Timer.start()
+	if upgrade.id == "sword_rate":
+		var percent_reduction = current_upgrades["sword_rate"]["quantity"] * 0.1
+		timer.wait_time = base_cooldown * (1-percent_reduction)
+		timer.start()

@@ -28,4 +28,4 @@ func on_died():
 		if drop.scene == null: continue
 		var drop_instance:Node2D = drop.scene.instantiate()
 		entities_layer.get_parent().add_child(drop_instance)
-		drop_instance.global_position = spawn_position
+		drop_instance.global_position = Vector2(spawn_position[0]+randf_range(-10,10), spawn_position[1]+randf_range(-10,10))

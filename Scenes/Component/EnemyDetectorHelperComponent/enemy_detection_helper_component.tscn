@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://6lphpsmjsnr3"]
+
+[ext_resource type="Script" uid="uid://23a2y1purbr" path="res://Scenes/Component/EnemyDetectorHelperComponent/EnemyDetectionHelper.gd" id="1_dsqw5"]
+
+[node name="EnemyDetectionHelperComponent" type="Node"]
+script = ExtResource("1_dsqw5")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://t4136jy6fw06"]
+
+[ext_resource type="Script" uid="uid://bscbe620e7fwg" path="res://Scenes/Ability/static_taser_controller/static_taser_controller.gd" id="1_3pjrt"]
+
+[node name="StaticTaserController" type="Node"]
+script = ExtResource("1_3pjrt")
+
+[node name="Timer" type="Timer" parent="."]
