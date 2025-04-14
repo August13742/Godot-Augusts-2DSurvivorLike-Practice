@@ -7,12 +7,14 @@ extends Node
 ## higher means faster initial acceleration
 @export var acceleration_smoothing:float = 20
 @onready var entity:Node2D = get_parent()
-
-
+var movement_vector:Vector2
+var direction:Vector2
 func _process(delta: float) -> void:
-	var movement_vector = get_movement_vector()
+	
+	movement_vector = get_movement_vector()
 	#normalise needed because if 1,1 then speed is higher than setting
-	var direction = movement_vector.normalized()
+	direction = movement_vector.normalized()
+	
 	var target_velocity:Vector2 = direction * max_speed
 	entity.velocity = entity.velocity.lerp(target_velocity, 1-exp(-delta*acceleration_smoothing))
 	entity.move_and_slide()

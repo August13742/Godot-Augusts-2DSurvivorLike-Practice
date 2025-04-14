@@ -114,7 +114,7 @@ script = ExtResource("1_g0ok0")
 [node name="Visuals" type="Node2D" parent="Pivot"]
 rotation = -1.5708
 
-[node name="WeaponSprite" type="Sprite2D" parent="Pivot/Visuals"]
+[node name="Sprite2D" type="Sprite2D" parent="Pivot/Visuals"]
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_r4j02")
 offset = Vector2(0, -20.575)

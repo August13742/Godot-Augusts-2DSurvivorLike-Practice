@@ -43,7 +43,6 @@ func pick_upgrades() -> Array[AbilityUpgrade]:
 		chosen_upgrades.append(chosen_upgrade)
 		available_upgrades.erase(chosen_upgrade)
 	
-	print(chosen_upgrades)
 	return chosen_upgrades
 
 

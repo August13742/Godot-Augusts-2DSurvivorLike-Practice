@@ -2,11 +2,14 @@ extends CharacterBody2D
 
 @export var max_speed:int = 75
 @onready var health_component = $HealthComponent
+@onready var sprite:Sprite2D = $Visuals/Sprite2D
 
 
 func _process(_delta: float) -> void:
+	
 	var direction:Vector2 = get_direction_to_player()
 	velocity = direction * max_speed
+	sprite.flip_h = true if velocity.x > 0 else false
 	move_and_slide()
 
 func get_direction_to_player():
