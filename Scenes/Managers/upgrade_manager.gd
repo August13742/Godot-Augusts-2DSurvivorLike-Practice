@@ -17,17 +17,6 @@ func on_level_up(current_level:int):
 	upgrade_screen_instance.upgrade_chosen.connect(on_upgrade_chosen)
 
 
-#func pick_upgrades():
-	#var filtered_upgrade = upgrade_pool.duplicate()
-	#for i in 3:
-		#var chosen_upgrade = filtered_upgrade.pick_random()
-		#filtered_upgrade.filter(func(upgrade): return upgrade.id != chosen_upgrade.id)
-		#filtered_upgrade.filter(filter_unique_upgrade)
-		#
-		#
-#func filter_unique_upgrade(upgrade:AbilityUpgrade):
-	#if (upgrade.is_unique == false) || (upgrade.is_unique == true && current_upgrades[upgrade.id] == null):
-		#return true
 func pick_upgrades() -> Array[AbilityUpgrade]:
 	var available_upgrades = upgrade_pool.duplicate()
 	var chosen_upgrades: Array[AbilityUpgrade] = []

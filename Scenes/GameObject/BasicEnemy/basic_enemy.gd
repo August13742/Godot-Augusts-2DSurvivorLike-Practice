@@ -1,19 +1,24 @@
 extends CharacterBody2D
+class_name RatEnemy
 
 @export var max_speed:int = 75
-@onready var health_component = $HealthComponent
+@export var max_health:int = 10
+@export var moving:bool = true
+
+@onready var health_component:HealthComponent = $HealthComponent
 @onready var sprite:Sprite2D = $Visuals/Sprite2D
+@onready var ai_movement_component:AIMovementComponent = get_node("AIMovementComponent")
+
+
+func _ready():
+	health_component.max_health = max_health
+
 
 
 func _process(_delta: float) -> void:
+	if !moving: return
 	
-	var direction:Vector2 = get_direction_to_player()
+	var direction:Vector2 = ai_movement_component.get_direction_to_target()
 	velocity = direction * max_speed
 	sprite.flip_h = true if velocity.x > 0 else false
 	move_and_slide()
-
-func get_direction_to_player():
-	var player_node:Node2D = get_tree().get_first_node_in_group("player")
-	if player_node != null:
-		return (player_node.global_position - global_position).normalized()
-	return Vector2.ZERO

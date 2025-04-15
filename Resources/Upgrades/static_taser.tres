@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AbilityEquipment" load_steps=2 format=3 uid="uid://bnenjsb7l1dsk"]
+
+[ext_resource type="Script" uid="uid://dq3p1cjcbq8y0" path="res://Resources/Upgrades/ability_equip.gd" id="1_msyd0"]
+
+[resource]
+script = ExtResource("1_msyd0")
+id = "static_taser"
+name = "Static Taser"
+is_unique = true
+description = "Periodically Shoots Capacitors to Enemies, then Connect them with Static"
+metadata/_custom_type_script = "uid://dq3p1cjcbq8y0"

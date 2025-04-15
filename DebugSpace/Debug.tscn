@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://drdbllirf1dl5"]
+
+[ext_resource type="PackedScene" uid="uid://ea1riipsrqo0" path="res://DebugSpace/player_debug.tscn" id="2_m1x33"]
+[ext_resource type="PackedScene" uid="uid://bxb1anygh4xmi" path="res://Scenes/GameObject/BasicEnemy/basic_enemy.tscn" id="2_r85sc"]
+
+[node name="Debug" type="Node2D"]
+
+[node name="BasicEnemy" parent="." instance=ExtResource("2_r85sc")]
+position = Vector2(194, 233)
+max_health = 999
+moving = false
+
+[node name="BasicEnemy2" parent="." instance=ExtResource("2_r85sc")]
+position = Vector2(163, 141)
+moving = false
+
+[node name="BasicEnemy3" parent="." instance=ExtResource("2_r85sc")]
+position = Vector2(217, 99)
+max_health = 5
+moving = false
+
+[node name="Player" parent="." instance=ExtResource("2_m1x33")]
+position = Vector2(437, 167)
+
+[node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
