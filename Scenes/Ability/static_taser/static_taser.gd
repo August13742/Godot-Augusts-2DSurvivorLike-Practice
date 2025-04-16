@@ -35,7 +35,7 @@ func spawn_capacitors():
 	
 	line_points = get_target_global_position(targets)
 
-	print(position, global_position)
+
 	var start_position = self.position
 	var ctr:int = 0
 	var capacitor_instances:Array[Sprite2D]
@@ -51,7 +51,7 @@ func spawn_capacitors():
 		var target_pos = line_points[ctr]
 		capacitor_tween.tween_method(func(progress):
 			capacitor.global_position = start_position.lerp(target_pos, progress), 0.0, 1.0, 0.2)
-		capacitor_tween.tween_property(capacitor, "modulate:a", 0.0, 0.3)
+		capacitor_tween.tween_property(capacitor, "modulate:a", 0.0, 0.15)
 		capacitor_tween.tween_callback(Callable(capacitor, "queue_free"))  # or .hide()
 		ctr+=1
 

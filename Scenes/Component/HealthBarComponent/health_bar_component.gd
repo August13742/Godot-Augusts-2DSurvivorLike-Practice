@@ -1,7 +1,7 @@
 extends ProgressBar
 
 
-@onready var health_component = get_parent().get_node("HealthComponent")
+@onready var health_component = owner.get_node("HealthComponent")
 
 
 func _ready():

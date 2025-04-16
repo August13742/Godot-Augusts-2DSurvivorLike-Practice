@@ -1,8 +1,10 @@
 extends Node
 class_name DeathAnimationComponent
 
+## Leave Empty if using Self
 @export var animation_scene:PackedScene
-@export var sprite_texture:CompressedTexture2D
+## Leave Empty if using Self
+@export var sprite_texture:Texture2D
 
 
 var health_component:HealthComponent
@@ -16,9 +18,21 @@ func _ready():
 		push_error("[Debug/Referencing]: {%s} Cannot Find Fallback DeathAnimation Scene"%self.name)
 		
 	if sprite_texture == null:
-		sprite_texture = owner.get_node("Visuals").get_node("Sprite2D").texture
+		var visuals = owner.get_node_or_null("Visuals")
+		if visuals:
+			var sprite = visuals.get_node_or_null("Sprite2D")
+			if sprite and sprite.texture:
+				sprite_texture = sprite.texture
+			else:
+				var animated_sprite = visuals.get_node_or_null("AnimatedSprite2D")
+				if animated_sprite:
+					sprite_texture = animated_sprite.get_sprite_frames().get_frame_texture("default",0)
+					
+
 		if sprite_texture == null:
-			push_error("[Debug/Referencing]: {%s} Cannot Find Fallback Sprite Texture"%self.name)
+			push_error("[Debug/Referencing]: {%s} Cannot Find Fallback Sprite or AnimatedSprite Texture" % self.name)
+
+		
 	
 
 

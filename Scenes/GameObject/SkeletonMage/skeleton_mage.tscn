@@ -1,0 +1,83 @@
+[gd_scene load_steps=16 format=3 uid="uid://canvsdu04v5pl"]
+
+[ext_resource type="Script" uid="uid://bl8r6h50rmg6w" path="res://Scenes/GameObject/SkeletonMage/skeleton_mage.gd" id="1_ug2rs"]
+[ext_resource type="Texture2D" uid="uid://xgt7qaab41og" path="res://Scenes/GameObject/SkeletonMage/Skeleton-Idle-Sheet.png" id="1_wp1r8"]
+[ext_resource type="PackedScene" uid="uid://c4d6ureftk44p" path="res://Scenes/Component/HurtboxComponent/hurtbox_component.tscn" id="2_ug2rs"]
+[ext_resource type="PackedScene" uid="uid://cnq32dmcgppq" path="res://Scenes/Component/HealthBarComponent/health_bar_component.tscn" id="3_lv3y3"]
+[ext_resource type="PackedScene" uid="uid://yomehlmkvd2k" path="res://Scenes/Component/DeathComponent/death_component.tscn" id="4_hcnjn"]
+[ext_resource type="PackedScene" uid="uid://c7cuj2fj0ontc" path="res://Scenes/Component/HealthComponent/health_component.tscn" id="5_6qv2c"]
+[ext_resource type="PackedScene" uid="uid://id2nj8lc76jn" path="res://Scenes/Component/LootDropComponent/loot_drop_component.tscn" id="6_1cuni"]
+[ext_resource type="PackedScene" uid="uid://c33wwr3ktf1uq" path="res://Scenes/Component/AIMovementComponent/ai_movement_component.tscn" id="7_pbwtn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wp1r8"]
+size = Vector2(20, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5k0r"]
+size = Vector2(20, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dllvh"]
+atlas = ExtResource("1_wp1r8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otd0f"]
+atlas = ExtResource("1_wp1r8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srnww"]
+atlas = ExtResource("1_wp1r8")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_br2mv"]
+atlas = ExtResource("1_wp1r8")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f6751"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dllvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otd0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srnww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_br2mv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SkeletonMage" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_ug2rs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wp1r8")
+
+[node name="DeathComponent" parent="." instance=ExtResource("4_hcnjn")]
+
+[node name="HealthComponent" parent="." instance=ExtResource("5_6qv2c")]
+
+[node name="LootDropComponent" parent="." instance=ExtResource("6_1cuni")]
+
+[node name="AIMovementComponent" parent="." instance=ExtResource("7_pbwtn")]
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="HurtboxComponent" parent="Visuals" instance=ExtResource("2_ug2rs")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/HurtboxComponent"]
+shape = SubResource("RectangleShape2D_g5k0r")
+debug_color = Color(0.96, 0, 0.0159998, 0.490196)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
+sprite_frames = SubResource("SpriteFrames_f6751")
+autoplay = "default"
+frame_progress = 0.166701
+
+[node name="HealthBarComponent" parent="Visuals" instance=ExtResource("3_lv3y3")]

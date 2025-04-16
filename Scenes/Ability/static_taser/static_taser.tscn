@@ -17,6 +17,7 @@ capacitor_texture = ExtResource("3_bvpbj")
 texture_filter = 1
 texture_repeat = 2
 material = ExtResource("2_85ejf")
+points = PackedVector2Array(41, 9)
 width = 30.0
 texture = ExtResource("3_ptssp")
 texture_mode = 2
