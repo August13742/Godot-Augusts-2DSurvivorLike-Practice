@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://cnud5me8l4kkw" path="res://Scenes/Ability/static_taser/spritesheet_animation_shader.tres" id="2_85ejf"]
 [ext_resource type="Texture2D" uid="uid://doks52856ldcp" path="res://Scenes/Ability/static_taser/Pixel_Capacitor_48x48.png" id="3_bvpbj"]
 [ext_resource type="Texture2D" uid="uid://dstvitj2ors1l" path="res://Scenes/Ability/static_taser/Eletric A-Sheet.png" id="3_ptssp"]
-[ext_resource type="Script" uid="uid://dslk7k7drh0nw" path="res://Scenes/Ability/static_taser/animated_line.gd" id="4_bvpbj"]
+[ext_resource type="Script" uid="uid://dslk7k7drh0nw" path="res://Scenes/Ability/static_taser/spritesheet_material_animated.gd" id="4_bvpbj"]
 
 [node name="StaticTaser" type="Node2D"]
 script = ExtResource("1_mq87l")

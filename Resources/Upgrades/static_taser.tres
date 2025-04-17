@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="AbilityEquipment" load_steps=2 format=3 uid="uid://bnenjsb7l1dsk"]
+[gd_resource type="Resource" script_class="AbilityEquipment" load_steps=3 format=3 uid="uid://bnenjsb7l1dsk"]
 
+[ext_resource type="PackedScene" uid="uid://t4136jy6fw06" path="res://Scenes/Ability/static_taser_controller/static_taser_controller.tscn" id="1_66yb8"]
 [ext_resource type="Script" uid="uid://dq3p1cjcbq8y0" path="res://Resources/Upgrades/ability_equip.gd" id="1_msyd0"]
 
 [resource]
 script = ExtResource("1_msyd0")
+ability_controller_component_scene = ExtResource("1_66yb8")
 id = "static_taser"
 name = "Static Taser"
 is_unique = true

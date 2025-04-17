@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c33wwr3ktf1uq"]
+
+[ext_resource type="Script" uid="uid://d4hg1uov1amjh" path="res://Scenes/Component/MeleeAIMovementComponent/melee_ai_movement_component.gd" id="1_d1xkm"]
+
+[node name="AIMovementComponent" type="Node"]
+script = ExtResource("1_d1xkm")

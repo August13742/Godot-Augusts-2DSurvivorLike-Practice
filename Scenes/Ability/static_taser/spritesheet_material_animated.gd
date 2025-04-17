@@ -1,4 +1,4 @@
-extends Line2D
+extends Node2D
 
 
 @export var spritesheet_columns = 4

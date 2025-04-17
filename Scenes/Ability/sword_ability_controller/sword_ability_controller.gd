@@ -3,7 +3,7 @@ class_name SwordAbilityController
 
 
 @export var max_range:int = 100
-@export var sword_ability: PackedScene
+@export var sword_ability: PackedScene = preload("res://Scenes/Ability/sword_ability/sword_ability.tscn")
 @export var damage:float = 1
 @export var base_cooldown:float = 1.5
 
@@ -45,7 +45,7 @@ func on_timer_timeout():
 
 
 func on_ability_upgrade_added(upgrade:AbilityUpgrade,current_upgrades:Dictionary):
-	if upgrade.id == "sword_rate":
+	if upgrade.id == "sword_upgrade":
 		var percent_reduction = current_upgrades["sword_rate"]["quantity"] * 0.1
 		timer.wait_time = base_cooldown * (1-percent_reduction)
 		timer.start()

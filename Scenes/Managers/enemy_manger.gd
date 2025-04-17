@@ -9,6 +9,11 @@ extends Node
 
 @onready var timer = $Timer
 
+''''''
+var rat_enemy_scene = preload("res://Scenes/GameObject/BasicEnemy/basic_enemy.tscn")
+var skeleton_mage_scene = preload("res://Scenes/GameObject/SkeletonMage/skeleton_mage.tscn")
+''''''
+
 var difficulty_factor:float
 var player:Node2D
 

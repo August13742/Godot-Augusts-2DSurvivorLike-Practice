@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://83ykp6ae7pi0" path="res://Scenes/GameObject/BasicEnemy/rat_enemy.png" id="1_arl0f"]
 [ext_resource type="Script" uid="uid://heajr8143rgg" path="res://Scenes/GameObject/BasicEnemy/basic_enemy.gd" id="1_v5ije"]
-[ext_resource type="PackedScene" uid="uid://c33wwr3ktf1uq" path="res://Scenes/Component/AIMovementComponent/ai_movement_component.tscn" id="2_3amr6"]
+[ext_resource type="PackedScene" uid="uid://c33wwr3ktf1uq" path="res://Scenes/Component/MeleeAIMovementComponent/melee_ai_movement_component.tscn" id="2_3amr6"]
 [ext_resource type="PackedScene" uid="uid://c7cuj2fj0ontc" path="res://Scenes/Component/HealthComponent/health_component.tscn" id="2_xvtdr"]
 [ext_resource type="PackedScene" uid="uid://cnq32dmcgppq" path="res://Scenes/Component/HealthBarComponent/health_bar_component.tscn" id="3_3j2k7"]
 [ext_resource type="PackedScene" uid="uid://id2nj8lc76jn" path="res://Scenes/Component/LootDropComponent/loot_drop_component.tscn" id="3_760iq"]

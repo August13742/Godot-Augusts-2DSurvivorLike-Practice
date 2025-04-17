@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cnq32dmcgppq" path="res://Scenes/Component/HealthBarComponent/health_bar_component.tscn" id="3_lv3y3"]
 [ext_resource type="PackedScene" uid="uid://yomehlmkvd2k" path="res://Scenes/Component/DeathComponent/death_component.tscn" id="4_hcnjn"]
 [ext_resource type="PackedScene" uid="uid://c7cuj2fj0ontc" path="res://Scenes/Component/HealthComponent/health_component.tscn" id="5_6qv2c"]
+[ext_resource type="PackedScene" uid="uid://cw4k5y3r4nxta" path="res://Scenes/Component/RangedAIMovementComponent/RangedAIMovementComponent.tscn" id="5_ug2rs"]
 [ext_resource type="PackedScene" uid="uid://id2nj8lc76jn" path="res://Scenes/Component/LootDropComponent/loot_drop_component.tscn" id="6_1cuni"]
-[ext_resource type="PackedScene" uid="uid://c33wwr3ktf1uq" path="res://Scenes/Component/AIMovementComponent/ai_movement_component.tscn" id="7_pbwtn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wp1r8"]
 size = Vector2(20, 30)
@@ -65,7 +65,7 @@ shape = SubResource("RectangleShape2D_wp1r8")
 
 [node name="LootDropComponent" parent="." instance=ExtResource("6_1cuni")]
 
-[node name="AIMovementComponent" parent="." instance=ExtResource("7_pbwtn")]
+[node name="RangedAiMovementComponent" parent="." instance=ExtResource("5_ug2rs")]
 
 [node name="Visuals" type="Node2D" parent="."]
 

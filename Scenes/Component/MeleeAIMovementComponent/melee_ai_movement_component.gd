@@ -1,5 +1,5 @@
 extends Node
-class_name AIMovementComponent
+class_name MeleeAiMovementComponent
 
 @export var target_entity:Node2D
 

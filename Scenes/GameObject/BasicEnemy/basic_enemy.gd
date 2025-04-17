@@ -7,7 +7,7 @@ class_name RatEnemy
 
 @onready var health_component:HealthComponent = $HealthComponent
 @onready var sprite:Sprite2D = $Visuals/Sprite2D
-@onready var ai_movement_component:AIMovementComponent = get_node("AIMovementComponent")
+@onready var ai_movement_component:MeleeAiMovementComponent = get_node("MeleeAiMovementComponent")
 
 
 func _ready():

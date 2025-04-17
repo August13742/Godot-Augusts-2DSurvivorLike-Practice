@@ -2,13 +2,13 @@ extends CharacterBody2D
 class_name SkeletonMage
 
 
-@export var max_speed:int = 50
+@export var max_speed:int = 30
 @export var max_health:int = 20
 @export var moving:bool = true
 
 @onready var health_component:HealthComponent = $HealthComponent
 @onready var sprite:AnimatedSprite2D = $Visuals/AnimatedSprite2D
-@onready var ai_movement_component:AIMovementComponent = get_node("AIMovementComponent")
+@onready var ai_movement_component:RangedAiMovementComponent = get_node("RangedAiMovementComponent")
 
 
 func _ready():

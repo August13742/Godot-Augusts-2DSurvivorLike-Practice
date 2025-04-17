@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfyf8bbjll07k"]
+[gd_scene load_steps=11 format=3 uid="uid://cfyf8bbjll07k"]
 
 [ext_resource type="Script" uid="uid://wget07e1pvo6" path="res://Scenes/Managers/upgrade_manager.gd" id="1_jpgj0"]
 [ext_resource type="Script" uid="uid://bufhpdpoqk7qg" path="res://Resources/Upgrades/ability_upgrade.gd" id="2_m3epd"]
 [ext_resource type="Resource" uid="uid://b6vxbuekv01jm" path="res://Resources/Upgrades/sword_rate.tres" id="3_jampl"]
+[ext_resource type="Resource" uid="uid://d0f47m1oaup68" path="res://Resources/Upgrades/auto_damage.tres" id="3_jl2xp"]
 [ext_resource type="PackedScene" uid="uid://csv6loaunyj5v" path="res://Scenes/UI/upgrade_screen.tscn" id="4_m3epd"]
+[ext_resource type="Resource" uid="uid://dn0hcrcu0jwnv" path="res://Resources/Upgrades/auto_rate.tres" id="4_q8dwd"]
+[ext_resource type="Resource" uid="uid://c3gg5g862g3aq" path="res://Resources/Upgrades/auto_size.tres" id="5_dr1l1"]
+[ext_resource type="Script" uid="uid://dq3p1cjcbq8y0" path="res://Resources/Upgrades/ability_equip.gd" id="7_jrx4d"]
+[ext_resource type="Resource" uid="uid://75if1doujlhl" path="res://Resources/Upgrades/spiral_axe.tres" id="8_ohbuv"]
+[ext_resource type="Resource" uid="uid://bnenjsb7l1dsk" path="res://Resources/Upgrades/static_taser.tres" id="9_fvycv"]
 
 [node name="UpgradeManager" type="Node"]
 script = ExtResource("1_jpgj0")
-upgrade_pool = Array[ExtResource("2_m3epd")]([ExtResource("3_jampl")])
+upgrade_pool = Array[ExtResource("2_m3epd")]([ExtResource("3_jl2xp"), ExtResource("4_q8dwd"), ExtResource("5_dr1l1"), ExtResource("3_jampl"), null])
+ability_pool = Array[ExtResource("7_jrx4d")]([ExtResource("8_ohbuv"), ExtResource("9_fvycv")])
 upgrade_screen_scene = ExtResource("4_m3epd")

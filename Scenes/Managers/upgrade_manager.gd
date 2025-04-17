@@ -1,6 +1,9 @@
 extends Node
 
 @export var upgrade_pool:Array[AbilityUpgrade]
+@export var ability_pool:Array[AbilityEquipment]
+
+
 @export var experience_manager:ExperienceManager
 @export var upgrade_screen_scene:PackedScene
 
