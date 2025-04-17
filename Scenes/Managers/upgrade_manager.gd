@@ -24,28 +24,6 @@ func on_level_up(_current_level:int):
 	upgrade_screen_instance.set_ability_upgrades(chosen_upgrades,chosen_upgrades_levels)
 	upgrade_screen_instance.upgrade_chosen.connect(on_upgrade_chosen)
 
-
-#func pick_upgrades() -> Array:
-	#var available_upgrades = upgrade_pool.duplicate()
-	#var chosen_upgrades: Array[Ability] = []
-	#var candidate_levels:Array[int] = []
-	#while chosen_upgrades.size() < 3 and available_upgrades.size() > 0:
-		#var candidate = available_upgrades.pick_random()
-		#
-		## Skip if maxed out
-		#if owned_abilities.has(candidate.id):
-			#var level = owned_abilities[candidate.id]["level"]
-			#if level >= candidate.levels.size()-1:
-				#candidate_levels.append(level)
-				#available_upgrades.erase(candidate)
-				#continue
-			#
-		#chosen_upgrades.append(candidate)
-		#
-		#available_upgrades.erase(candidate)
-	#
-	#return [chosen_upgrades, candidate_levels]
-	
 func pick_upgrades():
 	var available_upgrades:Array[Ability]= upgrade_pool.duplicate()
 	var chosen_upgrades: Array[Ability] = []
@@ -56,7 +34,6 @@ func pick_upgrades():
 		available_upgrades.erase(candidate)
 
 		# Skip if maxed out
-		
 		if owned_abilities.has(candidate.id):
 			var level:int = owned_abilities[candidate.id]["level"]
 			if level >= candidate.levels.size() - 1:
@@ -64,7 +41,7 @@ func pick_upgrades():
 			chosen_levels.append(level)
 		else:
 			chosen_levels.append(-1) # New ability starts at level 0
-
+			
 		chosen_upgrades.append(candidate)
 	return [chosen_upgrades, chosen_levels]
 

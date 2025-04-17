@@ -59,7 +59,8 @@ func spawn_capacitors():
 	line.points = line_points.map(func(global_pos): return line.to_local(global_pos)) #line2D expects local pos
 	
 	for target in target_nodes:
-		target.health_component.damaged(damage)
+		if target != null:
+			target.health_component.damaged(damage)
 	$Timer.start()
 	
 func on_timer_timeout():

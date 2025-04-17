@@ -8,7 +8,7 @@ func _ready():
 	gui_input.connect(on_gui_input)
 	
 func set_ability_upgrade(upgrade:Ability, current_level:int):
-	print(current_level)
+
 	if current_level == -1:
 		name_label.text = upgrade.name
 		description_label.text = upgrade.description
