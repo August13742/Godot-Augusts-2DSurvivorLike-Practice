@@ -12,7 +12,7 @@ class_name RatEnemy
 
 func _ready():
 	health_component.max_health = max_health
-
+	ai_movement_component.target_entity = get_tree().get_first_node_in_group("player")
 
 
 func _process(_delta: float) -> void:

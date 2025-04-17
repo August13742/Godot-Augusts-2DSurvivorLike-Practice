@@ -25,5 +25,5 @@ position = Vector2(437, 167)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
 
-[node name="SkeletonMage" parent="." instance=ExtResource("3_r85sc")]
+[node name="SkeletonMage" parent="." groups=["enemy"] instance=ExtResource("3_r85sc")]
 position = Vector2(253, 181)

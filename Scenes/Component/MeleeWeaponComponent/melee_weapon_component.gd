@@ -4,14 +4,9 @@ class_name MeleeWeapon
 
 @export var base_size_scale:float = 1
 
-## adjust the swing speed, duration = 1/scale * 1s
-@export var base_speed_scale:float = 0.75
-
-@export var speed_rate_upgrade_step:float = 0.1
-@export var size_upgrade_step:float = 0.1
+@export var base_cooldown:float = 1.5
 
 @export var damage:float = 5
-@export var damage_upgrade_increment:float= 1
 
 @onready var visual_instance = $Pivot/Visuals
 @onready var animation = $Pivot/AnimationPlayer
@@ -19,6 +14,9 @@ class_name MeleeWeapon
 @export var pivot_offset_radius:float = 20
 
 var player:Node2D
+
+func get_animation_speed_scale_from_cooldown(desired_cooldown:float): #animation is 1s
+	return 1/desired_cooldown
 
 func _ready() -> void:
 	$Pivot/Visuals/HitboxComponent.damage = damage
@@ -28,11 +26,11 @@ func _ready() -> void:
 		push_error("[%s] Component Cannot Find Player Node, Expects Player to be Direct Parent of this Component"%self.name)
 		
 	
-	animation.speed_scale = base_speed_scale
+	animation.speed_scale = get_animation_speed_scale_from_cooldown(base_cooldown)
 	pivot.scale = Vector2.ONE * base_size_scale
 	
 
-	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
+	GameEvents.upgrade_ability.connect(on_upgrade_ability)
 	
 func on_one_loop_finished():
 	if player==null: return
@@ -48,12 +46,9 @@ func on_one_loop_finished():
 	pivot.position = Vector2(pivot_offset_radius, 0).rotated(angle_to_cursor)
 
 
-func on_ability_upgrade_added(upgrade:AbilityUpgrade,current_upgrades:Dictionary):
-	if upgrade.id == "auto_weapon_rate":
-		var percent_reduction = current_upgrades["auto_weapon_rate"]["quantity"] * speed_rate_upgrade_step
-		animation.speed_scale = clamp(base_speed_scale * (1 + percent_reduction), 0.25, 5) # min 0.2 sec, max 4 sec
-	elif upgrade.id == "auto_weapon_size":
-		var percent_increase = current_upgrades["auto_weapon_size"]["quantity"] * size_upgrade_step
-		pivot.scale = Vector2.ONE * base_size_scale * (1+percent_increase)
-	elif upgrade.id == "auto_weapon_damage":
-		damage += current_upgrades["auto_weapon_damage"]["quantity"] * damage_upgrade_increment
+func on_upgrade_ability(ability:Ability,current_ability_level):
+	if ability.id == "auto_attack_upgrade":
+		damage *= ability.levels[current_ability_level].damage_multiplier
+		animation.speed_scale = get_animation_speed_scale_from_cooldown(
+			base_cooldown * ability.levels[current_ability_level].cooldown_multiplier)
+		pivot.scale = Vector2.ONE * base_size_scale * ability.levels[current_ability_level].size_multiplier

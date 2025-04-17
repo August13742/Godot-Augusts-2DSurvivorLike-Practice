@@ -1,11 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://t4136jy6fw06"]
+[gd_scene load_steps=2 format=3 uid="uid://t4136jy6fw06"]
 
 [ext_resource type="Script" uid="uid://bscbe620e7fwg" path="res://Scenes/Ability/static_taser_controller/static_taser_controller.gd" id="1_3pjrt"]
-[ext_resource type="PackedScene" uid="uid://dpvbftejcl3tv" path="res://Scenes/Ability/static_taser/static_taser.tscn" id="2_fyngl"]
 
 [node name="StaticTaserController" type="Node"]
 script = ExtResource("1_3pjrt")
-taser_ability_scene = ExtResource("2_fyngl")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
