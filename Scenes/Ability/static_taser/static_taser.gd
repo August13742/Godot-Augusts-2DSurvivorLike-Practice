@@ -6,7 +6,7 @@ class_name StaticTaserAbility
 @export var line_texture:Texture2D
 @export var capacitor_texture: Texture2D
 var damage:float
-var targets:Array[Node]
+var target_nodes:Array[Node]
 var line_points:Array[Vector2]
 
 func _ready():
@@ -31,9 +31,9 @@ func get_target_global_position(targets:Array[Node])->Array[Vector2]:
 	return target_positions
 	
 func spawn_capacitors():
-	if targets.is_empty(): return
+	if target_nodes.is_empty(): return
 	
-	line_points = get_target_global_position(targets)
+	line_points = get_target_global_position(target_nodes)
 
 
 	var start_position = self.position
@@ -59,7 +59,7 @@ func spawn_capacitors():
 	await get_tree().create_timer(0.5).timeout
 	line.points = line_points.map(func(global_pos): return line.to_local(global_pos)) #line2D expects local pos
 	
-	for target in targets:
+	for target in target_nodes:
 		target.health_component.damaged(damage)
 	$Timer.start()
 	

@@ -90,7 +90,7 @@ libraries = {
 }
 autoplay = "Walk"
 
-[node name="AIMovementComponent" parent="." instance=ExtResource("2_3amr6")]
+[node name="MeleeAiMovementComponent" parent="." instance=ExtResource("2_3amr6")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_xvtdr")]
 
