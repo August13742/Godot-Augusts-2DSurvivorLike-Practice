@@ -1,8 +1,10 @@
 extends Resource
-class_name AbilityUpgrade
+
+class_name Ability
 
 
 @export var id:String
 @export var name:String
-@export var is_unique:bool = false
+@export var isUnique:bool = true
 @export_multiline var description:String
+@export var levels:Array[AbilityLevel] = []
