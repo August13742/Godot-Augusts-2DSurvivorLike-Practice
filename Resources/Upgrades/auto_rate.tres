@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://dn0hcrcu0jwnv"]
-
-[ext_resource type="Script" uid="uid://bufhpdpoqk7qg" path="res://Resources/Upgrades/ability_upgrade.gd" id="1_sx0g7"]
-
-[resource]
-script = ExtResource("1_sx0g7")
-id = "auto_rate"
-name = "AutoAttack Cooldown"
-description = "Reduces Cooldown between Weapon AutoAttacks by 10%"

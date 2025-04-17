@@ -5,6 +5,7 @@ class_name MeleeAiMovementComponent
 
 func _ready():
 	if owner.moving == true:
+		await get_tree().process_frame #delay a frame for potential ordering conflict
 		if target_entity == null:
 			print("[Debug/Fallback]: {%s} Target not Set, Defaulting Target to Player"%self.name)
 			target_entity = get_tree().get_first_node_in_group("player")

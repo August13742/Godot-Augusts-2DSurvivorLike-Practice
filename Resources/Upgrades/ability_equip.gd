@@ -1,4 +1,0 @@
-extends AbilityUpgrade
-class_name AbilityEquipment
-
-@export var ability_controller_component_scene:PackedScene

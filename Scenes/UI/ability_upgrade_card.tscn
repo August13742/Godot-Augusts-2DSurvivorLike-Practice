@@ -4,6 +4,8 @@
 
 [node name="AbilityUpgradeCard" type="PanelContainer"]
 custom_minimum_size = Vector2(120, 150)
+offset_right = 120.0
+offset_bottom = 150.0
 script = ExtResource("1_4ci0n")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -16,6 +18,7 @@ text = "Name"
 [node name="DescriptionLabel" type="Label" parent="VBoxContainer"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 12
 text = "Sample Description line change"
 autowrap_mode = 3

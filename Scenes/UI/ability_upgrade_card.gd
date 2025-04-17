@@ -6,11 +6,15 @@ extends PanelContainer
 signal chosen 
 func _ready():
 	gui_input.connect(on_gui_input)
-
-func set_ability_upgrade(upgrade:AbilityUpgrade):
-	name_label.text = upgrade.name
-	description_label.text = upgrade.description
-
+	
+func set_ability_upgrade(upgrade:Ability, current_level:int):
+	print(current_level)
+	if current_level == -1:
+		name_label.text = upgrade.name
+		description_label.text = upgrade.description
+	else:
+		name_label.text = upgrade.name + " +" + str(current_level+1)
+		description_label.text = "Increase Effectiveness of this Ability"
 func on_gui_input(event:InputEvent):
 	if event.is_action_pressed("left_click"):
 		chosen.emit()

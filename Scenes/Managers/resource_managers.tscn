@@ -1,20 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://54y5g7ygdf7a"]
+[gd_scene load_steps=10 format=3 uid="uid://54y5g7ygdf7a"]
 
 [ext_resource type="Script" uid="uid://bofbmpjrflb0t" path="res://Scenes/Managers/experience_manager.gd" id="1_m43bk"]
 [ext_resource type="Script" uid="uid://b5bvv2myggska" path="res://Scenes/Managers/gold_manager.gd" id="2_hk25f"]
 [ext_resource type="Script" uid="uid://cs7xpx4q0dmq0" path="res://Scenes/Managers/healing_drop_manager.gd" id="3_m43bk"]
 [ext_resource type="PackedScene" uid="uid://cfyf8bbjll07k" path="res://Scenes/Managers/upgrade_manager.tscn" id="4_m43bk"]
-[ext_resource type="Script" uid="uid://bufhpdpoqk7qg" path="res://Resources/Upgrades/ability_upgrade.gd" id="5_vmd3s"]
-[ext_resource type="Resource" uid="uid://b6vxbuekv01jm" path="res://Resources/Upgrades/sword_rate.tres" id="6_5xrxj"]
-[ext_resource type="Resource" uid="uid://d0f47m1oaup68" path="res://Resources/Upgrades/auto_damage.tres" id="7_ade6p"]
-[ext_resource type="Resource" uid="uid://dn0hcrcu0jwnv" path="res://Resources/Upgrades/auto_rate.tres" id="8_kbewt"]
-[ext_resource type="Resource" uid="uid://c3gg5g862g3aq" path="res://Resources/Upgrades/auto_size.tres" id="9_6m6wj"]
-[ext_resource type="Resource" uid="uid://75if1doujlhl" path="res://Resources/Upgrades/spiral_axe.tres" id="10_5xrxj"]
+[ext_resource type="Script" uid="uid://bek7djtoo4ufs" path="res://Resources/Upgrades/ability.gd" id="5_hsi1m"]
+[ext_resource type="Resource" uid="uid://c1u3b00n4cyry" path="res://Resources/Upgrades/Abilities/auto_attack_upgrade.tres" id="6_vmd3s"]
+[ext_resource type="Resource" uid="uid://d04v36b6s4y8p" path="res://Resources/Upgrades/Abilities/spawn_sword.tres" id="7_5xrxj"]
+[ext_resource type="Resource" uid="uid://c2r866i3s83je" path="res://Resources/Upgrades/Abilities/spiral_axe.tres" id="8_ade6p"]
+[ext_resource type="Resource" uid="uid://dgm363gsqjhsl" path="res://Resources/Upgrades/Abilities/static_taser_ability.tres" id="9_kbewt"]
 
 [node name="ResourceManagers" type="Node"]
 
 [node name="ExperienceManager" type="Node" parent="."]
 script = ExtResource("1_m43bk")
+experience_growth = 0
 
 [node name="GoldManager" type="Node" parent="."]
 script = ExtResource("2_hk25f")
@@ -23,5 +23,5 @@ script = ExtResource("2_hk25f")
 script = ExtResource("3_m43bk")
 
 [node name="UpgradeManager" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("4_m43bk")]
-upgrade_pool = Array[ExtResource("5_vmd3s")]([ExtResource("6_5xrxj"), ExtResource("7_ade6p"), ExtResource("8_kbewt"), ExtResource("9_6m6wj"), ExtResource("10_5xrxj")])
+upgrade_pool = Array[ExtResource("5_hsi1m")]([ExtResource("6_vmd3s"), ExtResource("7_5xrxj"), ExtResource("8_ade6p"), ExtResource("9_kbewt")])
 experience_manager = NodePath("../ExperienceManager")

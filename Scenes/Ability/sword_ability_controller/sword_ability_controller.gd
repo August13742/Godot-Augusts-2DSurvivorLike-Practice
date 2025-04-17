@@ -9,10 +9,13 @@ class_name SwordAbilityController
 
 @onready var enemies_detector:EntityDetectionHelperComponent
 @onready var timer:Timer = $Timer
-
+@export var base_spawn_count = 1
+var spawn_count = base_spawn_count
 var root_entity:Node2D
 
 func _ready() -> void:
+	await get_tree().process_frame
+	
 	enemies_detector = owner.get_node("EnemyDetectionHelperComponent")
 
 	if enemies_detector == null:
@@ -22,7 +25,7 @@ func _ready() -> void:
 	
 	timer.wait_time = base_cooldown
 	timer.timeout.connect(on_timer_timeout)
-	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
+	GameEvents.upgrade_ability.connect(on_upgrade_ability)
 
 func on_timer_timeout():
 	if root_entity==null: return
@@ -30,22 +33,25 @@ func on_timer_timeout():
 	var enemies:Array[Node] = enemies_detector.get_nearby_enemies(max_range)
 	if enemies.is_empty(): return
 	
+	var to_spawn = min(spawn_count, enemies.size())
 	
-	var sword_instance:SwordAbility = sword_ability.instantiate()
+	for i in range(to_spawn): #minimum is already 1
 
-	var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
-	foreground_layer.add_child(sword_instance) #get_parent returns parent of player
-	sword_instance.hitbox_component.damage = damage
-	
-	
-	sword_instance.global_position = enemies[0].global_position
-	sword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0,TAU))*4
-	var enemy_direction:Vector2 = enemies[0].global_position - sword_instance.global_position
-	sword_instance.rotation = enemy_direction.angle()
+		var sword_instance:SwordAbility = sword_ability.instantiate()
+		var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
+		foreground_layer.add_child(sword_instance) #get_parent returns parent of player
+		sword_instance.hitbox_component.damage = damage
+		
+		
+		sword_instance.global_position = enemies[i].global_position
+		sword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0,TAU))*4
+		var enemy_direction:Vector2 = enemies[i].global_position - sword_instance.global_position
+		sword_instance.rotation = enemy_direction.angle()
 
 
-func on_ability_upgrade_added(upgrade:AbilityUpgrade,current_upgrades:Dictionary):
-	if upgrade.id == "sword_upgrade":
-		var percent_reduction = current_upgrades["sword_rate"]["quantity"] * 0.1
-		timer.wait_time = base_cooldown * (1-percent_reduction)
+func on_upgrade_ability(ability:Ability,current_ability_level):
+	if ability.id == "spawn_sword":
+		damage *= ability.levels[current_ability_level].damage_multiplier
+		timer.wait_time = base_cooldown * ability.levels[current_ability_level].cooldown_multiplier
+		spawn_count = base_spawn_count + ability.levels[current_ability_level].instance_bonus
 		timer.start()

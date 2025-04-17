@@ -1,55 +1,57 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=9 format=3 uid="uid://c2r866i3s83je"]
+[gd_resource type="Resource" script_class="Ability" load_steps=10 format=3 uid="uid://d04v36b6s4y8p"]
 
-[ext_resource type="Script" uid="uid://c2j8clfar1hu3" path="res://Resources/Upgrades/Abilities/ability_levels.gd" id="1_wkesx"]
-[ext_resource type="Script" uid="uid://bek7djtoo4ufs" path="res://Resources/Upgrades/ability.gd" id="2_gj1no"]
+[ext_resource type="PackedScene" uid="uid://b6do11xjbjuky" path="res://Scenes/Ability/sword_ability_controller/sword_ability_controller.tscn" id="1_i7ap0"]
+[ext_resource type="Script" uid="uid://c2j8clfar1hu3" path="res://Resources/Upgrades/Abilities/ability_levels.gd" id="1_r07ik"]
+[ext_resource type="Script" uid="uid://bek7djtoo4ufs" path="res://Resources/Upgrades/ability.gd" id="2_i7ap0"]
 
 [sub_resource type="Resource" id="Resource_bdasc"]
-script = ExtResource("1_wkesx")
+script = ExtResource("1_r07ik")
 damage_multiplier = 1.0
 cooldown_multiplier = 1.0
 instance_bonus = 0
 metadata/_custom_type_script = "uid://c2j8clfar1hu3"
 
 [sub_resource type="Resource" id="Resource_mucpd"]
-script = ExtResource("1_wkesx")
+script = ExtResource("1_r07ik")
 damage_multiplier = 1.1
 cooldown_multiplier = 0.9
 instance_bonus = 0
 metadata/_custom_type_script = "uid://c2j8clfar1hu3"
 
 [sub_resource type="Resource" id="Resource_jn3kr"]
-script = ExtResource("1_wkesx")
+script = ExtResource("1_r07ik")
 damage_multiplier = 1.2
 cooldown_multiplier = 0.85
 instance_bonus = 1
 metadata/_custom_type_script = "uid://c2j8clfar1hu3"
 
 [sub_resource type="Resource" id="Resource_f2iu4"]
-script = ExtResource("1_wkesx")
+script = ExtResource("1_r07ik")
 damage_multiplier = 1.3
 cooldown_multiplier = 0.8
 instance_bonus = 1
 metadata/_custom_type_script = "uid://c2j8clfar1hu3"
 
 [sub_resource type="Resource" id="Resource_dy0h5"]
-script = ExtResource("1_wkesx")
+script = ExtResource("1_r07ik")
 damage_multiplier = 1.4
 cooldown_multiplier = 0.75
 instance_bonus = 1
 metadata/_custom_type_script = "uid://c2j8clfar1hu3"
 
 [sub_resource type="Resource" id="Resource_tckwv"]
-script = ExtResource("1_wkesx")
+script = ExtResource("1_r07ik")
 damage_multiplier = 1.5
 cooldown_multiplier = 0.7
 instance_bonus = 2
 metadata/_custom_type_script = "uid://c2j8clfar1hu3"
 
 [resource]
-script = ExtResource("2_gj1no")
-id = "spiral_axe"
-name = "Spiralling Axe"
+script = ExtResource("2_i7ap0")
+id = "spawn_sword"
+name = "Spawn Sword"
 isUnique = true
-description = "Periodically Spawns Axe that Spirals Round."
-levels = Array[ExtResource("1_wkesx")]([SubResource("Resource_bdasc"), SubResource("Resource_mucpd"), SubResource("Resource_jn3kr"), SubResource("Resource_f2iu4"), SubResource("Resource_dy0h5"), SubResource("Resource_tckwv")])
+controller_component_scene = ExtResource("1_i7ap0")
+description = "Periodically Spawns Swinging Swords on Enemy Location."
+levels = Array[ExtResource("1_r07ik")]([SubResource("Resource_bdasc"), SubResource("Resource_mucpd"), SubResource("Resource_jn3kr"), SubResource("Resource_f2iu4"), SubResource("Resource_dy0h5"), SubResource("Resource_tckwv")])
 metadata/_custom_type_script = "uid://bek7djtoo4ufs"

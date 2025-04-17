@@ -1,19 +1,16 @@
-[gd_scene load_steps=21 format=3 uid="uid://dqcbdc62xmk4c"]
+[gd_scene load_steps=18 format=3 uid="uid://dqcbdc62xmk4c"]
 
 [ext_resource type="Script" uid="uid://by4iquybdbc5j" path="res://Scenes/GameObject/Player/player.gd" id="1_142ei"]
 [ext_resource type="Script" uid="uid://bekc41is0qrtq" path="res://Scenes/GameObject/Player/player_animation.gd" id="2_8uak7"]
 [ext_resource type="PackedScene" uid="uid://c7cuj2fj0ontc" path="res://Scenes/Component/HealthComponent/health_component.tscn" id="2_honxs"]
 [ext_resource type="Script" uid="uid://c086nejdgsecs" path="res://Scenes/GameObject/Player/component_manager.gd" id="2_htcer"]
-[ext_resource type="PackedScene" uid="uid://b6do11xjbjuky" path="res://Scenes/Ability/sword_ability_controller/sword_ability_controller.tscn" id="2_xpcdj"]
 [ext_resource type="PackedScene" uid="uid://dgk0e3p350es" path="res://Scenes/Component/MovementControlComponent/movement_control_component.tscn" id="3_q3lib"]
 [ext_resource type="PackedScene" uid="uid://6lphpsmjsnr3" path="res://Scenes/Component/EnemyDetectorHelperComponent/enemy_detection_helper_component.tscn" id="3_r32kq"]
 [ext_resource type="PackedScene" uid="uid://cnq32dmcgppq" path="res://Scenes/Component/HealthBarComponent/health_bar_component.tscn" id="4_2ibr2"]
 [ext_resource type="Texture2D" uid="uid://538ped3b55iu" path="res://Scenes/GameObject/Player/front.png" id="4_c1ppa"]
 [ext_resource type="Script" uid="uid://b2u23550pj1e" path="res://Scenes/GameObject/Player/ability_manager.gd" id="6_0ai8q"]
 [ext_resource type="PackedScene" uid="uid://cihryd5fc6t0i" path="res://Scenes/Component/CollisionDamageComponent/collision_damage_component.tscn" id="7_q3lib"]
-[ext_resource type="PackedScene" uid="uid://bt010cakhivvf" path="res://Scenes/Ability/axe_ability_controller/axe_ability_controller.tscn" id="7_uk6yj"]
 [ext_resource type="PackedScene" uid="uid://cjhx5dmdah8m2" path="res://Scenes/Component/MeleeWeaponComponent/melee_weapon_component.tscn" id="9_ppan8"]
-[ext_resource type="PackedScene" uid="uid://t4136jy6fw06" path="res://Scenes/Ability/static_taser_controller/static_taser_controller.tscn" id="11_ck0e5"]
 
 [sub_resource type="Animation" id="Animation_8uak7"]
 length = 0.001
@@ -137,13 +134,6 @@ component_list = Array[int]([0, 0])
 
 [node name="AbilityManager" type="Node" parent="."]
 script = ExtResource("6_0ai8q")
-
-[node name="SwordAbilityController" parent="AbilityManager" instance=ExtResource("2_xpcdj")]
-
-[node name="AxeAbilityController" parent="AbilityManager" instance=ExtResource("7_uk6yj")]
-
-[node name="StaticTaserController" parent="AbilityManager" instance=ExtResource("11_ck0e5")]
-damage = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uvnfx")
