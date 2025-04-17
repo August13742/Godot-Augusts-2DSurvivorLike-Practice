@@ -23,5 +23,6 @@ func _process(_delta: float) -> void:
 	var direction:Vector2 = ai_movement_component.get_direction_to_target()
 	velocity = direction * max_speed
 
-	sprite.flip_h = false if velocity.x > 0 else true
+
+	sprite.flip_h = !(ai_movement_component.target_at_right_direction())
 	move_and_slide()

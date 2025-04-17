@@ -66,6 +66,7 @@ shape = SubResource("RectangleShape2D_wp1r8")
 [node name="LootDropComponent" parent="." instance=ExtResource("6_1cuni")]
 
 [node name="RangedAiMovementComponent" parent="." instance=ExtResource("5_ug2rs")]
+distance_to_keep = 100.0
 
 [node name="Visuals" type="Node2D" parent="."]
 
