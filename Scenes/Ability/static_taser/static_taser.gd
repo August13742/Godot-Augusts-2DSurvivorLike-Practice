@@ -45,7 +45,7 @@ func spawn_capacitors():
 		visuals.add_child(capacitor)
 		capacitor.global_position = start_position
 		capacitor_instances.append(capacitor)
-		'''replace with tween?'''
+		'''tweens'''
 		var capacitor_tween:Tween = create_tween()
 		# basically, fly to location in x seconds
 		var target_pos = line_points[ctr]
@@ -54,7 +54,6 @@ func spawn_capacitors():
 		capacitor_tween.tween_property(capacitor, "modulate:a", 0.0, 0.15)
 		capacitor_tween.tween_callback(Callable(capacitor, "queue_free"))  # or .hide()
 		ctr+=1
-
 		''''''
 	await get_tree().create_timer(0.5).timeout
 	line.points = line_points.map(func(global_pos): return line.to_local(global_pos)) #line2D expects local pos

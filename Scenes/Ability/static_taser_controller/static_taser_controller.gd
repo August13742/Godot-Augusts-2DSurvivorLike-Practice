@@ -49,7 +49,7 @@ func on_timer_timeout():
 	if root_entity == null: return
 
 	var taser_instance:StaticTaserAbility = taser_ability_scene.instantiate()
-	taser_instance.targets = get_target()
+	taser_instance.target_nodes = get_target()
 	
 	foreground.add_child(taser_instance)
 	taser_instance.damage = damage

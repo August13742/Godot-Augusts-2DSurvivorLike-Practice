@@ -10,7 +10,7 @@ class_name MeleeWeapon
 @export var speed_rate_upgrade_step:float = 0.1
 @export var size_upgrade_step:float = 0.1
 
-@export var damage:float = 1
+@export var damage:float = 5
 @export var damage_upgrade_increment:float= 1
 
 @onready var visual_instance = $Pivot/Visuals
