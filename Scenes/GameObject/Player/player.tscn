@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dqcbdc62xmk4c"]
+[gd_scene load_steps=21 format=3 uid="uid://dqcbdc62xmk4c"]
 
 [ext_resource type="Script" uid="uid://by4iquybdbc5j" path="res://Scenes/GameObject/Player/player.gd" id="1_142ei"]
 [ext_resource type="Script" uid="uid://bekc41is0qrtq" path="res://Scenes/GameObject/Player/player_animation.gd" id="2_8uak7"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cihryd5fc6t0i" path="res://Scenes/Component/CollisionDamageComponent/collision_damage_component.tscn" id="7_q3lib"]
 [ext_resource type="PackedScene" uid="uid://bt010cakhivvf" path="res://Scenes/Ability/axe_ability_controller/axe_ability_controller.tscn" id="7_uk6yj"]
 [ext_resource type="PackedScene" uid="uid://cjhx5dmdah8m2" path="res://Scenes/Component/MeleeWeaponComponent/melee_weapon_component.tscn" id="9_ppan8"]
+[ext_resource type="PackedScene" uid="uid://t4136jy6fw06" path="res://Scenes/Ability/static_taser_controller/static_taser_controller.tscn" id="11_ck0e5"]
 
 [sub_resource type="Animation" id="Animation_8uak7"]
 length = 0.001
@@ -140,6 +141,8 @@ script = ExtResource("6_0ai8q")
 [node name="SwordAbilityController" parent="AbilityManager" instance=ExtResource("2_xpcdj")]
 
 [node name="AxeAbilityController" parent="AbilityManager" instance=ExtResource("7_uk6yj")]
+
+[node name="StaticTaserController" parent="AbilityManager" instance=ExtResource("11_ck0e5")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uvnfx")
