@@ -1,5 +1,5 @@
 extends Node
-
+@export var random_drop_range:float = 20
 #enum DropType{
 	#Experience,
 	#Gold,
@@ -28,4 +28,5 @@ func on_died():
 		if drop.scene == null: continue
 		var drop_instance:Node2D = drop.scene.instantiate()
 		entities_layer.add_child(drop_instance)
-		drop_instance.global_position = Vector2(spawn_position[0]+randf_range(-10,10), spawn_position[1]+randf_range(-10,10))
+		var random_offset:Vector2 = Vector2(randf_range(-random_drop_range,random_drop_range),randf_range(-random_drop_range,random_drop_range))
+		drop_instance.global_position = Vector2(spawn_position+random_offset)

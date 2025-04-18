@@ -4,16 +4,22 @@ extends Node2D
 @onready var visuals = $Visuals
 
 @export var max_radius:float = 100
-@export var max_scale:float = 2
-@export var min_scale:float = 1
+
+## Determines How much Bigger the ability Gradually Get to
+@export var max_scale_multiplier:float = 2 
+@export var base_min_scale:float = 1.5
 
 
-var scale_up_range = max(max_scale - min_scale,0)
+'''set max_scale and scale_range base on min_scale'''
+@onready var min_scale:float = base_min_scale    # on_ready -> replaced by external value if set
+var max_scale = min_scale * max_scale_multiplier
+var scale_up_range:float = max(max_scale - min_scale,0)
+''''''
 var root_entity:Node2D
 var base_rotation:Vector2 = Vector2.RIGHT
 var self_root_position = Vector2.ZERO
 func _ready():
-	root_entity = get_tree().get_first_node_in_group("player") # change this for more modularity
+	await get_tree().process_frame
 	base_rotation = Vector2.RIGHT.rotated(randf_range(0,TAU))
 	
 	

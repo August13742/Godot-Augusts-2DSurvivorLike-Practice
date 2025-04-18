@@ -7,3 +7,4 @@ extends Resource
 @export var size_multiplier: float = 1
 
 @export var instance_bonus: int = 0
+	

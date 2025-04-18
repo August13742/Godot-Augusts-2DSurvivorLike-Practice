@@ -1,0 +1,136 @@
+[gd_scene load_steps=19 format=3 uid="uid://bv72vo5xl03nx"]
+
+[ext_resource type="Texture2D" uid="uid://ddt3c2q8mpa66" path="res://Scenes/EnemyAbility/FireBall/Rocket Fire 2-Sheet.png" id="1_2kub5"]
+[ext_resource type="Script" uid="uid://y3wi0bbexcly" path="res://Scenes/EnemyAbility/FireBall/fire_ball.gd" id="1_hwg74"]
+[ext_resource type="Script" uid="uid://cey0rbexy1yf5" path="res://Scenes/Component/HitboxComponent/hitbox_component.gd" id="2_hwg74"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xa8o"]
+atlas = ExtResource("1_2kub5")
+region = Rect2(300, 150, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scfwi"]
+atlas = ExtResource("1_2kub5")
+region = Rect2(450, 150, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r55kk"]
+atlas = ExtResource("1_2kub5")
+region = Rect2(600, 150, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nc342"]
+atlas = ExtResource("1_2kub5")
+region = Rect2(0, 300, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfh4t"]
+atlas = ExtResource("1_2kub5")
+region = Rect2(150, 300, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqprj"]
+atlas = ExtResource("1_2kub5")
+region = Rect2(300, 300, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dau1y"]
+atlas = ExtResource("1_2kub5")
+region = Rect2(450, 300, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72cdr"]
+atlas = ExtResource("1_2kub5")
+region = Rect2(600, 300, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bex1q"]
+atlas = ExtResource("1_2kub5")
+region = Rect2(0, 450, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipigl"]
+atlas = ExtResource("1_2kub5")
+region = Rect2(150, 450, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tcxg"]
+atlas = ExtResource("1_2kub5")
+region = Rect2(300, 450, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcnud"]
+atlas = ExtResource("1_2kub5")
+region = Rect2(450, 450, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idh83"]
+atlas = ExtResource("1_2kub5")
+region = Rect2(600, 450, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vcfk7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xa8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scfwi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r55kk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nc342")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfh4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqprj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dau1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72cdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bex1q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipigl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tcxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcnud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idh83")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kub5"]
+size = Vector2(22, 10)
+
+[node name="FireBall" type="Node2D" groups=["enemy_projectile"]]
+script = ExtResource("1_hwg74")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
+position = Vector2(2, -1)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_vcfk7")
+autoplay = "default"
+frame = 3
+frame_progress = 0.135791
+offset = Vector2(5, 0)
+
+[node name="HitboxComponent" type="Area2D" parent="Visuals"]
+collision_layer = 8
+collision_mask = 0
+input_pickable = false
+script = ExtResource("2_hwg74")
+metadata/_custom_type_script = "uid://cey0rbexy1yf5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/HitboxComponent"]
+position = Vector2(-6, -2)
+shape = SubResource("RectangleShape2D_2kub5")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-13, -3.5)
+scale = Vector2(3.033, 2)

@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=10 format=3 uid="uid://c2r866i3s83je"]
+[gd_resource type="Resource" script_class="Ability" load_steps=11 format=3 uid="uid://c2r866i3s83je"]
 
 [ext_resource type="PackedScene" uid="uid://bt010cakhivvf" path="res://Scenes/Ability/axe_ability_controller/axe_ability_controller.tscn" id="1_gj1no"]
 [ext_resource type="Script" uid="uid://c2j8clfar1hu3" path="res://Resources/Upgrades/Abilities/ability_levels.gd" id="1_wkesx"]
+[ext_resource type="Texture2D" uid="uid://cvstmyravbl51" path="res://Scenes/Ability/axe_ability/axe.png" id="2_62s75"]
 [ext_resource type="Script" uid="uid://bek7djtoo4ufs" path="res://Resources/Upgrades/ability.gd" id="2_gj1no"]
 
 [sub_resource type="Resource" id="Resource_bdasc"]
@@ -16,7 +17,7 @@ metadata/_custom_type_script = "uid://c2j8clfar1hu3"
 script = ExtResource("1_wkesx")
 damage_multiplier = 1.1
 cooldown_multiplier = 0.9
-size_multiplier = 1.0
+size_multiplier = 1.1
 instance_bonus = 0
 metadata/_custom_type_script = "uid://c2j8clfar1hu3"
 
@@ -24,7 +25,7 @@ metadata/_custom_type_script = "uid://c2j8clfar1hu3"
 script = ExtResource("1_wkesx")
 damage_multiplier = 1.2
 cooldown_multiplier = 0.85
-size_multiplier = 1.0
+size_multiplier = 1.25
 instance_bonus = 1
 metadata/_custom_type_script = "uid://c2j8clfar1hu3"
 
@@ -32,7 +33,7 @@ metadata/_custom_type_script = "uid://c2j8clfar1hu3"
 script = ExtResource("1_wkesx")
 damage_multiplier = 1.3
 cooldown_multiplier = 0.8
-size_multiplier = 1.0
+size_multiplier = 1.5
 instance_bonus = 1
 metadata/_custom_type_script = "uid://c2j8clfar1hu3"
 
@@ -40,7 +41,7 @@ metadata/_custom_type_script = "uid://c2j8clfar1hu3"
 script = ExtResource("1_wkesx")
 damage_multiplier = 1.4
 cooldown_multiplier = 0.75
-size_multiplier = 1.0
+size_multiplier = 1.75
 instance_bonus = 1
 metadata/_custom_type_script = "uid://c2j8clfar1hu3"
 
@@ -48,7 +49,7 @@ metadata/_custom_type_script = "uid://c2j8clfar1hu3"
 script = ExtResource("1_wkesx")
 damage_multiplier = 1.5
 cooldown_multiplier = 0.7
-size_multiplier = 1.0
+size_multiplier = 2.0
 instance_bonus = 2
 metadata/_custom_type_script = "uid://c2j8clfar1hu3"
 
@@ -58,6 +59,7 @@ id = "spiral_axe"
 name = "Spiralling Axe"
 isUnique = true
 controller_component_scene = ExtResource("1_gj1no")
+icon_texture = ExtResource("2_62s75")
 description = "Periodically Spawns Axe that Spirals Round."
 levels = Array[ExtResource("1_wkesx")]([SubResource("Resource_bdasc"), SubResource("Resource_mucpd"), SubResource("Resource_jn3kr"), SubResource("Resource_f2iu4"), SubResource("Resource_dy0h5"), SubResource("Resource_tckwv")])
 metadata/_custom_type_script = "uid://bek7djtoo4ufs"

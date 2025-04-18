@@ -11,7 +11,7 @@ for more Modularity if Needed
 """
 
 func _ready():
-	root_entity = owner # replace for modularity
+	root_entity = owner
 	
 
 func get_nearby_enemies(detection_range:float)-> Array[Node]:

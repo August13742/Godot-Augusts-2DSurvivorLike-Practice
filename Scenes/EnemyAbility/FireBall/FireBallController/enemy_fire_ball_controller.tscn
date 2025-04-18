@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://drmqp4xh33se8"]
+
+[ext_resource type="Script" uid="uid://lowew21c1dib" path="res://Scenes/EnemyAbility/FireBall/FireBallController/enemy_fire_ball_component.gd" id="1_0gy6h"]
+
+[node name="EnemyFireBallController" type="Node"]
+script = ExtResource("1_0gy6h")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0

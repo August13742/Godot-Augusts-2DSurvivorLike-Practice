@@ -9,7 +9,7 @@ var current_level:int = 1
 var target_experience:int = 1
 
 ## how much MORE exp needed every level up 
-@export var experience_growth:int = 5
+@export var experience_cost_growth:int = 5
 func _ready():
 	GameEvents.experience_vial_collected.connect(on_experience_vial_collected)
 	
@@ -22,7 +22,7 @@ func increment_experience(number:float):
 	
 	if current_experience == target_experience:
 		current_level += 1
-		target_experience += experience_growth
+		target_experience += experience_cost_growth
 		current_experience = 0
 		experience_updated.emit(current_experience,target_experience)
 		level_up.emit(current_level)

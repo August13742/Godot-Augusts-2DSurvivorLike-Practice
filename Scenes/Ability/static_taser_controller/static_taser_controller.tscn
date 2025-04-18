@@ -4,6 +4,7 @@
 
 [node name="StaticTaserController" type="Node"]
 script = ExtResource("1_3pjrt")
+damage = 10.0
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

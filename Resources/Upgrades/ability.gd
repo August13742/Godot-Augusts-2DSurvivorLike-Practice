@@ -7,6 +7,8 @@ class_name Ability
 @export var name:String
 @export var isUnique:bool = true
 @export var controller_component_scene:PackedScene
+@export var icon_texture:Texture2D
+
 @export_multiline var description:String
 @export var levels:Array[AbilityLevel] = []
 

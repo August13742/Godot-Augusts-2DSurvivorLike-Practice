@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://canvsdu04v5pl"]
+[gd_scene load_steps=17 format=3 uid="uid://canvsdu04v5pl"]
 
 [ext_resource type="Script" uid="uid://bl8r6h50rmg6w" path="res://Scenes/GameObject/SkeletonMage/skeleton_mage.gd" id="1_ug2rs"]
 [ext_resource type="Texture2D" uid="uid://xgt7qaab41og" path="res://Scenes/GameObject/SkeletonMage/Skeleton-Idle-Sheet.png" id="1_wp1r8"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c7cuj2fj0ontc" path="res://Scenes/Component/HealthComponent/health_component.tscn" id="5_6qv2c"]
 [ext_resource type="PackedScene" uid="uid://cw4k5y3r4nxta" path="res://Scenes/Component/RangedAIMovementComponent/RangedAIMovementComponent.tscn" id="5_ug2rs"]
 [ext_resource type="PackedScene" uid="uid://id2nj8lc76jn" path="res://Scenes/Component/LootDropComponent/loot_drop_component.tscn" id="6_1cuni"]
+[ext_resource type="PackedScene" uid="uid://drmqp4xh33se8" path="res://Scenes/EnemyAbility/FireBall/FireBallController/enemy_fire_ball_controller.tscn" id="6_lv3y3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wp1r8"]
 size = Vector2(20, 30)
@@ -51,10 +52,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="SkeletonMage" type="CharacterBody2D"]
+[node name="SkeletonMage" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 8
 collision_mask = 9
+motion_mode = 1
 script = ExtResource("1_ug2rs")
+fireball_interval = 6.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wp1r8")
@@ -68,9 +71,13 @@ shape = SubResource("RectangleShape2D_wp1r8")
 [node name="RangedAiMovementComponent" parent="." instance=ExtResource("5_ug2rs")]
 distance_to_keep = 100.0
 
+[node name="EnemyFireBallController" parent="." instance=ExtResource("6_lv3y3")]
+interval = 2.0
+
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="HurtboxComponent" parent="Visuals" instance=ExtResource("2_ug2rs")]
+input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/HurtboxComponent"]
 shape = SubResource("RectangleShape2D_g5k0r")
@@ -79,6 +86,6 @@ debug_color = Color(0.96, 0, 0.0159998, 0.490196)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
 sprite_frames = SubResource("SpriteFrames_f6751")
 autoplay = "default"
-frame_progress = 0.322999
+frame_progress = 0.478141
 
 [node name="HealthBarComponent" parent="Visuals" instance=ExtResource("3_lv3y3")]

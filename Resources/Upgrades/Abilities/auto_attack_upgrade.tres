@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=8 format=3 uid="uid://c1u3b00n4cyry"]
+[gd_resource type="Resource" script_class="Ability" load_steps=9 format=3 uid="uid://c1u3b00n4cyry"]
 
 [ext_resource type="Script" uid="uid://c2j8clfar1hu3" path="res://Resources/Upgrades/Abilities/ability_levels.gd" id="1_ly6ah"]
+[ext_resource type="Texture2D" uid="uid://dj1bceryx0i17" path="res://Scenes/Component/MeleeWeaponComponent/sword.png" id="1_y1y5f"]
 [ext_resource type="Script" uid="uid://bek7djtoo4ufs" path="res://Resources/Upgrades/ability.gd" id="2_y1y5f"]
 
 [sub_resource type="Resource" id="Resource_mucpd"]
@@ -48,6 +49,7 @@ script = ExtResource("2_y1y5f")
 id = "auto_attack_upgrade"
 name = "AutoAttack Upgrade"
 isUnique = true
+icon_texture = ExtResource("1_y1y5f")
 description = "Enchances Basic AutoAttack Effectiveness."
 levels = Array[ExtResource("1_ly6ah")]([SubResource("Resource_mucpd"), SubResource("Resource_jn3kr"), SubResource("Resource_f2iu4"), SubResource("Resource_dy0h5"), SubResource("Resource_tckwv")])
 metadata/_custom_type_script = "uid://bek7djtoo4ufs"

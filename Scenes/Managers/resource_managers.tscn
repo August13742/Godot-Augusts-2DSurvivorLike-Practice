@@ -14,7 +14,7 @@
 
 [node name="ExperienceManager" type="Node" parent="."]
 script = ExtResource("1_m43bk")
-experience_growth = 0
+experience_cost_growth = 1
 
 [node name="GoldManager" type="Node" parent="."]
 script = ExtResource("2_hk25f")

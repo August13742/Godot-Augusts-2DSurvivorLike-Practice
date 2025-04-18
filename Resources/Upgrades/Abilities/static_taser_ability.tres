@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=10 format=3 uid="uid://dgm363gsqjhsl"]
+[gd_resource type="Resource" script_class="Ability" load_steps=11 format=3 uid="uid://dgm363gsqjhsl"]
 
 [ext_resource type="Script" uid="uid://c2j8clfar1hu3" path="res://Resources/Upgrades/Abilities/ability_levels.gd" id="1_hqqgn"]
 [ext_resource type="PackedScene" uid="uid://t4136jy6fw06" path="res://Scenes/Ability/static_taser_controller/static_taser_controller.tscn" id="1_nsa04"]
 [ext_resource type="Script" uid="uid://bek7djtoo4ufs" path="res://Resources/Upgrades/ability.gd" id="2_nsa04"]
+[ext_resource type="Texture2D" uid="uid://doks52856ldcp" path="res://Scenes/Ability/static_taser/Pixel_Capacitor_48x48.png" id="2_uyte1"]
 
 [sub_resource type="Resource" id="Resource_bdasc"]
 script = ExtResource("1_hqqgn")
@@ -58,6 +59,7 @@ id = "static_taser"
 name = "Static Taser"
 isUnique = true
 controller_component_scene = ExtResource("1_nsa04")
+icon_texture = ExtResource("2_uyte1")
 description = "Periodically Throws Capacitors to Enemies, then Connect them With Static."
 levels = Array[ExtResource("1_hqqgn")]([SubResource("Resource_bdasc"), SubResource("Resource_mucpd"), SubResource("Resource_jn3kr"), SubResource("Resource_f2iu4"), SubResource("Resource_dy0h5"), SubResource("Resource_tckwv")])
 metadata/_custom_type_script = "uid://bek7djtoo4ufs"

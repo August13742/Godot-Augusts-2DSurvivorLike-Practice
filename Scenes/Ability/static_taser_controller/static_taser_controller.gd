@@ -17,6 +17,7 @@ var ability_instance:StaticTaserAbility
 var _max_target = base_max_target
 
 func _ready():
+	
 	await get_tree().process_frame # needed for referencing to work
 	root_entity = owner
 	if root_entity == null: push_error("[Debug/Referencing]: {%s} root_entity Cannot be Found"%self.name)
@@ -24,12 +25,23 @@ func _ready():
 	
 	
 	enemy_detector_component = owner.get_node_or_null("EnemyDetectionHelperComponent")
+	
+	
+	'''
+	here, as fallback, detection helper is instantiated automatically.
+	this component should be instantiated either manually (then below won't trigger)
+	
+	or by {AbilityManager}, which sets owner of this script to [owner] of {AbilityManager},
+	which is the [root_entity]. so, .owner = owner sets this component's owner to root_entity,
+	while the controller itself maintains to be child of {AbilityManager}
+	'''
 	if enemy_detector_component == null: 
-		push_warning("[Debug/Referencing]: {%s} EntityDetectionHelperComponent Not Found, Instantiating..."%self.name)
+		print_debug("[Debug/Referencing]: {%s} EntityDetectionHelperComponent Not Found, Instantiating..."%self.name)
 		enemy_detector_component = load(
 			"res://Scenes/Component/EnemyDetectorHelperComponent/enemy_detection_helper_component.tscn").instantiate()
 		owner.add_child(enemy_detector_component)
-		
+		enemy_detector_component.owner = owner
+	''''''
 		
 	foreground = get_tree().get_first_node_in_group("foreground_layer")
 	if foreground == null: push_error("[Debug/Referencing]: {%s} Foreground Cannot be Found"%self.name)
@@ -38,6 +50,7 @@ func _ready():
 	timer.timeout.connect(on_timer_timeout)
 	
 	GameEvents.upgrade_ability.connect(on_upgrade_ability)
+	
 	
 func get_target(max_target:int = _max_target) -> Array[Node]:
 	var enemies:Array[Node] = enemy_detector_component.get_nearby_enemies(detection_range)

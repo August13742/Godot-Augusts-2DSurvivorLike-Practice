@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name RatEnemy
 
 @export var max_speed:int = 75
-@export var max_health:int = 10
+@export var max_health:int = 15
 @export var moving:bool = true
 
 @onready var health_component:HealthComponent = $HealthComponent

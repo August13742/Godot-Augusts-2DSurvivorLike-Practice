@@ -6,6 +6,7 @@
 [node name="AxeAbilityController" type="Node"]
 script = ExtResource("1_xnwn4")
 axe_ability_scene = ExtResource("2_qssb8")
+damage = 5.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

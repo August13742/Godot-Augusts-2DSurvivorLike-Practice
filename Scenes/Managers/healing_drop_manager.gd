@@ -5,17 +5,15 @@ var health_component:HealthComponent
 var player
 
 
-#func _ready():
-	#player = get_tree().get_first_node_in_group("Player")
-	
-	
-	
 func set_player(player_in_main):
+	'''
+	Called by Script on Main Node to remotely set reference
+	'''
 	if player_in_main == null: return
 	player = player_in_main
 	
 	if player == null:
-		push_error("Player Not Found")
+		print_debug("Player Not Found")
 
 	health_component = player.get_node("HealthComponent")
 	if health_component == null:

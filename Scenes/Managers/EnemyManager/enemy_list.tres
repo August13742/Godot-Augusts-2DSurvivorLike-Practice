@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Enemies" load_steps=5 format=3 uid="uid://bb5kq1lf5jv4j"]
+
+[ext_resource type="Script" uid="uid://bf7efblqg35dv" path="res://Resources/weighted_item_resource_base.gd" id="1_fj4ws"]
+[ext_resource type="Resource" uid="uid://hvwn1o48vbin" path="res://Scenes/Managers/EnemyManager/WeightedEnemies/rat_enemy.tres" id="2_7pgs3"]
+[ext_resource type="Resource" uid="uid://dfj4kjrpuv5eq" path="res://Scenes/Managers/EnemyManager/WeightedEnemies/skeleton_mage_enemy.tres" id="3_qk4gj"]
+[ext_resource type="Script" uid="uid://cfq8xfu0abow2" path="res://Scenes/Managers/EnemyManager/enemies.gd" id="4_kn4cc"]
+
+[resource]
+script = ExtResource("4_kn4cc")
+enemies = Array[ExtResource("1_fj4ws")]([ExtResource("2_7pgs3"), ExtResource("3_qk4gj")])
+metadata/_custom_type_script = "uid://cfq8xfu0abow2"

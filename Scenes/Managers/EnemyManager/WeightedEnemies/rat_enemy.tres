@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Weighted" load_steps=3 format=3 uid="uid://hvwn1o48vbin"]
+
+[ext_resource type="PackedScene" uid="uid://bxb1anygh4xmi" path="res://Scenes/GameObject/RatEnemy/rat_enemy.tscn" id="1_bhkjn"]
+[ext_resource type="Script" uid="uid://bf7efblqg35dv" path="res://Resources/weighted_item_resource_base.gd" id="2_7vup3"]
+
+[resource]
+script = ExtResource("2_7vup3")
+id = "rat_enemy"
+name = "Rat"
+weight = 10.0
+scene = ExtResource("1_bhkjn")
+metadata/_custom_type_script = "uid://bf7efblqg35dv"
