@@ -17,8 +17,11 @@ func _ready():
 func get_nearby_enemies(detection_range:float)-> Array[Node]:
 
 	if root_entity == null: return []
-	
+	'''
+	a potential better version of this is to use area2D collider as detection range with mask setting
+	'''
 	target_entities = get_tree().get_nodes_in_group("enemy") # replace for modularity
+
 	if target_entities.size() == 0:return [] # nothing in group
 	
 	

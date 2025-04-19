@@ -9,6 +9,8 @@ extends Node
 @onready var entity:Node2D = get_parent()
 var movement_vector:Vector2
 var direction:Vector2
+
+
 func _process(delta: float) -> void:
 	
 	movement_vector = get_movement_vector()
