@@ -1,7 +1,7 @@
 extends PanelContainer
 
 @onready var name_label:Label = $VBoxContainer/NameLabel
-@onready var description_label:Label = $VBoxContainer/DescriptionLabel
+@onready var description_label:RichTextLabel = $VBoxContainer/MarginContainer/DescriptionLabel
 @onready var texture_rect:TextureRect = $VBoxContainer/TextureRect
 
 signal chosen 

@@ -21,14 +21,22 @@ stretch_mode = 5
 
 [node name="NameLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
 text = "Name"
 horizontal_alignment = 1
 text_overrun_behavior = 4
 
-[node name="DescriptionLabel" type="Label" parent="VBoxContainer"]
-custom_minimum_size = Vector2(160, 0)
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 12
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 16
 text = "Sample Description line change"
-autowrap_mode = 3
+fit_content = true
+scroll_following = true
+horizontal_alignment = 1

@@ -11,6 +11,7 @@ class_name MeleeWeapon
 @onready var visual_instance = $Pivot/Visuals
 @onready var animation = $Pivot/AnimationPlayer
 @onready var pivot:Node2D = $Pivot
+@onready var hitbox_component:HitboxComponent = $Pivot/Visuals/HitboxComponent
 @export var pivot_offset_radius:float = 20
 
 var player:Node2D
@@ -19,7 +20,7 @@ func get_animation_speed_scale_from_cooldown(desired_cooldown:float): #animation
 	return 1/desired_cooldown
 
 func _ready() -> void:
-	$Pivot/Visuals/HitboxComponent.damage = damage
+	hitbox_component.damage = damage
 	
 	player = get_parent()
 	if player == null:
@@ -49,6 +50,7 @@ func on_one_loop_finished():
 func on_upgrade_ability(ability:Ability,current_ability_level):
 	if ability.id == "auto_attack_upgrade":
 		damage *= ability.levels[current_ability_level].damage_multiplier
+		hitbox_component.damage = max(damage,hitbox_component.damage) # technically max isn't needed
 		animation.speed_scale = get_animation_speed_scale_from_cooldown(
 			base_cooldown * ability.levels[current_ability_level].cooldown_multiplier)
 		pivot.scale = Vector2.ONE * base_size_scale * ability.levels[current_ability_level].size_multiplier

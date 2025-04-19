@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://blpdrj56qtcat"]
+
+[ext_resource type="FontFile" uid="uid://0hxvwmvlulc6" path="res://Assets/Fonts/Galmuri7.ttf" id="1_0ghf2"]
+
+[resource]
+default_font = ExtResource("1_0ghf2")
+default_font_size = 16

@@ -26,6 +26,7 @@ resource_managers = NodePath("../ResourceManagers")
 [node name="EnemySpawner" parent="." instance=ExtResource("3_5yls4")]
 script = ExtResource("6_4e4y2")
 enemies_resource = ExtResource("7_6t3k2")
+spawn_radius_offset = 50
 
 [node name="ResourceManagers" parent="." instance=ExtResource("6_hfg1r")]
 

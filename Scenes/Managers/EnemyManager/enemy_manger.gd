@@ -6,7 +6,7 @@ extends Node
 ## offset in addition to viewport_width/2
 @export var spawn_radius_offset:int = 30
 @export var spawn_interval:float = 1
-
+@export var spawn_count: int = 5
 @onready var timer = $Timer
 
 ''''''
@@ -36,7 +36,7 @@ func get_spawn_position()->Vector2:
 	var spawn_position:Vector2 = Vector2.ZERO
 	var random_direction:Vector2 = Vector2.RIGHT.rotated(randf_range(0,TAU))
 	
-	for i in 4:
+	for i in spawn_count:
 		spawn_position = player.global_position + random_direction * spawn_radius
 		
 		# 1 is terrain layer 1<<0 shift 0 bit is stil l1. useful if layer bit is high, 
