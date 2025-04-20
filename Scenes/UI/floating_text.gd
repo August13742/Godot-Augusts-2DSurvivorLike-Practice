@@ -1,8 +1,6 @@
 extends Node2D
+class_name DamageText
 
-
-func _ready():
-	pass
 
 func start(text:String):
 	$Label.text = text

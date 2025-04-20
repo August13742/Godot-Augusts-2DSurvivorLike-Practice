@@ -6,7 +6,7 @@ extends Node
 ## offset in addition to viewport_width/2
 @export var spawn_radius_offset:int = 30
 @export var spawn_interval:float = 1
-
+@export var spawn_count:int = 10
 @onready var timer = $Timer
 @onready var enemies_list:Array[Weighted] = enemies_resource.enemies
 
@@ -26,12 +26,15 @@ func _ready() -> void:
 	if player == null: push_error("Player Not Found [%s]"%self.name)
 
 func get_spawn_position()->Vector2:
+	'''
+	raycasting 4 directions to see if one hits all 4 walls to prevent out of boundary spawning
+	'''
 	if player == null: return Vector2.ZERO
 	
 	var spawn_position:Vector2 = Vector2.ZERO
 	var random_direction:Vector2 = Vector2.RIGHT.rotated(randf_range(0,TAU))
 	
-	for i in 4:
+	for i in spawn_count:
 		spawn_position = player.global_position + random_direction * spawn_radius
 		
 		# 1 is terrain layer 1<<0 shift 0 bit is stil l1. useful if layer bit is high, 

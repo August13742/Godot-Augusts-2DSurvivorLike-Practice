@@ -27,6 +27,7 @@ resource_managers = NodePath("../ResourceManagers")
 script = ExtResource("6_4e4y2")
 enemies_resource = ExtResource("7_6t3k2")
 spawn_radius_offset = 50
+spawn_count = 10
 
 [node name="ResourceManagers" parent="." instance=ExtResource("6_hfg1r")]
 
@@ -40,15 +41,16 @@ tile_map_data = PackedByteArray("AADp//D/AQABAAEAAADp//H/AQABAAEAAADp//L/AQABAAE
 tile_set = ExtResource("7_imbg2")
 
 [node name="GameCamera" parent="." instance=ExtResource("1_qw60k")]
+scale = Vector2(1.30145, 1.23923)
+
+[node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
 
 [node name="Entities" type="Node2D" parent="." groups=["entities_layer"]]
 y_sort_enabled = true
 
 [node name="Player" parent="Entities" instance=ExtResource("1_1r6ip")]
 unique_name_in_owner = true
-position = Vector2(356, 221)
+position = Vector2(574, 286)
 collision_layer = 2
-
-[node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
 
 [node name="ExperienceBar" parent="." instance=ExtResource("8_y3v7k")]

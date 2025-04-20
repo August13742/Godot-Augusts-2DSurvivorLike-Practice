@@ -5,5 +5,8 @@
 [node name="CollisionDamageComponent" type="Area2D"]
 script = ExtResource("1_68ucf")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="CollisionDamageTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ProjectileDamageTimer" type="Timer" parent="."]
 one_shot = true

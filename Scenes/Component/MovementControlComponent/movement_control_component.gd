@@ -14,7 +14,7 @@ var direction:Vector2
 func _process(delta: float) -> void:
 	
 	movement_vector = get_movement_vector()
-	#normalise needed because if 1,1 then speed is higher than setting
+	#normalise needed because if diagonal movement, then speed is higher than setting
 	direction = movement_vector.normalized()
 	
 	var target_velocity:Vector2 = direction * max_speed

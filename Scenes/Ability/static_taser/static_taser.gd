@@ -8,7 +8,7 @@ class_name StaticTaserAbility
 var damage:float
 var target_nodes:Array[Node]
 var line_points:Array[Vector2]
-
+@onready var damage_text_scene:PackedScene = preload("res://Scenes/UI/floating_text.tscn")
 func _ready():
 	if line_texture == null:
 		print("[Debug/Fallback]: {%s} Line Texuture Not Assigned. Using Default Fallback Texture..."%self.name)
@@ -61,6 +61,10 @@ func spawn_capacitors():
 	for target in target_nodes:
 		if target != null:
 			target.health_component.damaged(damage)
+			var damage_text:DamageText = damage_text_scene.instantiate()
+			get_tree().get_first_node_in_group("foreground_layer").add_child(damage_text)
+			damage_text.global_position = target.global_position
+			damage_text.start("%.1f" % damage)
 	$Timer.start()
 	
 func on_timer_timeout():

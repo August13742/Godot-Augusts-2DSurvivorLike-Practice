@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://cwokknxgbt2uw" path="res://Scenes/Ability/axe_ability/axe_ability.gd" id="1_p2lmi"]
 [ext_resource type="PackedScene" uid="uid://tgxphjcs1fsc" path="res://Scenes/Component/HitboxComponent/hitbox_component.tscn" id="2_slwk5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p2lmi"]
-size = Vector2(16, 18)
+[sub_resource type="CircleShape2D" id="CircleShape2D_p2lmi"]
+radius = 9.0
 
 [sub_resource type="Animation" id="Animation_snqvv"]
 length = 0.001
@@ -56,7 +56,7 @@ texture = ExtResource("1_0am0c")
 [node name="HitboxComponent" parent="Visuals" instance=ExtResource("2_slwk5")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/HitboxComponent"]
-shape = SubResource("RectangleShape2D_p2lmi")
+shape = SubResource("CircleShape2D_p2lmi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

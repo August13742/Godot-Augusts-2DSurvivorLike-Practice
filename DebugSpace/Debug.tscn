@@ -27,3 +27,4 @@ position = Vector2(437, 167)
 
 [node name="SkeletonMage" parent="." instance=ExtResource("3_r85sc")]
 position = Vector2(253, 181)
+scale = Vector2(1, 1.02262)

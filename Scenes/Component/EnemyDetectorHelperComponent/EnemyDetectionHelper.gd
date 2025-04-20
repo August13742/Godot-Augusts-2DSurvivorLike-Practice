@@ -1,7 +1,7 @@
 extends Node
 class_name EntityDetectionHelperComponent
 
-#@export var detection_range = 50
+
 var root_entity:Node
 var target_entities:Array[Node]
 

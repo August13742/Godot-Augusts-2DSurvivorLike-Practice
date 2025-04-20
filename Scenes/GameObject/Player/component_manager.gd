@@ -1,5 +1,11 @@
 extends Node
 
+
+'''
+not used in this project. 
+was created as a base for more editor based entity creation scheme for something like
+grammer based enemy procedural generation.
+'''
 enum essential_components {Health,}
 enum utility_components {InputMovementControl,HealthBar,CollisionDamage, DropLoot}
 enum functional_components {Dash,Shoot}
