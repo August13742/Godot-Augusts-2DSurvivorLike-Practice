@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dj1bceryx0i17" path="res://Scenes/Component/MeleeWeaponComponent/sword.png" id="2_r4j02"]
 [ext_resource type="PackedScene" uid="uid://tgxphjcs1fsc" path="res://Scenes/Component/HitboxComponent/hitbox_component.tscn" id="3_nmqoy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xaqto"]
-size = Vector2(12, 35)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nmqoy"]
+radius = 7.0
+height = 43.0
 
 [sub_resource type="Animation" id="Animation_xaqto"]
 length = 0.001
@@ -123,8 +124,8 @@ offset = Vector2(0, -20.575)
 position = Vector2(0, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Visuals/HitboxComponent"]
-position = Vector2(5.96046e-08, -24.5)
-shape = SubResource("RectangleShape2D_xaqto")
+position = Vector2(0.00011222, -21)
+shape = SubResource("CapsuleShape2D_nmqoy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot"]
 libraries = {

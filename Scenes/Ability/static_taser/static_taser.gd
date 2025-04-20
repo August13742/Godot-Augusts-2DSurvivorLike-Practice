@@ -5,6 +5,7 @@ class_name StaticTaserAbility
 @onready var line:Line2D = $Visuals/Line2D
 @export var line_texture:Texture2D
 @export var capacitor_texture: Texture2D
+@export var capacitor_size:float = 0.75
 var damage:float
 var target_nodes:Array[Node]
 var line_points:Array[Vector2]
@@ -27,7 +28,8 @@ func get_target_global_position(targets:Array[Node])->Array[Vector2]:
 	if targets.is_empty(): return [] as Array[Vector2]
 	var target_positions:Array[Vector2]
 	for target in targets:
-		target_positions.append(target.global_position)
+		if target != null:
+			target_positions.append(target.global_position)
 	return target_positions
 	
 func spawn_capacitors():
@@ -42,6 +44,7 @@ func spawn_capacitors():
 	for enemy_positions in line_points:
 		var capacitor = Sprite2D.new()
 		capacitor.texture = capacitor_texture
+		capacitor.scale = Vector2(capacitor_size,capacitor_size)
 		visuals.add_child(capacitor)
 		capacitor.global_position = start_position
 		capacitor_instances.append(capacitor)

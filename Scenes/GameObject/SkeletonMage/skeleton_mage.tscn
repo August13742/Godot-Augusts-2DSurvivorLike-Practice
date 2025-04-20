@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://canvsdu04v5pl"]
+[gd_scene load_steps=18 format=3 uid="uid://canvsdu04v5pl"]
 
 [ext_resource type="Script" uid="uid://bl8r6h50rmg6w" path="res://Scenes/GameObject/SkeletonMage/skeleton_mage.gd" id="1_ug2rs"]
 [ext_resource type="Texture2D" uid="uid://xgt7qaab41og" path="res://Scenes/GameObject/SkeletonMage/Skeleton-Idle-Sheet.png" id="1_wp1r8"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cw4k5y3r4nxta" path="res://Scenes/Component/RangedAIMovementComponent/RangedAIMovementComponent.tscn" id="5_ug2rs"]
 [ext_resource type="PackedScene" uid="uid://id2nj8lc76jn" path="res://Scenes/Component/LootDropComponent/loot_drop_component.tscn" id="6_1cuni"]
 [ext_resource type="PackedScene" uid="uid://drmqp4xh33se8" path="res://Scenes/EnemyAbility/FireBall/FireBallController/enemy_fire_ball_controller.tscn" id="6_lv3y3"]
+[ext_resource type="PackedScene" uid="uid://cp4183sul1eye" path="res://Scenes/Component/HitFlashComponent/hit_flash_component.tscn" id="7_hcnjn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wp1r8"]
 size = Vector2(20, 30)
@@ -73,6 +74,8 @@ distance_to_keep = 100.0
 
 [node name="EnemyFireBallController" parent="." instance=ExtResource("6_lv3y3")]
 interval = 2.0
+
+[node name="HitFlashComponent" parent="." instance=ExtResource("7_hcnjn")]
 
 [node name="Visuals" type="Node2D" parent="."]
 

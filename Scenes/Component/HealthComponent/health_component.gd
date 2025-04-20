@@ -5,6 +5,8 @@ var max_health:float = 10
 
 signal died 
 signal health_changed
+signal received_damage
+
 
 var current_health:float
 func _ready():
@@ -27,8 +29,9 @@ func heal(amount:float):
 func damaged(damage:float):
 	current_health = max(current_health - damage, 0)
 	health_changed.emit()
+	received_damage.emit()
 	Callable(check_death).call_deferred()
-
+	
 
 func check_death():
 	if current_health == 0:

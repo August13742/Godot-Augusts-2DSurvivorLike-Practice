@@ -16,19 +16,9 @@ func _ready():
 		animation_scene = preload("res://Scenes/Component/DeathComponent/death_animation_particle.tscn")
 	if animation_scene == null:
 		push_error("[Debug/Referencing]: {%s} Cannot Find Fallback DeathAnimation Scene"%self.name)
-		
-	if sprite_texture == null:
-		var visuals = owner.get_node_or_null("Visuals")
-		if visuals:
-			var sprite = visuals.get_node_or_null("Sprite2D")
-			if sprite and sprite.texture:
-				sprite_texture = sprite.texture
-			else:
-				var animated_sprite = visuals.get_node_or_null("AnimatedSprite2D")
-				if animated_sprite:
-					sprite_texture = animated_sprite.get_sprite_frames().get_frame_texture("default",0)
-					
-
+	var visuals = owner.get_node_or_null("Visuals")
+	if visuals:
+		sprite_texture = SpriteUtility2D.get_texture_from_visual(visuals)
 		if sprite_texture == null:
 			push_error("[Debug/Referencing]: {%s} Cannot Find Fallback Sprite or AnimatedSprite Texture" % self.name)
 

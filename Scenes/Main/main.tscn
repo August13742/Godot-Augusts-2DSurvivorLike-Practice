@@ -43,14 +43,15 @@ tile_set = ExtResource("7_imbg2")
 [node name="GameCamera" parent="." instance=ExtResource("1_qw60k")]
 scale = Vector2(1.30145, 1.23923)
 
-[node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
-
 [node name="Entities" type="Node2D" parent="." groups=["entities_layer"]]
 y_sort_enabled = true
 
 [node name="Player" parent="Entities" instance=ExtResource("1_1r6ip")]
 unique_name_in_owner = true
+z_index = 1
 position = Vector2(574, 286)
 collision_layer = 2
+
+[node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
 
 [node name="ExperienceBar" parent="." instance=ExtResource("8_y3v7k")]

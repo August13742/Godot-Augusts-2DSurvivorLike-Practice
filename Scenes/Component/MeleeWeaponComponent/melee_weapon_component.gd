@@ -29,7 +29,7 @@ func _ready() -> void:
 	
 	animation.speed_scale = get_animation_speed_scale_from_cooldown(base_cooldown)
 	pivot.scale = Vector2.ONE * base_size_scale
-	
+	on_one_loop_finished()
 
 	GameEvents.upgrade_ability.connect(on_upgrade_ability)
 	
