@@ -44,7 +44,6 @@ func spawn_capacitors():
 	for enemy_positions in line_points:
 		var capacitor = Sprite2D.new()
 		capacitor.texture = capacitor_texture
-		capacitor.scale = Vector2(capacitor_size,capacitor_size)
 		visuals.add_child(capacitor)
 		capacitor.global_position = start_position
 		capacitor_instances.append(capacitor)
@@ -58,7 +57,7 @@ func spawn_capacitors():
 		capacitor_tween.tween_callback(Callable(capacitor, "queue_free"))  # or .hide()
 		ctr+=1
 		''''''
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.15).timeout
 	line.points = line_points.map(func(global_pos): return line.to_local(global_pos)) #line2D expects local pos
 	
 	for target in target_nodes:

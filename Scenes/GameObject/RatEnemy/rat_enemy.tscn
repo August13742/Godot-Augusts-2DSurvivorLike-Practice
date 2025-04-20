@@ -83,7 +83,6 @@ collision_layer = 8
 collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_bp212")
-max_speed = 50
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

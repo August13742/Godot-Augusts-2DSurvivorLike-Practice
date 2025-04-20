@@ -17,11 +17,14 @@ capacitor_texture = ExtResource("3_bvpbj")
 texture_filter = 1
 texture_repeat = 2
 material = ExtResource("2_85ejf")
-width = 30.0
+closed = true
+width = 32.0
 texture = ExtResource("3_ptssp")
 texture_mode = 2
 script = ExtResource("4_bvpbj")
-target_animation_fps = 16
+spritesheet_columns = 3
+spritesheet_rows = 3
+target_animation_fps = 60
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.75

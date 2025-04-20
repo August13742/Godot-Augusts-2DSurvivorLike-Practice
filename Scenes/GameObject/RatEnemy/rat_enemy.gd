@@ -2,16 +2,19 @@ extends CharacterBody2D
 class_name RatEnemy
 
 @export var max_speed:int = 75
-@export var max_health:int = 15
+@export var base_max_health:int = 15
 @export var moving:bool = true
 
 @onready var health_component:HealthComponent = $HealthComponent
 @onready var sprite:Sprite2D = $Visuals/Sprite2D
 @onready var ai_movement_component:MeleeAiMovementComponent = get_node("MeleeAiMovementComponent")
 
-
+var max_health:int 
 func _ready():
+	get_tree().process_frame
+	max_health = base_max_health
 	health_component.max_health = max_health
+	health_component.current_health = max_health
 	ai_movement_component.target_entity = get_tree().get_first_node_in_group("player")
 
 

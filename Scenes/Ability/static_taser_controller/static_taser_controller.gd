@@ -14,14 +14,14 @@ var enemy_detector_component:EntityDetectionHelperComponent
 var root_entity:Node2D
 var foreground:Node2D
 var ability_instance:StaticTaserAbility
-var _max_target = base_max_target
+var _max_target:int = base_max_target
 
 func _ready():
 	
 	await get_tree().process_frame # needed for referencing to work
 	root_entity = owner
 	if root_entity == null: push_error("[Debug/Referencing]: {%s} root_entity Cannot be Found"%self.name)
-
+	_max_target = base_max_target
 	
 	
 	enemy_detector_component = owner.get_node_or_null("EnemyDetectionHelperComponent")

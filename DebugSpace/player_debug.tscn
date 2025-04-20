@@ -1,15 +1,17 @@
-[gd_scene load_steps=17 format=3 uid="uid://ea1riipsrqo0"]
+[gd_scene load_steps=19 format=3 uid="uid://bgcsctajfxmp2"]
 
-[ext_resource type="Script" uid="uid://by4iquybdbc5j" path="res://Scenes/GameObject/Player/player.gd" id="1_142ei"]
-[ext_resource type="Script" uid="uid://bekc41is0qrtq" path="res://Scenes/GameObject/Player/player_animation.gd" id="2_8uak7"]
-[ext_resource type="PackedScene" uid="uid://c7cuj2fj0ontc" path="res://Scenes/Component/HealthComponent/health_component.tscn" id="2_honxs"]
-[ext_resource type="Script" uid="uid://c086nejdgsecs" path="res://Scenes/GameObject/Player/component_manager.gd" id="2_htcer"]
-[ext_resource type="PackedScene" uid="uid://dgk0e3p350es" path="res://Scenes/Component/MovementControlComponent/movement_control_component.tscn" id="3_q3lib"]
-[ext_resource type="PackedScene" uid="uid://6lphpsmjsnr3" path="res://Scenes/Component/EnemyDetectorHelperComponent/enemy_detection_helper_component.tscn" id="3_r32kq"]
-[ext_resource type="PackedScene" uid="uid://cnq32dmcgppq" path="res://Scenes/Component/HealthBarComponent/health_bar_component.tscn" id="4_2ibr2"]
-[ext_resource type="Texture2D" uid="uid://538ped3b55iu" path="res://Scenes/GameObject/Player/front.png" id="4_c1ppa"]
-[ext_resource type="Script" uid="uid://b2u23550pj1e" path="res://Scenes/GameObject/Player/ability_manager.gd" id="6_0ai8q"]
-[ext_resource type="PackedScene" uid="uid://cihryd5fc6t0i" path="res://Scenes/Component/CollisionDamageComponent/collision_damage_component.tscn" id="7_q3lib"]
+[ext_resource type="Script" uid="uid://by4iquybdbc5j" path="res://Scenes/GameObject/Player/player.gd" id="1_l3xfo"]
+[ext_resource type="Script" uid="uid://bekc41is0qrtq" path="res://Scenes/GameObject/Player/player_animation.gd" id="2_46rh8"]
+[ext_resource type="Script" uid="uid://c086nejdgsecs" path="res://Scenes/GameObject/Player/component_manager.gd" id="3_pobf8"]
+[ext_resource type="PackedScene" uid="uid://6lphpsmjsnr3" path="res://Scenes/Component/EnemyDetectorHelperComponent/enemy_detection_helper_component.tscn" id="4_xwcwn"]
+[ext_resource type="PackedScene" uid="uid://dgk0e3p350es" path="res://Scenes/Component/MovementControlComponent/movement_control_component.tscn" id="5_5kgo5"]
+[ext_resource type="PackedScene" uid="uid://c7cuj2fj0ontc" path="res://Scenes/Component/HealthComponent/health_component.tscn" id="6_2gg3h"]
+[ext_resource type="PackedScene" uid="uid://cp4183sul1eye" path="res://Scenes/Component/HitFlashComponent/hit_flash_component.tscn" id="7_qrhaa"]
+[ext_resource type="PackedScene" uid="uid://cnq32dmcgppq" path="res://Scenes/Component/HealthBarComponent/health_bar_component.tscn" id="8_82oew"]
+[ext_resource type="Script" uid="uid://b2u23550pj1e" path="res://Scenes/GameObject/Player/ability_manager.gd" id="9_nd5wk"]
+[ext_resource type="PackedScene" uid="uid://t4136jy6fw06" path="res://Scenes/Ability/static_taser_controller/static_taser_controller.tscn" id="10_3m1g8"]
+[ext_resource type="Texture2D" uid="uid://538ped3b55iu" path="res://Scenes/GameObject/Player/front.png" id="10_mmtj2"]
+[ext_resource type="PackedScene" uid="uid://cihryd5fc6t0i" path="res://Scenes/Component/CollisionDamageComponent/collision_damage_component.tscn" id="11_ce5r5"]
 
 [sub_resource type="Animation" id="Animation_8uak7"]
 length = 0.001
@@ -102,7 +104,7 @@ _data = {
 radius = 11.92
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c1ppa"]
-radius = 18.0
+radius = 40.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_honxs"]
 radius = 7.0
@@ -111,28 +113,37 @@ height = 24.0
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 0
 motion_mode = 1
-script = ExtResource("1_142ei")
+script = ExtResource("1_l3xfo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_ck0e5")
 }
-script = ExtResource("2_8uak7")
+script = ExtResource("2_46rh8")
 
-[node name="ComponentManager" type="Node" parent="."]
-script = ExtResource("2_htcer")
+[node name="(notUsed)ComponentManager" type="Node" parent="."]
+script = ExtResource("3_pobf8")
 component_list = Array[int]([0, 0])
 
-[node name="EnemyDetectionHelperComponent" parent="." instance=ExtResource("3_r32kq")]
+[node name="EnemyDetectionHelperComponent" parent="." instance=ExtResource("4_xwcwn")]
 
-[node name="MovementControlComponent" parent="." instance=ExtResource("3_q3lib")]
+[node name="MovementControlComponent" parent="." instance=ExtResource("5_5kgo5")]
 
-[node name="HealthComponent" parent="." instance=ExtResource("2_honxs")]
+[node name="HealthComponent" parent="." instance=ExtResource("6_2gg3h")]
 
-[node name="HealthBarComponent" parent="." instance=ExtResource("4_2ibr2")]
+[node name="HitFlashComponent" parent="." instance=ExtResource("7_qrhaa")]
+target_flash_colour = Vector3(0.8, 0, 0)
+
+[node name="HealthBarComponent" parent="." instance=ExtResource("8_82oew")]
+self_modulate = Color(0.776471, 0.654902, 0.25098, 1)
+z_index = 1
 
 [node name="AbilityManager" type="Node" parent="."]
-script = ExtResource("6_0ai8q")
+script = ExtResource("9_nd5wk")
+
+[node name="StaticTaserController" parent="AbilityManager" instance=ExtResource("10_3m1g8")]
+base_cooldown = 3.0
+base_max_target = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uvnfx")
@@ -151,14 +162,12 @@ skew = 0.0243523
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
 scale = Vector2(0.15, 0.15)
-texture = ExtResource("4_c1ppa")
+texture = ExtResource("10_mmtj2")
 
-[node name="CollisionDamageComponent" parent="." instance=ExtResource("7_q3lib")]
+[node name="CollisionDamageComponent" parent="." instance=ExtResource("11_ce5r5")]
 position = Vector2(0, 1)
 collision_layer = 0
 collision_mask = 8
-input_pickable = false
-collision_damage = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionDamageComponent"]
 shape = SubResource("CapsuleShape2D_honxs")

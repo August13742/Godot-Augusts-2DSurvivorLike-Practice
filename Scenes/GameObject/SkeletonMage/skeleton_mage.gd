@@ -3,7 +3,7 @@ class_name SkeletonMage
 
 
 @export var max_speed:int = 30
-@export var max_health:int = 20
+@export var base_max_health:int = 20
 @export var moving:bool = true
 
 @export var distance_to_keep:float = 250
@@ -17,8 +17,11 @@ class_name SkeletonMage
 
 @onready var fire_ball_component = $EnemyFireBallController
 
+var max_health:int
 
 func _ready():
+	get_tree().process_frame
+	max_health = base_max_health
 	health_component.max_health = max_health
 	health_component.current_health = max_health
 	ai_movement_component.target_entity = get_tree().get_first_node_in_group("player")

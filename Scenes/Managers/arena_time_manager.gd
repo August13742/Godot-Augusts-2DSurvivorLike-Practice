@@ -4,7 +4,7 @@ class_name ArenaTimeManager
 @export var end_screen_scene:PackedScene
 @onready var timer = $Timer
 
-var difficulty_factor:int = 0
+var difficulty_factor:int = 1
 var minutes_passed:int = 0
 
 
@@ -27,9 +27,9 @@ func raise_difficulty_base_on_minute_passed():
 		minutes_passed = time[0]
 		
 		#placeholder, replace with actual algorithm
-		#currently, this effects the spawn rate of spawners
+		#currently, this effects the spawn rate of spawners and enemy hp.
 		difficulty_factor +=1
-		
+		print("[Debug/Progression]: Current Diffulty Factor: %f", difficulty_factor)
 		GameEvents.emit_difficulty_factor_updated(difficulty_factor)
 		
 		
