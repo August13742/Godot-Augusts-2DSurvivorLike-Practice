@@ -1,7 +1,28 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://blpdrj56qtcat"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://blpdrj56qtcat"]
 
 [ext_resource type="FontFile" uid="uid://0hxvwmvlulc6" path="res://Assets/Fonts/Galmuri7.ttf" id="1_0ghf2"]
+[ext_resource type="Texture2D" uid="uid://dtaxvojx1ruhd" path="res://Assets/UI/Modern_UI_Style_1_48x48.png" id="1_fwqpg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fwqpg"]
+texture = ExtResource("1_fwqpg")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+region_rect = Rect2(39, 900, 66, 72)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kjt3w"]
+texture = ExtResource("1_fwqpg")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
+region_rect = Rect2(24, 24, 96, 93)
 
 [resource]
 default_font = ExtResource("1_0ghf2")
 default_font_size = 16
+card_panel/base_type = &"PanelContainer"
+card_panel/styles/panel = SubResource("StyleBoxTexture_fwqpg")
+card_title_panel/base_type = &"PanelContainer"
+card_title_panel/styles/panel = SubResource("StyleBoxTexture_kjt3w")
