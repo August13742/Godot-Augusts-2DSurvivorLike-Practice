@@ -9,12 +9,12 @@ class_name StaticTaserAbilityController
 @export var base_max_target = 3
 
 @onready var timer:Timer = $Timer
-var enemy_detector_component:EntityDetectionHelperComponent
+var entity_detector_component:EntityDetectionComponent
 
 var root_entity:Node2D
 var foreground:Node2D
 var ability_instance:StaticTaserAbility
-var _max_target:int = base_max_target
+var _max_target:int
 
 func _ready():
 	
@@ -24,7 +24,7 @@ func _ready():
 	_max_target = base_max_target
 	
 	
-	enemy_detector_component = owner.get_node_or_null("EnemyDetectionHelperComponent")
+	entity_detector_component = owner.get_node_or_null("EnemyDetectionComponent")
 	
 	
 	'''
@@ -35,12 +35,12 @@ func _ready():
 	which is the [root_entity]. so, .owner = owner sets this component's owner to root_entity,
 	while the controller itself maintains to be child of {AbilityManager}
 	'''
-	if enemy_detector_component == null: 
+	if entity_detector_component == null: 
 		print_debug("[Debug/Referencing]: {%s} EntityDetectionHelperComponent Not Found, Instantiating..."%self.name)
-		enemy_detector_component = load(
-			"res://Scenes/Component/EnemyDetectorHelperComponent/enemy_detection_helper_component.tscn").instantiate()
-		owner.add_child(enemy_detector_component)
-		enemy_detector_component.owner = owner
+		entity_detector_component = load(
+			"res://Scenes/Component/EntityDetectionComponent/entity_detection_component.tscn").instantiate()
+		owner.add_child(entity_detector_component)
+		entity_detector_component.owner = owner
 	''''''
 		
 	foreground = get_tree().get_first_node_in_group("foreground_layer")
@@ -51,22 +51,14 @@ func _ready():
 	
 	GameEvents.upgrade_ability.connect(on_upgrade_ability)
 	
-	
-func get_target(max_target:int = _max_target) -> Array[Node]:
-	var enemies:Array[Node] = enemy_detector_component.get_nearby_enemies(detection_range)
-	if enemies.is_empty(): return [] as Array[Node]
 
-	"""
-	logic: throw capacitors to enemies locations, then connect them with static effect
-	"""
-	return enemies.slice(0,max_target)
 
 
 func on_timer_timeout():
 	if root_entity == null: return
 
 	var taser_instance:StaticTaserAbility = taser_ability_scene.instantiate()
-	taser_instance.target_nodes = get_target()
+	taser_instance.target_nodes = entity_detector_component.get_entities_random(_max_target)
 	
 	foreground.add_child(taser_instance)
 	taser_instance.damage = damage

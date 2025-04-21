@@ -1,6 +1,7 @@
 extends Node
-class_name EntityDetectionHelperComponent
 
+## @deprecated: use EntityDetectionComponent Instead
+class_name EntityDetectionHelperComponent
 
 var root_entity:Node
 var target_entities:Array[Node]
@@ -13,7 +14,7 @@ for more Modularity if Needed
 func _ready():
 	root_entity = owner
 	
-
+## @deprecated: attach EntityDetectionComponent Instead
 func get_nearby_enemies(detection_range:float)-> Array[Node]:
 
 	if root_entity == null: return []

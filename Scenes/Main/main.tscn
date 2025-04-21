@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://4i14k4arpg2d"]
+[gd_scene load_steps=11 format=4 uid="uid://4i14k4arpg2d"]
 
 [ext_resource type="PackedScene" uid="uid://dqcbdc62xmk4c" path="res://Scenes/GameObject/Player/player.tscn" id="1_1r6ip"]
 [ext_resource type="Script" uid="uid://b86pc77ciiinv" path="res://Scenes/Main/main.gd" id="1_imbg2"]
@@ -7,9 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b4275t4s7e4my" path="res://Scenes/UI/end_screen.tscn" id="2_hfg1r"]
 [ext_resource type="PackedScene" uid="uid://b7whxbpn20jcy" path="res://Scenes/Managers/EnemyManager/EnemyManger.tscn" id="3_5yls4"]
 [ext_resource type="PackedScene" uid="uid://dupsc6g05jhca" path="res://Scenes/UI/arena_time_ui.tscn" id="5_p6jpk"]
-[ext_resource type="Script" uid="uid://esutdfhrxuoy" path="res://Scenes/Managers/EnemyManager/_enemy_manger.gd" id="6_4e4y2"]
 [ext_resource type="PackedScene" uid="uid://54y5g7ygdf7a" path="res://Scenes/Managers/resource_managers.tscn" id="6_hfg1r"]
-[ext_resource type="Resource" uid="uid://bb5kq1lf5jv4j" path="res://Scenes/Managers/EnemyManager/enemy_list.tres" id="7_6t3k2"]
 [ext_resource type="TileSet" uid="uid://4xeweppiyk44" path="res://Assets/Environment/grass_tiles.tres" id="7_imbg2"]
 [ext_resource type="PackedScene" uid="uid://cgq10518s8ugb" path="res://Scenes/UI/experience_bar.tscn" id="8_y3v7k"]
 
@@ -24,10 +22,7 @@ resource_managers = NodePath("../ResourceManagers")
 [node name="ArenaTimeManager" parent="." instance=ExtResource("2_2a143")]
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_5yls4")]
-script = ExtResource("6_4e4y2")
-enemies_resource = ExtResource("7_6t3k2")
 spawn_radius_offset = 60
-base_spawn_count = 10
 
 [node name="ResourceManagers" parent="." instance=ExtResource("6_hfg1r")]
 

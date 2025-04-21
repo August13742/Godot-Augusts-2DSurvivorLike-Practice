@@ -17,10 +17,14 @@ class_name SkeletonMage
 
 @onready var fire_ball_component = $EnemyFireBallController
 
-var max_health:int
+var max_health:int :
+	set(amount):
+		max_health = amount
+		health_component.max_health = amount
+		health_component.full_heal()
 
 func _ready():
-	get_tree().process_frame
+
 	max_health = base_max_health
 	health_component.max_health = max_health
 	health_component.current_health = max_health

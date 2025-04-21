@@ -25,6 +25,8 @@ func heal(amount:float):
 		current_health = min(current_health + amount, max_health)
 		health_changed.emit()
 
+func full_heal():
+	heal(max_health)
 
 func damaged(damage:float):
 	current_health = max(current_health - damage, 0)

@@ -7,7 +7,7 @@ class_name StaticTaserAbility
 @export var capacitor_texture: Texture2D
 @export var capacitor_size:float = 0.75
 var damage:float
-var target_nodes:Array[Node]
+var target_nodes:Array[Node2D]
 var line_points:Array[Vector2]
 @onready var damage_text_scene:PackedScene = preload("res://Scenes/UI/floating_text.tscn")
 func _ready():
@@ -24,7 +24,7 @@ func _ready():
 	await get_tree().process_frame 
 	spawn_capacitors()
 	
-func get_target_global_position(targets:Array[Node])->Array[Vector2]:
+func get_target_global_position(targets:Array[Node2D])->Array[Vector2]:
 	if targets.is_empty(): return [] as Array[Vector2]
 	var target_positions:Array[Vector2]
 	for target in targets:

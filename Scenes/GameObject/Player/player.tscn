@@ -5,13 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://c7cuj2fj0ontc" path="res://Scenes/Component/HealthComponent/health_component.tscn" id="2_honxs"]
 [ext_resource type="Script" uid="uid://c086nejdgsecs" path="res://Scenes/GameObject/Player/component_manager.gd" id="2_htcer"]
 [ext_resource type="PackedScene" uid="uid://dgk0e3p350es" path="res://Scenes/Component/MovementControlComponent/movement_control_component.tscn" id="3_q3lib"]
-[ext_resource type="PackedScene" uid="uid://6lphpsmjsnr3" path="res://Scenes/Component/EnemyDetectorHelperComponent/enemy_detection_helper_component.tscn" id="3_r32kq"]
 [ext_resource type="PackedScene" uid="uid://cnq32dmcgppq" path="res://Scenes/Component/HealthBarComponent/health_bar_component.tscn" id="4_2ibr2"]
 [ext_resource type="Texture2D" uid="uid://538ped3b55iu" path="res://Scenes/GameObject/Player/front.png" id="4_c1ppa"]
 [ext_resource type="Script" uid="uid://b2u23550pj1e" path="res://Scenes/GameObject/Player/ability_manager.gd" id="6_0ai8q"]
 [ext_resource type="PackedScene" uid="uid://cihryd5fc6t0i" path="res://Scenes/Component/CollisionDamageComponent/collision_damage_component.tscn" id="7_q3lib"]
 [ext_resource type="PackedScene" uid="uid://cp4183sul1eye" path="res://Scenes/Component/HitFlashComponent/hit_flash_component.tscn" id="7_r32kq"]
 [ext_resource type="PackedScene" uid="uid://cjhx5dmdah8m2" path="res://Scenes/Component/MeleeWeaponComponent/melee_weapon_component.tscn" id="9_ppan8"]
+[ext_resource type="PackedScene" uid="uid://cs4idhppuc4uh" path="res://Scenes/Component/EntityDetectionComponent/entity_detection_component.tscn" id="9_r32kq"]
 
 [sub_resource type="Animation" id="Animation_8uak7"]
 length = 0.001
@@ -125,8 +125,6 @@ script = ExtResource("2_8uak7")
 script = ExtResource("2_htcer")
 component_list = Array[int]([0, 0])
 
-[node name="EnemyDetectionHelperComponent" parent="." instance=ExtResource("3_r32kq")]
-
 [node name="MovementControlComponent" parent="." instance=ExtResource("3_q3lib")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_honxs")]
@@ -140,6 +138,8 @@ z_index = 1
 
 [node name="AbilityManager" type="Node" parent="."]
 script = ExtResource("6_0ai8q")
+
+[node name="EntityDetectionComponent" parent="." instance=ExtResource("9_r32kq")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uvnfx")

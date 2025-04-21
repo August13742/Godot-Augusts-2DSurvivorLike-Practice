@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://by4iquybdbc5j" path="res://Scenes/GameObject/Player/player.gd" id="1_l3xfo"]
 [ext_resource type="Script" uid="uid://bekc41is0qrtq" path="res://Scenes/GameObject/Player/player_animation.gd" id="2_46rh8"]
 [ext_resource type="Script" uid="uid://c086nejdgsecs" path="res://Scenes/GameObject/Player/component_manager.gd" id="3_pobf8"]
-[ext_resource type="PackedScene" uid="uid://6lphpsmjsnr3" path="res://Scenes/Component/EnemyDetectorHelperComponent/enemy_detection_helper_component.tscn" id="4_xwcwn"]
 [ext_resource type="PackedScene" uid="uid://dgk0e3p350es" path="res://Scenes/Component/MovementControlComponent/movement_control_component.tscn" id="5_5kgo5"]
 [ext_resource type="PackedScene" uid="uid://c7cuj2fj0ontc" path="res://Scenes/Component/HealthComponent/health_component.tscn" id="6_2gg3h"]
+[ext_resource type="PackedScene" uid="uid://cs4idhppuc4uh" path="res://Scenes/Component/EntityDetectionComponent/entity_detection_component.tscn" id="7_3m1g8"]
 [ext_resource type="PackedScene" uid="uid://cp4183sul1eye" path="res://Scenes/Component/HitFlashComponent/hit_flash_component.tscn" id="7_qrhaa"]
 [ext_resource type="PackedScene" uid="uid://cnq32dmcgppq" path="res://Scenes/Component/HealthBarComponent/health_bar_component.tscn" id="8_82oew"]
 [ext_resource type="Script" uid="uid://b2u23550pj1e" path="res://Scenes/GameObject/Player/ability_manager.gd" id="9_nd5wk"]
@@ -125,14 +125,14 @@ script = ExtResource("2_46rh8")
 script = ExtResource("3_pobf8")
 component_list = Array[int]([0, 0])
 
-[node name="EnemyDetectionHelperComponent" parent="." instance=ExtResource("4_xwcwn")]
-
 [node name="MovementControlComponent" parent="." instance=ExtResource("5_5kgo5")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("6_2gg3h")]
 
 [node name="HitFlashComponent" parent="." instance=ExtResource("7_qrhaa")]
 target_flash_colour = Vector3(0.8, 0, 0)
+
+[node name="EntityDetectionComponent" parent="." instance=ExtResource("7_3m1g8")]
 
 [node name="HealthBarComponent" parent="." instance=ExtResource("8_82oew")]
 self_modulate = Color(0.776471, 0.654902, 0.25098, 1)

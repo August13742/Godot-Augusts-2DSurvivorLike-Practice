@@ -7,7 +7,7 @@ class_name SwordAbilityController
 @export var damage:float = 1
 @export var base_cooldown:float = 1.5
 
-@onready var enemies_detector:EntityDetectionHelperComponent
+@onready var entity_detector_component:EntityDetectionComponent
 @onready var timer:Timer = $Timer
 @export var base_spawn_count = 1
 var spawn_count = base_spawn_count
@@ -16,10 +16,13 @@ var root_entity:Node2D
 func _ready() -> void:
 	await get_tree().process_frame
 	
-	enemies_detector = owner.get_node("EnemyDetectionHelperComponent")
-
-	if enemies_detector == null:
-		push_error("[Debug/AbilityEquipment]: {%s} Cannot Find Enemy Detection Helper Component"%self.name)
+	entity_detector_component = owner.get_node("EntityDetectionComponent")
+	if entity_detector_component == null: 
+		print_debug("[Debug/Referencing]: {%s} EntityDetectionHelperComponent Not Found, Instantiating..."%self.name)
+		entity_detector_component = load(
+			"res://Scenes/Component/EntityDetectionComponent/entity_detection_component.tscn").instantiate()
+		owner.add_child(entity_detector_component)
+		entity_detector_component.owner = owner
 		
 	root_entity = owner
 	
@@ -30,12 +33,11 @@ func _ready() -> void:
 func on_timer_timeout():
 	if root_entity==null: return
 	
-	var enemies:Array[Node] = enemies_detector.get_nearby_enemies(max_range)
-	if enemies.is_empty(): return
+	var targets:Array[Node2D] = entity_detector_component.get_entities_random(spawn_count)
+	if targets.is_empty(): return
 	
-	var to_spawn = min(spawn_count, enemies.size())
 	
-	for i in range(to_spawn): #minimum is already 1
+	for target in targets: #minimum is already 1
 
 		var sword_instance:SwordAbility = sword_ability.instantiate()
 		var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
@@ -43,10 +45,10 @@ func on_timer_timeout():
 		sword_instance.hitbox_component.damage = damage
 		
 		
-		sword_instance.global_position = enemies[i].global_position
+		sword_instance.global_position = target.global_position
 		sword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0,TAU))*4
-		var enemy_direction:Vector2 = enemies[i].global_position - sword_instance.global_position
-		sword_instance.rotation = enemy_direction.angle()
+		var target_direction:Vector2 = target.global_position - sword_instance.global_position
+		sword_instance.rotation = target_direction.angle()
 
 
 func on_upgrade_ability(ability:Ability,current_ability_level):
