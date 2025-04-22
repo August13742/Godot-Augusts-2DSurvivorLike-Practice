@@ -14,3 +14,5 @@ func get_direction_to_target(target:Node2D = target_entity):
 	if target != null:
 		return (target.global_position - owner.global_position).normalized()
 	return Vector2.ZERO
+	
+	

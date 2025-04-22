@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8mcfpkvplleh"]
+
+[ext_resource type="Script" uid="uid://bo562qbd1odwk" path="res://Scenes/Component/AutoPlayComponent/auto_play_component.gd" id="1_h3sw2"]
+
+[node name="AutoPlayComponent" type="Node"]
+script = ExtResource("1_h3sw2")

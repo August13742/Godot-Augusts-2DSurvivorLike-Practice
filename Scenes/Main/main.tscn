@@ -45,7 +45,7 @@ unique_name_in_owner = true
 z_index = 1
 position = Vector2(574, 286)
 collision_layer = 2
-max_health = 12
+max_health = 9999
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
 
