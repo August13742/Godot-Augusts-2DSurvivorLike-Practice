@@ -22,6 +22,8 @@ region_rect = Rect2(24, 24, 96, 93)
 [resource]
 default_font = ExtResource("1_0ghf2")
 default_font_size = 16
+ButtonTexture1/base_type = &"Button"
+ButtonTexture1/styles/normal = null
 card_panel/base_type = &"PanelContainer"
 card_panel/styles/panel = SubResource("StyleBoxTexture_fwqpg")
 card_title_panel/base_type = &"PanelContainer"

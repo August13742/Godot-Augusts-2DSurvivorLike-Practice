@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_vd1pl")
-experience_amount = 1
+experience_amount = 3
 name = "Experience"
 drop_rate = 1.0
 scene = ExtResource("1_5yb02")

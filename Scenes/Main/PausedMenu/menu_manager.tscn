@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx6o1qvf4tmsl"]
+
+[ext_resource type="Script" uid="uid://cv35h67ecppp5" path="res://Scenes/Main/PausedMenu/menu_manager.gd" id="1_2sihb"]
+
+[node name="MenuManager" type="Node"]
+process_mode = 3
+script = ExtResource("1_2sihb")

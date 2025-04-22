@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgq10518s8ugb"]
+[gd_scene load_steps=4 format=3 uid="uid://cgq10518s8ugb"]
 
 [ext_resource type="Script" uid="uid://cletwq73tg750" path="res://Scenes/UI/experience_bar.gd" id="1_a24l1"]
+[ext_resource type="Texture2D" uid="uid://bjq883dx6dvfc" path="res://Assets/UI/exp_bar_green.png" id="2_lyf2s"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lyf2s"]
+texture = ExtResource("2_lyf2s")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
 
 [node name="ExperienceBar" type="CanvasLayer"]
 script = ExtResource("1_a24l1")
@@ -14,10 +22,10 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="MarginContainer"]
-custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 size_flags_vertical = 8
 mouse_filter = 2
+theme_override_styles/fill = SubResource("StyleBoxTexture_lyf2s")
 max_value = 1.0
 value = 0.5
 show_percentage = false

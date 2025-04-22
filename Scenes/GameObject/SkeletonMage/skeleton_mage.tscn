@@ -91,6 +91,6 @@ debug_color = Color(0.96, 0, 0.0159998, 0.490196)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
 sprite_frames = SubResource("SpriteFrames_f6751")
 autoplay = "default"
-frame_progress = 0.478141
+frame_progress = 0.646646
 
 [node name="HealthBarComponent" parent="Visuals" instance=ExtResource("3_lv3y3")]

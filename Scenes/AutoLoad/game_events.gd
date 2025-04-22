@@ -30,9 +30,8 @@ func emit_gold_drop_collected(number:int):
 	gold_drop_collected.emit(number)
 	
 
-
-
 signal difficulty_factor_updated(number:float)
 func emit_difficulty_factor_updated(number:float):
 	difficulty_factor_updated.emit(number)
+	
 	

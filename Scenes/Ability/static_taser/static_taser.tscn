@@ -18,7 +18,7 @@ capacitor_texture = ExtResource("3_bvpbj")
 
 [node name="Line2D" type="Line2D" parent="Visuals"]
 texture_filter = 1
-texture_repeat = 2
+texture_repeat = 1
 material = ExtResource("2_85ejf")
 closed = true
 width = 80.0

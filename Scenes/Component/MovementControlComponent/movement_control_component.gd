@@ -2,22 +2,29 @@ class_name MovementControlComponent
 
 extends Node
 
-var max_speed:int = 150
+var max_speed:int = 1500
 
 ## higher means faster initial acceleration
 var acceleration_smoothing:float = 20
-@onready var entity:Node2D = get_parent()
+@onready var entity:Node2D = owner
 var movement_vector:Vector2
+var movement_vector_normalised:Vector2
 var direction:Vector2
-
+signal direction_changed(Vector2)
 
 func _process(delta: float) -> void:
 	movement_vector = get_movement_vector()
+	movement_vector_normalised = movement_vector.normalized()
 	#normalise needed because if diagonal movement, then speed is higher than setting
-	direction = movement_vector.normalized()
+	if direction != movement_vector_normalised:
+		direction_changed.emit(movement_vector_normalised)
 	
+	
+	direction = movement_vector_normalised
+
 	var target_velocity:Vector2 = direction * max_speed
 	entity.velocity = entity.velocity.lerp(target_velocity, 1-exp(-delta*acceleration_smoothing))
+		
 	entity.move_and_slide()
 	
 	
