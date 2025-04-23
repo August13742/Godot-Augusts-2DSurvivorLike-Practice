@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgq10518s8ugb"]
 
-[ext_resource type="Script" uid="uid://cletwq73tg750" path="res://Scenes/UI/experience_bar.gd" id="1_a24l1"]
+[ext_resource type="Script" uid="uid://cletwq73tg750" path="res://Scenes/UI/ExpBar/experience_bar.gd" id="1_a24l1"]
 [ext_resource type="Texture2D" uid="uid://bjq883dx6dvfc" path="res://Assets/UI/exp_bar_green.png" id="2_lyf2s"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lyf2s"]

@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://dt54soakpftl3" path="res://Scenes/GameObject/GameCamera/game_camera.tscn" id="1_qw60k"]
 [ext_resource type="PackedScene" uid="uid://b1hfksqlfuget" path="res://Scenes/Managers/ArenaTimeManager.tscn" id="2_2a143"]
 [ext_resource type="PackedScene" uid="uid://b7whxbpn20jcy" path="res://Scenes/Managers/EnemyManager/EnemyManger.tscn" id="3_5yls4"]
-[ext_resource type="PackedScene" uid="uid://dupsc6g05jhca" path="res://Scenes/UI/arena_time_ui.tscn" id="5_p6jpk"]
+[ext_resource type="PackedScene" uid="uid://dupsc6g05jhca" path="res://Scenes/UI/ArenaTimeUI/arena_time_ui.tscn" id="5_p6jpk"]
 [ext_resource type="PackedScene" uid="uid://54y5g7ygdf7a" path="res://Scenes/Managers/resource_managers.tscn" id="6_hfg1r"]
 [ext_resource type="TileSet" uid="uid://4xeweppiyk44" path="res://Assets/Environment/grass_tiles.tres" id="7_imbg2"]
-[ext_resource type="PackedScene" uid="uid://cgq10518s8ugb" path="res://Scenes/UI/experience_bar.tscn" id="8_y3v7k"]
+[ext_resource type="PackedScene" uid="uid://cgq10518s8ugb" path="res://Scenes/UI/ExpBar/experience_bar.tscn" id="8_y3v7k"]
 [ext_resource type="PackedScene" uid="uid://bx6o1qvf4tmsl" path="res://Scenes/Main/PausedMenu/menu_manager.tscn" id="10_imbg2"]
 
 [node name="Main" type="Node"]

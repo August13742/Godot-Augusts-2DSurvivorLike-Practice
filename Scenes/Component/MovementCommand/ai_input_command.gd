@@ -6,7 +6,7 @@ class_name AIInputCommand
 var detector: EntityDetectionComponent
 var target_entity:Node2D
 var entity:Node2D
-@export var preferred_distance: float = 150
+@export var preferred_distance: float = 100
 @export var distance_tolerance: float = 35
 @export var base_update_interval_frames := 5
 
