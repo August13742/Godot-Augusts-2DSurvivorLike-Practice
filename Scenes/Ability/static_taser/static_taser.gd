@@ -9,7 +9,7 @@ class_name StaticTaserAbility
 var damage:float
 var target_nodes:Array[Node2D]
 var line_points:Array[Vector2]
-@onready var damage_text_scene:PackedScene = preload("res://Scenes/UI/floating_text.tscn")
+@onready var damage_text_scene:PackedScene = preload("res://Scenes/UI/FloatingDamageText/floating_text.tscn")
 
 
 func _ready():

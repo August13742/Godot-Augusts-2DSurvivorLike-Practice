@@ -3,7 +3,7 @@ class_name HurtboxComponent
 
 @onready var health_component:HealthComponent = owner.get_node("HealthComponent")
 
-var floating_text_scene:PackedScene = preload("res://Scenes/UI/floating_text.tscn")
+var floating_text_scene:PackedScene = preload("res://Scenes/UI/FloatingDamageText/floating_text.tscn")
 
 func _ready():
 	area_entered.connect(on_area_entered)

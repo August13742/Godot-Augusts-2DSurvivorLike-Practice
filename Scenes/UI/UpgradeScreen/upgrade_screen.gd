@@ -2,7 +2,7 @@ extends CanvasLayer
 class_name UpgradeScreen
 
 
-@export var upgrade_card_scene:PackedScene = preload("res://Scenes/UI/ability_upgrade_card.tscn")
+@export var upgrade_card_scene:PackedScene = preload("res://Scenes/UI/AbilityUpgradeCard/ability_upgrade_card.tscn")
 @onready var card_container:HBoxContainer = $MarginContainer/CardContainer
 
 signal upgrade_chosen(upgrade:Ability)

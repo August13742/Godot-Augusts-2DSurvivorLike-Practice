@@ -4,7 +4,7 @@ extends Node
 
 
 @export var experience_manager:ExperienceManager
-@export var upgrade_screen_scene:PackedScene = preload("res://Scenes/UI/upgrade_screen.tscn")
+@export var upgrade_screen_scene:PackedScene = preload("res://Scenes/UI/UpgradeScreen/upgrade_screen.tscn")
 
 var owned_abilities = {}
 
