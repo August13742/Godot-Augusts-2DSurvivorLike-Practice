@@ -6,9 +6,9 @@ class_name AIInputCommand
 var detector: EntityDetectionComponent
 var target_entity:Node2D
 var entity:Node2D
-@export var preferred_distance: float = 90
+@export var preferred_distance: float = 150
 @export var distance_tolerance: float = 35
-@export var base_update_interval_frames := 3
+@export var base_update_interval_frames := 5
 
 var update_interval_frames
 var frame_counter := 0
@@ -46,10 +46,10 @@ func get_movement_vector() -> Vector2:
 		if distance_error > preferred_distance:
 			movement_cache = to_target.normalized()
 		elif distance_error > distance_tolerance:
-			get_random_direction()
+			movement_cache = (movement_cache+get_random_direction()*0.4).normalized()
 			
 		else:
-			movement_cache = -to_target.normalized()
+			movement_cache = -to_target.normalized() + Vector2(randf_range(-0.1,0.1), randf_range(-0.1,0.1))
 			#return Vector2.ZERO
 			
 	else:
