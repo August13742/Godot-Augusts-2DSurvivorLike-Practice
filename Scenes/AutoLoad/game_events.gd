@@ -4,7 +4,18 @@ extends Node
 Event BroadCasting Relay
 '''
 
+signal level_up
+func emit_level_up():
+	level_up.emit()
 
+
+var auto_mode:bool = false	
+signal auto_mode_enabled
+func emit_auto_mode_enabled():
+	auto_mode = true
+	auto_mode_enabled.emit()
+	
+	
 signal ability_upgrade_added(upgrade:Ability, current_upgrades:Dictionary)
 func emit_ability_upgrade_added(upgrade:Ability, current_upgrades:Dictionary):
 	'''check if ability is new, if so, instantiate'''

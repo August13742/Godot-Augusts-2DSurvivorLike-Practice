@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://vllvx7oicowp" path="res://Scenes/Component/EntityDetectionComponent/entity_detection_component.gd" id="1_itsw6"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1q1r8"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_itsw6"]
 
 [node name="EntityDetectionComponent" type="Node2D"]
 script = ExtResource("1_itsw6")
@@ -12,4 +12,4 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_1q1r8")
+shape = SubResource("RectangleShape2D_itsw6")

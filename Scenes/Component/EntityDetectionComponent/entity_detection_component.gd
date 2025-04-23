@@ -4,12 +4,13 @@ class_name EntityDetectionComponent
 @onready var area2D := $Area2D
 @onready var collision := $Area2D/CollisionShape2D
 
-@export var detection_radius:int = ProjectSettings.get_setting("display/window/size/viewport_height")/2
-
+@export var detection_zone:Vector2 = Vector2(
+	ProjectSettings.get_setting("display/window/size/viewport_width")-20,
+	ProjectSettings.get_setting("display/window/size/viewport_height")-20)
 var entities_detected: Array[Node2D] = []
 
 func _ready():
-	collision.shape.radius = detection_radius
+	collision.shape.size = detection_zone
 	
 	area2D.body_entered.connect(on_body_entered)
 	area2D.body_exited.connect(on_entity_exited)

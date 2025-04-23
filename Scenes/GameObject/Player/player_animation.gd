@@ -12,7 +12,7 @@ func _ready():
 
 func _process(_delta):
 	if movement_control_component.movement_vector_normalised.x != 0 || movement_control_component.movement_vector_normalised.y != 0:
-		sprite.flip_h = true	 if movement_control_component.movement_vector.x > 0 else false
+		sprite.flip_h = true	 if movement_control_component.movement_vector_normalised.x > 0 else false
 		play("Walk")
 	else:
 		play("RESET")

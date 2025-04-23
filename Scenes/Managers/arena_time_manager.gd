@@ -29,7 +29,7 @@ func raise_difficulty_base_on_minute_passed():
 		#placeholder, replace with actual algorithm
 		#currently, this effects the spawn rate of spawners and enemy hp.
 		difficulty_factor +=1
-		print("[Debug/Progression]: Current Diffulty Factor: %f", difficulty_factor)
+		print("[Debug/Progression]: Current Diffulty Factor: %1f"%difficulty_factor)
 		GameEvents.emit_difficulty_factor_updated(difficulty_factor)
 		
 		

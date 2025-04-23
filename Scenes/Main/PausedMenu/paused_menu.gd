@@ -23,6 +23,7 @@ func on_quit_pressed():
 
 func on_menu_pressed():
 	get_tree().paused = false
+	GameEvents.auto_mode = false
 	get_tree().change_scene_to_file("res://Scenes/Main/MainMenu/game_menu.tscn")
 	
 

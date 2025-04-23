@@ -15,9 +15,14 @@ func _ready():
 		
 	
 func on_level_up(_current_level:int):
+	GameEvents.emit_level_up()
 	var upgrade_screen_instance = upgrade_screen_scene.instantiate()
 	add_child(upgrade_screen_instance)
 	var picked_upgrades = pick_upgrades()
+	
+	''' all upgrades are out of pool'''
+	if picked_upgrades == null: return	
+	
 	var chosen_upgrades:Array[Ability] = picked_upgrades[0]
 	var chosen_upgrades_levels:Array[int] = picked_upgrades[1]
 	

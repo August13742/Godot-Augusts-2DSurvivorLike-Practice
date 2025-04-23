@@ -1,35 +1,33 @@
+extends Node
 class_name MovementControlComponent
 
-extends Node
-
-var max_speed:int = 1500
-
-## higher means faster initial acceleration
+var max_speed:int = 150
 var acceleration_smoothing:float = 20
-@onready var entity:Node2D = owner
-var movement_vector:Vector2
-var movement_vector_normalised:Vector2
+var entity:Node2D
 var direction:Vector2
+var movement_vector_normalised:Vector2
+var movement_command:MovementCommand
+var angle_to_target:float
+
 signal direction_changed(Vector2)
 
+func _ready():
+	entity = owner
+	await get_tree().process_frame
+	if movement_command == null:
+		push_error("MovementCommand not set")
+
 func _process(delta: float) -> void:
-	movement_vector = get_movement_vector()
+	if movement_command == null: return
+
+	var movement_vector = movement_command.get_movement_vector()
+	angle_to_target = movement_command.angle_to_target
 	movement_vector_normalised = movement_vector.normalized()
-	#normalise needed because if diagonal movement, then speed is higher than setting
+
 	if direction != movement_vector_normalised:
 		direction_changed.emit(movement_vector_normalised)
-	
-	
-	direction = movement_vector_normalised
 
+	direction = movement_vector_normalised
 	var target_velocity:Vector2 = direction * max_speed
-	entity.velocity = entity.velocity.lerp(target_velocity, 1-exp(-delta*acceleration_smoothing))
-		
+	entity.velocity = entity.velocity.lerp(target_velocity, 1 - exp(-delta * acceleration_smoothing))
 	entity.move_and_slide()
-	
-	
-func get_movement_vector() -> Vector2:
-#	moveLeft -> -1 strength, so if both are pressed returns 0 otherwise the correct orientation
-	var x_movement = Input.get_action_strength("move_right")-Input.get_action_strength("move_left")
-	var y_movement = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-	return Vector2(x_movement,y_movement)
