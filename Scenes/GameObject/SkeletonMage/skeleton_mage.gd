@@ -25,14 +25,19 @@ var max_health:int :
 
 func _ready():
 
-	max_health = base_max_health
-	health_component.max_health = max_health
-	health_component.current_health = max_health
+	update_attributes.call_deferred()
 	ai_movement_component.target_entity = get_tree().get_first_node_in_group("player")
 	ai_movement_component.distance_to_keep = distance_to_keep
 	ai_movement_component.distance_tolerance = distance_tolerance
 	fire_ball_component.interval = fireball_interval
 
+
+func update_attributes():
+	max_health = base_max_health
+	health_component.max_health = max_health
+	health_component.current_health = max_health
+	
+	
 func _process(_delta: float) -> void:
 	fire_ball_component.can_fire = true if ai_movement_component.is_stationary else false
 	

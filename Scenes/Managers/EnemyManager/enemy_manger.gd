@@ -5,7 +5,7 @@ extends Node
 @export var enemies_resource = preload("res://Scenes/Managers/EnemyManager/enemy_list.tres")
 ## offset in addition to viewport_width/2
 @export var spawn_radius_offset:int = 30
-@export var spawn_interval:float = 1
+@export var spawn_interval:float = 5
 @export var base_spawn_count:int = 10
 @onready var timer = $Timer
 @onready var enemies_list:Array[Weighted] = enemies_resource.enemies
@@ -17,6 +17,8 @@ var spawn_count:int = base_spawn_count
 var spawn_radius:int = (
 	ProjectSettings.get_setting("display/window/size/viewport_width")/2 + spawn_radius_offset
 	)
+var entities_layer:Node
+
 
 func _ready() -> void:
 	timer.timeout.connect(on_timer_timeout)
@@ -25,7 +27,9 @@ func _ready() -> void:
 	
 	player = get_tree().get_first_node_in_group("player")
 	if player == null: push_error("Player Not Found [%s]"%self.name)
-
+	entities_layer = get_tree().get_first_node_in_group("entities_layer")
+	
+	
 func get_spawn_position()->Vector2:
 	'''
 	raycasting 4 directions to see if one hits all 4 walls to prevent out of boundary spawning
@@ -35,7 +39,7 @@ func get_spawn_position()->Vector2:
 	var spawn_position:Vector2 = Vector2.ZERO
 	var random_direction:Vector2 = Vector2.RIGHT.rotated(randf_range(0,TAU))
 	
-	for i in spawn_count:
+	for i in 4: # 4 directions
 		spawn_position = player.global_position + random_direction * spawn_radius
 		
 		# 1 is terrain layer 1<<0 shift 0 bit is stil l1. useful if layer bit is high, 
@@ -55,19 +59,25 @@ func get_spawn_position()->Vector2:
 
 
 
+
+
 func on_timer_timeout():
 	if player == null :return
 	
 	timer.start()
+	var spawn_position:Vector2 = Vector2.ONE
+	var spawn_batch_size:int = ceili(spawn_count as float / 5)
 
-	var enemy_to_spawn:Weighted = WeightedTable.pick_item_from_weighted_table(enemies_list)
-	var spawned_enemy_instance:Node2D = enemy_to_spawn.scene.instantiate()
-	
-	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
-	entities_layer.add_child(spawned_enemy_instance)
-	spawned_enemy_instance.global_position = get_spawn_position()
-	if difficulty_factor > 1:
-		spawned_enemy_instance.max_health *=  1 + difficulty_factor*0.1
+	for i in range (5):
+		spawn_position = get_spawn_position()
+		for j in range(spawn_batch_size):
+			var enemy_to_spawn:Weighted = WeightedTable.pick_item_from_weighted_table(enemies_list)
+			var spawned_enemy_instance:Node2D = enemy_to_spawn.scene.instantiate()
+			entities_layer.add_child(spawned_enemy_instance)
+			spawned_enemy_instance.global_position = spawn_position
+			if difficulty_factor > 1:
+				spawned_enemy_instance.max_health *=  1 + difficulty_factor*0.25
+
 
 func on_difficulty_factor_updated(number):
 	difficulty_factor = number

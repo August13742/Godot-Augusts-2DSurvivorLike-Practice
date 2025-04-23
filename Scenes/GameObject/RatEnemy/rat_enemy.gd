@@ -20,12 +20,15 @@ var max_health:int:
 		health_component.full_heal()
 		
 func _ready():
+	ai_movement_component.target_entity = get_tree().get_first_node_in_group("player")
+	update_attributes.call_deferred()
+
+	
+	
+func update_attributes():
 	max_health = base_max_health
 	health_component.max_health = max_health
 	health_component.current_health = max_health
-	
-	ai_movement_component.target_entity = get_tree().get_first_node_in_group("player")
-
 
 
 func _process(_delta: float) -> void:

@@ -12,6 +12,9 @@ func _ready():
 	
 	
 func set_ability_upgrades(upgrades:Array[Ability],levels:Array[int]):
+	if upgrades.size() == 0: 
+		get_tree().paused = false
+		queue_free()
 	for i in range(upgrades.size()):
 		var card_instance = upgrade_card_scene.instantiate()
 		card_container.add_child(card_instance)
@@ -20,6 +23,7 @@ func set_ability_upgrades(upgrades:Array[Ability],levels:Array[int]):
 
 
 func on_upgrade_selected(upgrade:Ability):
-	upgrade_chosen.emit(upgrade)
+	if upgrade != null:
+		upgrade_chosen.emit(upgrade)
 	get_tree().paused = false
 	queue_free()

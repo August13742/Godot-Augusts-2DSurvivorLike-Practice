@@ -8,19 +8,17 @@ signal health_changed
 signal received_damage
 
 
-var current_health:float
-func _ready():
-	current_health = max_health
-	
+var current_health:float = max_health
+
 
 func heal(amount:float):
 	if amount < 0:
 		print("cannot heal a negative amount, 
 		current_health %f, heal amount %f" % [current_health, amount])
 		return
-	elif current_health <= 0:
-		print("Target is dead, returning early")
-		return
+	#elif current_health <= 0:
+		#print_debug("Target is dead, returning early", current_health)
+		#return
 	else:
 		current_health = min(current_health + amount, max_health)
 		health_changed.emit()

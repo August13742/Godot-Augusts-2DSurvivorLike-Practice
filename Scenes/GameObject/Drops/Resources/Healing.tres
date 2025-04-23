@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("2_6y07y")
 name = "Healing"
-drop_rate = 0.05
+drop_rate = 0.01
 scene = ExtResource("1_b4xpj")
 metadata/_custom_type_script = "uid://ohktg6gtq1ki"

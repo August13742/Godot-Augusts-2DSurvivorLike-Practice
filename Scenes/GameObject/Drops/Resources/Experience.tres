@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_vd1pl")
-experience_amount = 3
+experience_amount = 1
 name = "Experience"
-drop_rate = 1.0
+drop_rate = 0.9
 scene = ExtResource("1_5yb02")
 metadata/_custom_type_script = "uid://ohktg6gtq1ki"

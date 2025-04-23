@@ -41,6 +41,8 @@ func _ready():
 	var input_source:MovementCommand
 	if input_type ==  InputSourceType.player:
 		input_source = PlayerInputCommand.new()
+		GameEvents.level_up.connect(on_level_up_when_player_controlled)
+		
 	if input_type ==  InputSourceType.AI:
 		input_source = AIInputCommand.new()
 		input_source.configure(self,entity_detection_component)
@@ -66,6 +68,7 @@ func on_level_up_when_auto_play():
 	var upgrade_card = get_tree().get_first_node_in_group("upgrade_card")
 	if upgrade_card != null:
 		upgrade_card.chosen.emit()
+	return null
 	
-	
-		
+func on_level_up_when_player_controlled():
+	health_component.full_heal()
