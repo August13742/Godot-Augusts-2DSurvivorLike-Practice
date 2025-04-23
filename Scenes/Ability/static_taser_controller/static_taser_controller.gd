@@ -23,9 +23,8 @@ func _ready():
 	if root_entity == null: push_error("[Debug/Referencing]: {%s} root_entity Cannot be Found"%self.name)
 	_max_target = base_max_target
 	
-	
-	entity_detector_component = owner.get_node_or_null("EnemyDetectionComponent")
-	
+
+	entity_detector_component = owner.get_node("EntityDetectionComponent")
 	
 	'''
 	here, as fallback, detection helper is instantiated automatically.
@@ -36,7 +35,7 @@ func _ready():
 	while the controller itself maintains to be child of {AbilityManager}
 	'''
 	if entity_detector_component == null: 
-		print_debug("[Debug/Referencing]: {%s} EntityDetectionHelperComponent Not Found, Instantiating..."%self.name)
+		print_debug("[Debug/Referencing]: {%s} EntityDetectionComponent Not Found, Instantiating..."%self.name)
 		entity_detector_component = load(
 			"res://Scenes/Component/EntityDetectionComponent/entity_detection_component.tscn").instantiate()
 		owner.add_child(entity_detector_component)

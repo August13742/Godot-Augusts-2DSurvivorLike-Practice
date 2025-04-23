@@ -141,6 +141,7 @@ z_index = 1
 script = ExtResource("6_0ai8q")
 
 [node name="EntityDetectionComponent" parent="." instance=ExtResource("9_r32kq")]
+unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uvnfx")

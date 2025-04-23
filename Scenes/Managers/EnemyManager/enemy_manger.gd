@@ -71,6 +71,7 @@ func on_timer_timeout():
 
 func on_difficulty_factor_updated(number):
 	difficulty_factor = number
+	change_spawn_interval_based_on_difficulty()
 
 func change_spawn_interval_based_on_difficulty(step_percentage:float = 0.05):
 	var new_timer_interval = spawn_interval-spawn_interval*step_percentage*difficulty_factor
@@ -79,3 +80,4 @@ func change_spawn_interval_based_on_difficulty(step_percentage:float = 0.05):
 	timer.wait_time = new_timer_interval
 	
 	spawn_count = base_spawn_count*floor(difficulty_factor)
+	print("New Spawn Count %d"%spawn_count)
