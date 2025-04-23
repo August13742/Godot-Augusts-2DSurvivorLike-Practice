@@ -1,4 +1,3 @@
-@ -0,0 +1,11 @@
 # A 2D Survivor-type Game inspired by Vampire Survivor & HoloCure
 
 
