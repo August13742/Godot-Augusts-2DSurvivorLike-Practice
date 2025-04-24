@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Weighted" load_steps=3 format=3 uid="uid://c1o57py5t5vmw"]
+
+[ext_resource type="PackedScene" uid="uid://bxb1anygh4xmi" path="res://Scenes/GameObject/Dasher/dasher_enemy.tscn" id="1_rc06b"]
+[ext_resource type="Script" uid="uid://bf7efblqg35dv" path="res://Resources/weighted_item_resource_base.gd" id="2_a77st"]
+
+[resource]
+script = ExtResource("2_a77st")
+id = "dasher_enemy"
+name = "Dasher"
+weight = 4.0
+scene = ExtResource("1_rc06b")
+metadata/_custom_type_script = "uid://bf7efblqg35dv"

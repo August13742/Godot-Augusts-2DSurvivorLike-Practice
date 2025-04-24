@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxu6y60s21gpw"]
+
+[ext_resource type="Texture2D" uid="uid://uhw7myxxwio2" path="res://Assets/frost-on-screen.png" id="1_7fymn"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_7fymn")
+expand_mode = 1

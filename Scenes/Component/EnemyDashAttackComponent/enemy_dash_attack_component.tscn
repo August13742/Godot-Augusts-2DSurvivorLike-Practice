@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://cga33kflb730t"]
+
+[ext_resource type="Script" uid="uid://c34mbohtwhkrr" path="res://Scenes/Component/EnemyDashAttackComponent/enemy_dash_attack_component.gd" id="1_weyqo"]
+
+[node name="EnemyDashAttackComponent" type="Node2D"]
+script = ExtResource("1_weyqo")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="TrajectoryLine" type="Line2D" parent="Visuals"]
+self_modulate = Color(1, 1, 1, 0.12549)
+width = 3.0
+default_color = Color(1, 0, 0, 1)
+texture_mode = 2
+begin_cap_mode = 1
+end_cap_mode = 2
+
+[node name="Phantom" type="Sprite2D" parent="Visuals"]
+self_modulate = Color(1, 0.29, 0.29, 0.501961)
+show_behind_parent = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

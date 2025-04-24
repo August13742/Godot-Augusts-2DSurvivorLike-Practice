@@ -1,7 +1,7 @@
 extends Node
 
 
-
+@export var dasher_event:PackedScene = preload("uid://cfu2ridb03ytq")
 @export var enemies_resource = preload("res://Scenes/Managers/EnemyManager/enemy_list.tres")
 ## offset in addition to viewport_width/2
 @export var spawn_radius_offset:int = 30
@@ -82,6 +82,8 @@ func on_timer_timeout():
 func on_difficulty_factor_updated(number):
 	difficulty_factor = number
 	change_spawn_interval_based_on_difficulty()
+	var dasher_event_instance:Node2D = dasher_event.instantiate()
+	entities_layer.add_child(dasher_event_instance)
 
 func change_spawn_interval_based_on_difficulty(step_percentage:float = 0.05):
 	var new_timer_interval = spawn_interval-spawn_interval*step_percentage*difficulty_factor

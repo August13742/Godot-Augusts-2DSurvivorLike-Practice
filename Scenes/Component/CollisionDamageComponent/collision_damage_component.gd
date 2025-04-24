@@ -62,10 +62,19 @@ func on_area_entered(other:Node2D):
 		
 func on_body_entered(_other:Node2D):
 	if health_component == null: return
-	
+
 	num_colliding_bodies += 1
+	
+	if "collision_damage" in _other:
+		#print_debug("Special Collision Damage Dealt")
+		health_component.damaged(_other.collision_damage)
+		collision_damage_timer.start()
+		return 
+		
 	if num_colliding_bodies > 1 || !(collision_damage_timer.is_stopped()):
 		return
+		
+	
 	health_component.damaged(collision_damage)
 	collision_damage_timer.start()
 	

@@ -1,15 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://bgcsctajfxmp2"]
+[gd_scene load_steps=18 format=3 uid="uid://b8gfo3fwd4lfu"]
 
 [ext_resource type="Script" uid="uid://by4iquybdbc5j" path="res://Scenes/GameObject/Player/player.gd" id="1_l3xfo"]
 [ext_resource type="Script" uid="uid://bekc41is0qrtq" path="res://Scenes/GameObject/Player/player_animation.gd" id="2_46rh8"]
 [ext_resource type="Script" uid="uid://c086nejdgsecs" path="res://Scenes/GameObject/Player/component_manager.gd" id="3_pobf8"]
-[ext_resource type="PackedScene" uid="uid://dgk0e3p350es" path="res://Scenes/Component/MovementControlComponent/movement_control_component.tscn" id="5_5kgo5"]
-[ext_resource type="PackedScene" uid="uid://c7cuj2fj0ontc" path="res://Scenes/Component/HealthComponent/health_component.tscn" id="6_2gg3h"]
-[ext_resource type="PackedScene" uid="uid://cs4idhppuc4uh" path="res://Scenes/Component/EntityDetectionComponent/entity_detection_component.tscn" id="7_3m1g8"]
-[ext_resource type="PackedScene" uid="uid://cp4183sul1eye" path="res://Scenes/Component/HitFlashComponent/hit_flash_component.tscn" id="7_qrhaa"]
-[ext_resource type="PackedScene" uid="uid://cnq32dmcgppq" path="res://Scenes/Component/HealthBarComponent/health_bar_component.tscn" id="8_82oew"]
-[ext_resource type="Script" uid="uid://b2u23550pj1e" path="res://Scenes/GameObject/Player/ability_manager.gd" id="9_nd5wk"]
-[ext_resource type="PackedScene" uid="uid://t4136jy6fw06" path="res://Scenes/Ability/static_taser_controller/static_taser_controller.tscn" id="10_3m1g8"]
+[ext_resource type="PackedScene" uid="uid://dgk0e3p350es" path="res://Scenes/Component/MovementControlComponent/movement_control_component.tscn" id="4_xwcwn"]
+[ext_resource type="PackedScene" uid="uid://c7cuj2fj0ontc" path="res://Scenes/Component/HealthComponent/health_component.tscn" id="5_5kgo5"]
+[ext_resource type="PackedScene" uid="uid://cp4183sul1eye" path="res://Scenes/Component/HitFlashComponent/hit_flash_component.tscn" id="6_2gg3h"]
+[ext_resource type="PackedScene" uid="uid://cnq32dmcgppq" path="res://Scenes/Component/HealthBarComponent/health_bar_component.tscn" id="7_qrhaa"]
+[ext_resource type="Script" uid="uid://b2u23550pj1e" path="res://Scenes/GameObject/Player/ability_manager.gd" id="8_82oew"]
+[ext_resource type="PackedScene" uid="uid://cs4idhppuc4uh" path="res://Scenes/Component/EntityDetectionComponent/entity_detection_component.tscn" id="9_nd5wk"]
 [ext_resource type="Texture2D" uid="uid://538ped3b55iu" path="res://Scenes/GameObject/Player/front.png" id="10_mmtj2"]
 [ext_resource type="PackedScene" uid="uid://cihryd5fc6t0i" path="res://Scenes/Component/CollisionDamageComponent/collision_damage_component.tscn" id="11_ce5r5"]
 
@@ -114,6 +113,7 @@ height = 24.0
 collision_layer = 0
 motion_mode = 1
 script = ExtResource("1_l3xfo")
+max_speed = 150
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -125,25 +125,22 @@ script = ExtResource("2_46rh8")
 script = ExtResource("3_pobf8")
 component_list = Array[int]([0, 0])
 
-[node name="MovementControlComponent" parent="." instance=ExtResource("5_5kgo5")]
+[node name="MovementControlComponent" parent="." instance=ExtResource("4_xwcwn")]
 
-[node name="HealthComponent" parent="." instance=ExtResource("6_2gg3h")]
+[node name="HealthComponent" parent="." instance=ExtResource("5_5kgo5")]
 
-[node name="HitFlashComponent" parent="." instance=ExtResource("7_qrhaa")]
+[node name="HitFlashComponent" parent="." instance=ExtResource("6_2gg3h")]
 target_flash_colour = Vector3(0.8, 0, 0)
 
-[node name="EntityDetectionComponent" parent="." instance=ExtResource("7_3m1g8")]
-
-[node name="HealthBarComponent" parent="." instance=ExtResource("8_82oew")]
+[node name="HealthBarComponent" parent="." instance=ExtResource("7_qrhaa")]
 self_modulate = Color(0.776471, 0.654902, 0.25098, 1)
 z_index = 1
 
 [node name="AbilityManager" type="Node" parent="."]
-script = ExtResource("9_nd5wk")
+script = ExtResource("8_82oew")
 
-[node name="StaticTaserController" parent="AbilityManager" instance=ExtResource("10_3m1g8")]
-base_cooldown = 3.0
-base_max_target = 5
+[node name="EntityDetectionComponent" parent="." instance=ExtResource("9_nd5wk")]
+unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uvnfx")

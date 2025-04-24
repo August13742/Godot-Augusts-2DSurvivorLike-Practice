@@ -46,3 +46,6 @@ func emit_difficulty_factor_updated(number:float):
 	difficulty_factor_updated.emit(number)
 	
 	
+signal player_frozen
+func emit_player_frozen():
+	player_frozen.emit()

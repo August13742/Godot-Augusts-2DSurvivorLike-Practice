@@ -6,7 +6,7 @@
 
 [resource]
 shader = ExtResource("1_ydefe")
-shader_parameter/columns = 4
-shader_parameter/rows = 4
+shader_parameter/columns = 5
+shader_parameter/rows = 6
 shader_parameter/frame = 0
 script = SubResource("GDScript_e631a")

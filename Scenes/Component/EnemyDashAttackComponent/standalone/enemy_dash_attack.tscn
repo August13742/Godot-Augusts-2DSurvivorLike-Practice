@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://b51mbkiehg2e0"]
+
+[ext_resource type="Script" uid="uid://d2brst3r83582" path="res://Scenes/Component/EnemyDashAttackComponent/standalone/enemy_dash_attack.gd" id="1_ohe1j"]
+[ext_resource type="Texture2D" uid="uid://8ur5dqk0xeci" path="res://icon.svg" id="2_3g7lq"]
+
+[node name="EnemyDashAttackComponent" type="Node2D"]
+script = ExtResource("1_ohe1j")
+
+[node name="Visuals" type="Node2D" parent="."]
+position = Vector2(100, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_3g7lq")
+offset = Vector2(0, -60)
+
+[node name="Phantom" type="Sprite2D" parent="Visuals"]
+self_modulate = Color(1, 0.29, 0.29, 0.501961)
+show_behind_parent = true
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_3g7lq")
+offset = Vector2(0, -60)
+
+[node name="TrajectoryLine" type="Line2D" parent="Visuals"]
+self_modulate = Color(1, 1, 1, 0.501961)
+width = 5.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

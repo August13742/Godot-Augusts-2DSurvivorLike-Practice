@@ -1,0 +1,109 @@
+[gd_scene load_steps=20 format=3 uid="uid://bxb1anygh4xmi"]
+
+[ext_resource type="Script" uid="uid://heajr8143rgg" path="res://Scenes/GameObject/Dasher/dasher_enemy.gd" id="1_ktfrp"]
+[ext_resource type="PackedScene" uid="uid://c33wwr3ktf1uq" path="res://Scenes/Component/MeleeAIMovementComponent/melee_ai_movement_component.tscn" id="2_isg1b"]
+[ext_resource type="PackedScene" uid="uid://c7cuj2fj0ontc" path="res://Scenes/Component/HealthComponent/health_component.tscn" id="3_s5pi6"]
+[ext_resource type="PackedScene" uid="uid://id2nj8lc76jn" path="res://Scenes/Component/LootDropComponent/loot_drop_component.tscn" id="4_4xi0a"]
+[ext_resource type="PackedScene" uid="uid://cp4183sul1eye" path="res://Scenes/Component/HitFlashComponent/hit_flash_component.tscn" id="5_tqt5y"]
+[ext_resource type="PackedScene" uid="uid://cnq32dmcgppq" path="res://Scenes/Component/HealthBarComponent/health_bar_component.tscn" id="6_ecyyl"]
+[ext_resource type="PackedScene" uid="uid://c4d6ureftk44p" path="res://Scenes/Component/HurtboxComponent/hurtbox_component.tscn" id="7_acipt"]
+[ext_resource type="PackedScene" uid="uid://yomehlmkvd2k" path="res://Scenes/Component/DeathComponent/death_component.tscn" id="9_hjhc8"]
+[ext_resource type="Texture2D" uid="uid://cbbo6i27txblh" path="res://Scenes/GameObject/Dasher/Run.png" id="9_isg1b"]
+[ext_resource type="PackedScene" uid="uid://cga33kflb730t" path="res://Scenes/Component/EnemyDashAttackComponent/enemy_dash_attack_component.tscn" id="10_isg1b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3j2k7"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_arl0f"]
+radius = 11.1803
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5pi6"]
+atlas = ExtResource("9_isg1b")
+region = Rect2(0, 0, 50, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xi0a"]
+atlas = ExtResource("9_isg1b")
+region = Rect2(50, 0, 50, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqt5y"]
+atlas = ExtResource("9_isg1b")
+region = Rect2(100, 0, 50, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecyyl"]
+atlas = ExtResource("9_isg1b")
+region = Rect2(150, 0, 50, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acipt"]
+atlas = ExtResource("9_isg1b")
+region = Rect2(200, 0, 50, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13rxp"]
+atlas = ExtResource("9_isg1b")
+region = Rect2(250, 0, 50, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hjhc8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5pi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xi0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqt5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecyyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acipt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13rxp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Dasher" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 8
+motion_mode = 1
+script = ExtResource("1_ktfrp")
+max_speed = 65
+
+[node name="MeleeAiMovementComponent" parent="." instance=ExtResource("2_isg1b")]
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_s5pi6")]
+
+[node name="LootDropComponent" parent="." instance=ExtResource("4_4xi0a")]
+
+[node name="HitFlashComponent" parent="." instance=ExtResource("5_tqt5y")]
+
+[node name="HealthBarComponent" parent="." instance=ExtResource("6_ecyyl")]
+
+[node name="HurtboxComponent" parent="." instance=ExtResource("7_acipt")]
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_3j2k7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_arl0f")
+
+[node name="EnemyDashAttackComponent" parent="." instance=ExtResource("10_isg1b")]
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
+position = Vector2(-2.52863, 9)
+scale = Vector2(0.9, 1)
+sprite_frames = SubResource("SpriteFrames_hjhc8")
+autoplay = "default"
+frame_progress = 0.833175
+offset = Vector2(4, -20)
+
+[node name="DeathComponent" parent="." instance=ExtResource("9_hjhc8")]
