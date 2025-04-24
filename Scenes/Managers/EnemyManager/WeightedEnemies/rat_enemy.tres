@@ -7,6 +7,6 @@
 script = ExtResource("2_7vup3")
 id = "rat_enemy"
 name = "Rat"
-weight = 1.0
+weight = 20.0
 scene = ExtResource("1_bhkjn")
 metadata/_custom_type_script = "uid://bf7efblqg35dv"
