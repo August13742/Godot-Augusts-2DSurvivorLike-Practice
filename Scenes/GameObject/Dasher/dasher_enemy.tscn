@@ -72,6 +72,7 @@ collision_layer = 8
 motion_mode = 1
 script = ExtResource("1_ktfrp")
 max_speed = 65
+base_max_health = 25
 
 [node name="MeleeAiMovementComponent" parent="." instance=ExtResource("2_isg1b")]
 

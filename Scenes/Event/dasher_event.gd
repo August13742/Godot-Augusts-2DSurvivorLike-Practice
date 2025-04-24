@@ -35,4 +35,5 @@ func _ready():
 	
 func on_dash_completed(instance):
 	await get_tree().create_timer(1).timeout
-	instance.queue_free()
+	if instance != null:
+		instance.queue_free()

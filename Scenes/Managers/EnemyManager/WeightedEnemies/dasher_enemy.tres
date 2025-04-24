@@ -7,6 +7,6 @@
 script = ExtResource("2_a77st")
 id = "dasher_enemy"
 name = "Dasher"
-weight = 4.0
+weight = 6.0
 scene = ExtResource("1_rc06b")
 metadata/_custom_type_script = "uid://bf7efblqg35dv"
