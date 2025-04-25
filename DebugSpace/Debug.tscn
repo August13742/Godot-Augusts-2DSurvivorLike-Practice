@@ -1,15 +1,31 @@
 [gd_scene load_steps=4 format=3 uid="uid://drdbllirf1dl5"]
 
-[ext_resource type="PackedScene" uid="uid://cfu2ridb03ytq" path="res://Scenes/Event/dasher_event.tscn" id="1_m1x33"]
 [ext_resource type="Script" uid="uid://b7017i32a86yk" path="res://DebugSpace/debug.gd" id="1_r85sc"]
 [ext_resource type="PackedScene" uid="uid://b8gfo3fwd4lfu" path="res://DebugSpace/player_debug.tscn" id="2_m1x33"]
+[ext_resource type="PackedScene" uid="uid://duqlmu6m637t4" path="res://Scenes/GameObject/RatEnemy/rat_enemy.tscn" id="2_r85sc"]
 
 [node name="Debug" type="Node2D"]
 script = ExtResource("1_r85sc")
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
 
-[node name="DasherEvent" parent="." instance=ExtResource("1_m1x33")]
+[node name="RatEnemy" parent="." instance=ExtResource("2_r85sc")]
+position = Vector2(108, 206)
+
+[node name="RatEnemy2" parent="." instance=ExtResource("2_r85sc")]
+position = Vector2(49, 57)
+
+[node name="RatEnemy3" parent="." instance=ExtResource("2_r85sc")]
+position = Vector2(148, 50)
+
+[node name="RatEnemy4" parent="." instance=ExtResource("2_r85sc")]
+position = Vector2(61, 134)
+
+[node name="RatEnemy5" parent="." instance=ExtResource("2_r85sc")]
+position = Vector2(141, 146)
+
+[node name="RatEnemy6" parent="." instance=ExtResource("2_r85sc")]
+position = Vector2(91, 77)
 
 [node name="Player" parent="." instance=ExtResource("2_m1x33")]
 position = Vector2(466, 154)

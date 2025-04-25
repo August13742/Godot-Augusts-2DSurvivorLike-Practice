@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://cy7fpmp78hcwu"]
 
-[ext_resource type="Script" uid="uid://cnbcuksj0oqis" path="res://flame_spiral_module_component.gd" id="1_tqiul"]
+[ext_resource type="Script" uid="uid://cnbcuksj0oqis" path="res://Scenes/Component/MeleeWeaponComponent/Modules/FlameSpiral/flame_spiral_module_component.gd" id="1_tqiul"]
 [ext_resource type="Texture2D" uid="uid://svnr4g18dpqg" path="res://Scenes/Component/MeleeWeaponComponent/Modules/FlameSpiral/Fire 3-Sheet.png" id="2_notfq"]
 [ext_resource type="Script" uid="uid://cey0rbexy1yf5" path="res://Scenes/Component/HitboxComponent/hitbox_component.gd" id="3_im5ns"]
 

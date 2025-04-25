@@ -8,10 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://cp4183sul1eye" path="res://Scenes/Component/HitFlashComponent/hit_flash_component.tscn" id="6_2gg3h"]
 [ext_resource type="PackedScene" uid="uid://cnq32dmcgppq" path="res://Scenes/Component/HealthBarComponent/health_bar_component.tscn" id="7_qrhaa"]
 [ext_resource type="Script" uid="uid://b2u23550pj1e" path="res://Scenes/GameObject/Player/ability_manager.gd" id="8_82oew"]
+[ext_resource type="PackedScene" uid="uid://b7gsqde8fiwu6" path="res://Scenes/Ability/gravity_ability_controller/gravity_ability_controller.tscn" id="9_3m1g8"]
 [ext_resource type="PackedScene" uid="uid://cs4idhppuc4uh" path="res://Scenes/Component/EntityDetectionComponent/entity_detection_component.tscn" id="9_nd5wk"]
 [ext_resource type="Texture2D" uid="uid://538ped3b55iu" path="res://Scenes/GameObject/Player/front.png" id="10_mmtj2"]
 [ext_resource type="PackedScene" uid="uid://cihryd5fc6t0i" path="res://Scenes/Component/CollisionDamageComponent/collision_damage_component.tscn" id="11_ce5r5"]
-[ext_resource type="PackedScene" uid="uid://cjhx5dmdah8m2" path="res://Scenes/Component/MeleeWeaponComponent/melee_weapon_component.tscn" id="12_3m1g8"]
 
 [sub_resource type="Animation" id="Animation_8uak7"]
 length = 0.001
@@ -140,6 +140,9 @@ z_index = 1
 [node name="AbilityManager" type="Node" parent="."]
 script = ExtResource("8_82oew")
 
+[node name="GravityAbilityController" parent="AbilityManager" instance=ExtResource("9_3m1g8")]
+base_cooldown = 5.0
+
 [node name="EntityDetectionComponent" parent="." instance=ExtResource("9_nd5wk")]
 unique_name_in_owner = true
 
@@ -170,6 +173,3 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionDamageComponent"]
 shape = SubResource("CapsuleShape2D_honxs")
 debug_color = Color(1, 0, 0, 0.419608)
-
-[node name="MeleeWeaponComponent" parent="." instance=ExtResource("12_3m1g8")]
-enable_shockwave = true

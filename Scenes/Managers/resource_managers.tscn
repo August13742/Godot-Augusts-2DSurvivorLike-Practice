@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://54y5g7ygdf7a"]
+[gd_scene load_steps=11 format=3 uid="uid://54y5g7ygdf7a"]
 
 [ext_resource type="Script" uid="uid://bofbmpjrflb0t" path="res://Scenes/Managers/experience_manager.gd" id="1_m43bk"]
 [ext_resource type="Script" uid="uid://b5bvv2myggska" path="res://Scenes/Managers/gold_manager.gd" id="2_hk25f"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://d04v36b6s4y8p" path="res://Resources/Upgrades/Abilities/spawn_sword.tres" id="7_5xrxj"]
 [ext_resource type="Resource" uid="uid://c2r866i3s83je" path="res://Resources/Upgrades/Abilities/spiral_axe.tres" id="8_ade6p"]
 [ext_resource type="Resource" uid="uid://dgm363gsqjhsl" path="res://Resources/Upgrades/Abilities/static_taser_ability.tres" id="9_kbewt"]
+[ext_resource type="Resource" uid="uid://c20hyuw3ep07s" path="res://Resources/Upgrades/Abilities/gravity.tres" id="10_5xrxj"]
 
 [node name="ResourceManagers" type="Node"]
 
@@ -23,5 +24,5 @@ script = ExtResource("2_hk25f")
 script = ExtResource("3_m43bk")
 
 [node name="UpgradeManager" parent="." node_paths=PackedStringArray("experience_manager") instance=ExtResource("4_m43bk")]
-upgrade_pool = Array[ExtResource("5_hsi1m")]([ExtResource("6_vmd3s"), ExtResource("7_5xrxj"), ExtResource("8_ade6p"), ExtResource("9_kbewt")])
+upgrade_pool = Array[ExtResource("5_hsi1m")]([ExtResource("6_vmd3s"), ExtResource("7_5xrxj"), ExtResource("8_ade6p"), ExtResource("9_kbewt"), ExtResource("10_5xrxj")])
 experience_manager = NodePath("../ExperienceManager")

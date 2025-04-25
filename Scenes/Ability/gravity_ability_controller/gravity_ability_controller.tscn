@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7gsqde8fiwu6"]
+
+[ext_resource type="Script" uid="uid://d1t51coo7un0n" path="res://Scenes/Ability/gravity_ability_controller/gravity_ability_controller.gd" id="1_83mlo"]
+
+[node name="GravityAbilityController" type="Node"]
+script = ExtResource("1_83mlo")
+
+[node name="Timer" type="Timer" parent="."]
