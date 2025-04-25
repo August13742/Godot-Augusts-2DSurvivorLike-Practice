@@ -54,10 +54,16 @@ func spawn_capacitors():
 		var capacitor_tween:Tween = create_tween()
 		# basically, fly to location in x seconds
 		var target_pos = line_points[ctr]
+		capacitor_tween.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
+		# run both tweens in parallel
 		capacitor_tween.tween_method(func(progress):
 			capacitor.global_position = start_position.lerp(target_pos, progress), 0.0, 1.0, 0.2)
+		capacitor_tween.parallel()
 		capacitor_tween.tween_property(capacitor, "modulate:a", 0.0, 0.15)
-		capacitor_tween.tween_callback(Callable(capacitor, "queue_free"))  # or .hide()
+
+
+		capacitor_tween.tween_callback(Callable(capacitor, "queue_free"))
 		ctr+=1
 		''''''
 	await get_tree().create_timer(0.15).timeout
