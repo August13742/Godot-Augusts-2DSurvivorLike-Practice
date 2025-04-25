@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b8gfo3fwd4lfu"]
+[gd_scene load_steps=19 format=3 uid="uid://b8gfo3fwd4lfu"]
 
 [ext_resource type="Script" uid="uid://by4iquybdbc5j" path="res://Scenes/GameObject/Player/player.gd" id="1_l3xfo"]
 [ext_resource type="Script" uid="uid://bekc41is0qrtq" path="res://Scenes/GameObject/Player/player_animation.gd" id="2_46rh8"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cs4idhppuc4uh" path="res://Scenes/Component/EntityDetectionComponent/entity_detection_component.tscn" id="9_nd5wk"]
 [ext_resource type="Texture2D" uid="uid://538ped3b55iu" path="res://Scenes/GameObject/Player/front.png" id="10_mmtj2"]
 [ext_resource type="PackedScene" uid="uid://cihryd5fc6t0i" path="res://Scenes/Component/CollisionDamageComponent/collision_damage_component.tscn" id="11_ce5r5"]
+[ext_resource type="PackedScene" uid="uid://cjhx5dmdah8m2" path="res://Scenes/Component/MeleeWeaponComponent/melee_weapon_component.tscn" id="12_3m1g8"]
 
 [sub_resource type="Animation" id="Animation_8uak7"]
 length = 0.001
@@ -169,3 +170,6 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionDamageComponent"]
 shape = SubResource("CapsuleShape2D_honxs")
 debug_color = Color(1, 0, 0, 0.419608)
+
+[node name="MeleeWeaponComponent" parent="." instance=ExtResource("12_3m1g8")]
+enable_shockwave = true

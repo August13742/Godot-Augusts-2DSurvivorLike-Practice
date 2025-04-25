@@ -1,0 +1,102 @@
+[gd_scene load_steps=15 format=3 uid="uid://crh4i2tyhpjl6"]
+
+[ext_resource type="Script" uid="uid://bc1yvt11gotpe" path="res://Scenes/Component/MeleeWeaponComponent/Modules/Shockwave/shockwave_module_component.gd" id="1_o7jxp"]
+[ext_resource type="Texture2D" uid="uid://btfdqaifo7506" path="res://Scenes/Component/MeleeWeaponComponent/Modules/Shockwave/shockwaves.png" id="1_wqkrc"]
+[ext_resource type="Script" uid="uid://cey0rbexy1yf5" path="res://Scenes/Component/HitboxComponent/hitbox_component.gd" id="2_o7jxp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ikxc"]
+atlas = ExtResource("1_wqkrc")
+region = Rect2(0, 0, 341, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ott2a"]
+atlas = ExtResource("1_wqkrc")
+region = Rect2(341, 0, 341, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fqnc"]
+atlas = ExtResource("1_wqkrc")
+region = Rect2(682, 0, 341, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_widfg"]
+atlas = ExtResource("1_wqkrc")
+region = Rect2(0, 341, 341, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bspul"]
+atlas = ExtResource("1_wqkrc")
+region = Rect2(341, 341, 341, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhs8s"]
+atlas = ExtResource("1_wqkrc")
+region = Rect2(682, 341, 341, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1b3xm"]
+atlas = ExtResource("1_wqkrc")
+region = Rect2(0, 682, 341, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4nhv"]
+atlas = ExtResource("1_wqkrc")
+region = Rect2(341, 682, 341, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_554ll"]
+atlas = ExtResource("1_wqkrc")
+region = Rect2(682, 682, 341, 341)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ej7u0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ikxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ott2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fqnc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_widfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bspul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhs8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1b3xm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4nhv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_554ll")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46ost"]
+size = Vector2(30, 80)
+
+[node name="ShockwaveModuleComponent" type="Node2D"]
+script = ExtResource("1_o7jxp")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Shockwave" type="AnimatedSprite2D" parent="Visuals"]
+unique_name_in_owner = true
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ej7u0")
+autoplay = "default"
+frame_progress = 0.516206
+metadata/_edit_lock_ = true
+
+[node name="HitboxComponent" type="Area2D" parent="Visuals"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("2_o7jxp")
+metadata/_custom_type_script = "uid://cey0rbexy1yf5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Visuals/HitboxComponent"]
+position = Vector2(20.5, 5.5)
+shape = SubResource("RectangleShape2D_46ost")

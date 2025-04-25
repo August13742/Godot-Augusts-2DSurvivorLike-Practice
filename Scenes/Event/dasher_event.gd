@@ -29,6 +29,7 @@ func _ready():
 		spawned_instances[i].owner = self
 		spawned_instances[i].position = positions[i]
 		spawned_instances[i].dash_component.dash_complete.connect(on_dash_completed.bind(spawned_instances[i]))
+		spawned_instances[i].call_deferred("set", "max_health", 999)
 	await get_tree().create_timer(0.75).timeout
 	player.process_mode=Node.PROCESS_MODE_INHERIT
 	frozen_screen_instance.queue_free()
@@ -37,3 +38,5 @@ func on_dash_completed(instance):
 	await get_tree().create_timer(1).timeout
 	if instance != null:
 		instance.queue_free()
+	if instance == null:
+		queue_free()
