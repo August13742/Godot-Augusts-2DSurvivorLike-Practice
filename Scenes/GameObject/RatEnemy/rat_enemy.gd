@@ -36,7 +36,6 @@ func _process(_delta: float) -> void:
 	increment_movement()
 	move_and_slide()
 
-
 func increment_movement():
 	frame_counter += 1
 	if frame_counter % update_interval_frames != 0:

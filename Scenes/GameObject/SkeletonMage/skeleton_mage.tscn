@@ -55,6 +55,7 @@ animations = [{
 
 [node name="SkeletonMage" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 8
+collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_ug2rs")
 max_speed = 50

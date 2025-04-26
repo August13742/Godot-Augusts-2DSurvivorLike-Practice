@@ -55,6 +55,8 @@ func on_body_exited(other:Node2D):
 
 func on_contraction_timer_timeout():
 	entities_inside = entities_inside.filter(func(e): return is_instance_valid(e))
+	#if entities_inside.size() != null:
+		#print(entities_inside)
 	for entity in entities_inside:
 		if entity != null:
 			entity.global_position = entity.global_position.lerp(start_position, 0.5)

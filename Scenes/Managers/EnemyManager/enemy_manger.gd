@@ -10,7 +10,7 @@ extends Node
 @onready var timer = $Timer
 @onready var enemies_list:Array[Weighted] = enemies_resource.enemies
 
-var difficulty_factor:float
+var difficulty_factor:float = 1
 var player:Node2D
 var spawn_count:int = base_spawn_count
 
@@ -74,11 +74,15 @@ func on_timer_timeout():
 			var enemy_to_spawn:Weighted = WeightedTable.pick_item_from_weighted_table(enemies_list)
 			var spawned_enemy_instance:Node2D = enemy_to_spawn.scene.instantiate()
 			entities_layer.add_child(spawned_enemy_instance)
-			spawned_enemy_instance.global_position = spawn_position
+			spawned_enemy_instance.global_position = spawn_position + 25*Vector2(randf_range(-1,1),randf_range(-1,1))
 			if difficulty_factor > 1:
-				spawned_enemy_instance.max_health *=  1 + difficulty_factor*0.25
+				set_entity_new_health.call_deferred(spawned_enemy_instance)
 
+func set_entity_new_health(_spawned_enemy_instance):
+	_spawned_enemy_instance.max_health *=  1 + difficulty_factor*0.25
 
+	
+	
 func on_difficulty_factor_updated(number):
 	difficulty_factor = number
 	change_spawn_interval_based_on_difficulty()
