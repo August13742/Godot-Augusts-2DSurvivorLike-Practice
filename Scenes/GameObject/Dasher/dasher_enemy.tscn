@@ -69,6 +69,7 @@ animations = [{
 
 [node name="Dasher" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 8
+collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_ktfrp")
 max_speed = 65

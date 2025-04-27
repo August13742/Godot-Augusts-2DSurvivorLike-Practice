@@ -79,7 +79,7 @@ func on_timer_timeout():
 				set_entity_new_health.call_deferred(spawned_enemy_instance)
 
 func set_entity_new_health(_spawned_enemy_instance):
-	_spawned_enemy_instance.max_health *=  1 + difficulty_factor*0.25
+	_spawned_enemy_instance.max_health *=  1 + difficulty_factor*0.15
 
 	
 	
