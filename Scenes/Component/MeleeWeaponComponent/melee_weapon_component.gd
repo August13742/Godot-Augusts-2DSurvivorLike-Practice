@@ -92,12 +92,13 @@ func on_one_loop_finished():
 
 func on_upgrade_ability(ability:Ability,current_ability_level):
 	if ability.id == "auto_attack_upgrade":
+		print(ability,current_ability_level)
 		if current_ability_level > 0:
 			enable_shockwave = true
 			enable_flame_spiral = true
-		if current_ability_level ==3:
+		if current_ability_level ==2:
 			swing_per_spiral = 3
-		if current_ability_level >=5:
+		if current_ability_level >=4:
 			swing_per_spiral = 2
 			swing_per_shockwave = 1
 			
