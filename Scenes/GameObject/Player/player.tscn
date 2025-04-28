@@ -122,10 +122,6 @@ libraries = {
 }
 script = ExtResource("2_8uak7")
 
-[node name="(notUsed)ComponentManager" type="Node" parent="."]
-script = ExtResource("2_htcer")
-component_list = Array[int]([0, 0])
-
 [node name="MovementControlComponent" parent="." instance=ExtResource("3_q3lib")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_honxs")]
@@ -175,3 +171,7 @@ shape = SubResource("CapsuleShape2D_honxs")
 debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="MeleeWeaponComponent" parent="." instance=ExtResource("9_ppan8")]
+
+[node name="(notUsed)ComponentManager" type="Node" parent="."]
+script = ExtResource("2_htcer")
+component_list = Array[int]([0, 0])
