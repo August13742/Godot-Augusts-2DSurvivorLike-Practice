@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://pw6n6kbjjunm" path="res://Scenes/UI/ArenaTimeUI/arena_time_ui.gd" id="1_77qiv"]
 
-[node name="ArenaTimeUI" type="CanvasLayer"]
+[node name="ArenaTime&GoldUI" type="CanvasLayer"]
 script = ExtResource("1_77qiv")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
