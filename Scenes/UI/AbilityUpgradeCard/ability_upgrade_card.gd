@@ -1,8 +1,8 @@
 extends PanelContainer
 
-@onready var name_label:RichTextLabel = $VBoxContainer/NameLabel
-@onready var description_label:RichTextLabel = $VBoxContainer/MarginContainer/DescriptionLabel
-@onready var texture_rect:TextureRect = $VBoxContainer/TextureRect
+@onready var name_label:RichTextLabel = $%NameLabel
+@onready var description_label:RichTextLabel = $%DescriptionLabel
+@onready var texture_rect:TextureRect = $%Texture
 
 signal chosen 
 func _ready():

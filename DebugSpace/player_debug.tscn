@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b8gfo3fwd4lfu"]
+[gd_scene load_steps=18 format=3 uid="uid://b8gfo3fwd4lfu"]
 
 [ext_resource type="Script" uid="uid://by4iquybdbc5j" path="res://Scenes/GameObject/Player/player.gd" id="1_l3xfo"]
 [ext_resource type="Script" uid="uid://bekc41is0qrtq" path="res://Scenes/GameObject/Player/player_animation.gd" id="2_46rh8"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://cp4183sul1eye" path="res://Scenes/Component/HitFlashComponent/hit_flash_component.tscn" id="6_2gg3h"]
 [ext_resource type="PackedScene" uid="uid://cnq32dmcgppq" path="res://Scenes/Component/HealthBarComponent/health_bar_component.tscn" id="7_qrhaa"]
 [ext_resource type="Script" uid="uid://b2u23550pj1e" path="res://Scenes/GameObject/Player/ability_manager.gd" id="8_82oew"]
-[ext_resource type="PackedScene" uid="uid://b7gsqde8fiwu6" path="res://Scenes/Ability/gravity_ability_controller/gravity_ability_controller.tscn" id="9_3m1g8"]
 [ext_resource type="PackedScene" uid="uid://cs4idhppuc4uh" path="res://Scenes/Component/EntityDetectionComponent/entity_detection_component.tscn" id="9_nd5wk"]
 [ext_resource type="Texture2D" uid="uid://538ped3b55iu" path="res://Scenes/GameObject/Player/front.png" id="10_mmtj2"]
 [ext_resource type="PackedScene" uid="uid://cihryd5fc6t0i" path="res://Scenes/Component/CollisionDamageComponent/collision_damage_component.tscn" id="11_ce5r5"]
@@ -139,9 +138,6 @@ z_index = 1
 
 [node name="AbilityManager" type="Node" parent="."]
 script = ExtResource("8_82oew")
-
-[node name="GravityAbilityController" parent="AbilityManager" instance=ExtResource("9_3m1g8")]
-base_cooldown = 5.0
 
 [node name="EntityDetectionComponent" parent="." instance=ExtResource("9_nd5wk")]
 unique_name_in_owner = true
