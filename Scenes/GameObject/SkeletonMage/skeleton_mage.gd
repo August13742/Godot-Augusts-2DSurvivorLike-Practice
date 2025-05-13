@@ -36,11 +36,11 @@ func update_attributes():
 	max_health = base_max_health
 	health_component.max_health = max_health
 	health_component.current_health = max_health
-	
-	
+
+
 func _process(_delta: float) -> void:
 	fire_ball_component.can_fire = true if ai_movement_component.is_stationary else false
-	
+
 	if !moving: return
 	var direction:Vector2 = ai_movement_component.get_direction_to_target()
 	velocity = direction * max_speed

@@ -21,10 +21,10 @@ var start_position:Vector2
 func _ready():
 	await get_tree().process_frame
 	initiate()
-	
-	
-	
-	
+
+
+
+
 func initiate():
 	entities_inside = hitbox_component.get_overlapping_bodies()
 	for body in entities_inside:
@@ -32,20 +32,20 @@ func initiate():
 	hitbox_component.damage = self.damage
 	hitbox_component.body_entered.connect(on_body_entered)
 	hitbox_component.body_exited.connect(on_body_exited)
-	
+
 	contraction_timer.wait_time = contraction_interval
 	contraction_timer.start()
 	contraction_timer.timeout.connect(on_contraction_timer_timeout)
 	contraction_timer.timeout.emit()
-	
+
 	timer.wait_time = life_time
 	timer.start()
 	timer.timeout.connect(on_timer_timeout)
-	
+
 	visuals.scale = Vector2.ONE * ability_scale
 	start_position = self.global_position
-	
-	
+
+
 func on_body_entered(other:Node2D):
 	entities_inside.append(other)
 
@@ -61,13 +61,12 @@ func on_contraction_timer_timeout():
 		if entity != null:
 			entity.global_position = entity.global_position.lerp(start_position, 0.5)
 			entity.health_component.damaged(damage)
-			
+
 	var floating_text:Node2D = floating_text_scene.instantiate()
 	foreground.add_child(floating_text)
-	
+
 	floating_text.global_position = global_position
 	floating_text.start("%.1f" % hitbox_component.damage)
 
 func on_timer_timeout():
 	queue_free()
-	

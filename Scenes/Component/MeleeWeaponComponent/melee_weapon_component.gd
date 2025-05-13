@@ -38,27 +38,27 @@ func _ready() -> void:
 	await get_tree().process_frame
 	hitbox_component.damage = damage
 	movement_control_component = owner.get_node_or_null("MovementControlComponent")
-	
+
 	if movement_control_component == null:
 		push_error("MovementControlComponent Not Found")
 	player = owner
 	if player == null:
 		push_error("[%s] Component Cannot Find Player Node, Expects Player to be Direct Parent of this Component"%self.name)
-	
+
 	if "input_type" in player:
 		if player.input_type == 1:
 			controlled_by_player = false
-	
+
 	animation.speed_scale = get_animation_speed_scale_from_cooldown(base_cooldown)
 	pivot.scale = Vector2.ONE * base_size_scale
 	on_one_loop_finished()
-	
+
 	GameEvents.upgrade_ability.connect(on_upgrade_ability)
-	
+
 func on_one_loop_finished():
 	if player==null: return
-	
-	
+
+
 	var angle_to_target:float
 	if controlled_by_player:
 		var player_position:Vector2 = player.global_position
@@ -67,12 +67,12 @@ func on_one_loop_finished():
 		angle_to_target = movement_control_component.angle_to_target
 
 	pivot.rotation = angle_to_target
-	
+
 	#pivot.position = Vector2(pivot_offset_radius * cos(angle_to_cursor), pivot_offset_radius * sin(angle_to_cursor))
 	pivot.position = Vector2(pivot_offset_radius, 0).rotated(angle_to_target)
-	
+
 	if enable_shockwave:
-		shock_wave_swing_counter +=1 
+		shock_wave_swing_counter +=1
 		if shock_wave_swing_counter >= swing_per_shockwave:
 			var shockwave_instance:ShockwaveModule = shockwave_module_component.instantiate()
 			foreground_layer.add_child(shockwave_instance)
@@ -81,7 +81,7 @@ func on_one_loop_finished():
 			shockwave_instance.direction = Vector2.RIGHT.rotated(angle_to_target)
 			shockwave_instance.visuals.rotate(angle_to_target)
 			shock_wave_swing_counter = 0
-			
+
 	if enable_flame_spiral:
 		flame_spiral_swing_counter += 1
 		if flame_spiral_swing_counter >= swing_per_spiral:
@@ -100,7 +100,7 @@ func on_upgrade_ability(ability:Ability,current_ability_level):
 		if current_ability_level >=4:
 			swing_per_spiral = 2
 			swing_per_shockwave = 1
-			
+
 		damage *= ability.levels[current_ability_level].damage_multiplier
 		hitbox_component.damage = max(damage,hitbox_component.damage) # technically max isn't needed
 		animation.speed_scale = get_animation_speed_scale_from_cooldown(

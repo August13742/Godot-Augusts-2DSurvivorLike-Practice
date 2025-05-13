@@ -18,13 +18,13 @@ var max_health:int:
 		max_health = amount
 		health_component.max_health = amount
 		health_component.full_heal()
-		
+
 func _ready():
 	ai_movement_component.target_entity = get_tree().get_first_node_in_group("player")
 	update_attributes.call_deferred()
 
-	
-	
+
+
 func update_attributes():
 	max_health = base_max_health
 	health_component.max_health = max_health
@@ -46,4 +46,3 @@ func increment_movement():
 	movement_cache = direction * max_speed
 	sprite.flip_h = true if velocity.x > 0 else false
 	velocity =  movement_cache
-	

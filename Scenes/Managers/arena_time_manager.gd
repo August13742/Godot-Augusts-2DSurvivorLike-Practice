@@ -14,28 +14,28 @@ var time:Array[int] = [0,0]
 
 func _ready():
 	timer.timeout.connect(on_timer_timeout)
-	
-	
+
+
 func _process(_delta):
 	time_elapsed = get_time_elapsed()
 	time = TimeUtility.get_minute_seconds(time_elapsed)
-	
+
 	raise_difficulty_base_on_minute_passed()
 
 func raise_difficulty_base_on_minute_passed():
 	if minutes_passed != time[0]:
 		minutes_passed = time[0]
-		
+
 		#placeholder, replace with actual algorithm
 		#currently, this effects the spawn rate of spawners and enemy hp.
 		difficulty_factor +=1
 		print("[Debug/Progression]: Current Diffulty Factor: %.1f"%difficulty_factor)
 		GameEvents.emit_difficulty_factor_updated(difficulty_factor)
-		
-		
+
+
 func get_time_elapsed()->float:
 	return timer.wait_time - timer.time_left
-	
+
 
 func on_timer_timeout():
 	var end_screen_instance = end_screen_scene.instantiate()

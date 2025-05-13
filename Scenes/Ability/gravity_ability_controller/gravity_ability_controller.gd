@@ -17,31 +17,31 @@ var root_entity:Node2D
 
 func _ready() -> void:
 	await get_tree().process_frame
-	
+
 	entity_detector_component = owner.get_node("EntityDetectionComponent")
-	if entity_detector_component == null: 
+	if entity_detector_component == null:
 		print_debug("[Debug/Referencing]: {%s} EntityDetectionHelperComponent Not Found, Instantiating..."%self.name)
 		entity_detector_component = load(
 			"res://Scenes/Component/EntityDetectionComponent/entity_detection_component.tscn").instantiate()
 		owner.add_child(entity_detector_component)
 		entity_detector_component.owner = owner
-		
+
 	root_entity = owner
-	
+
 	timer.wait_time = base_cooldown
 	timer.timeout.connect(on_timer_timeout)
 	timer.start()
 	GameEvents.upgrade_ability.connect(on_upgrade_ability)
-	
+
 	gravity_ability_scale = gravity_ability_base_scale
 
 func on_timer_timeout():
 	if root_entity==null: return
-	
+
 	var targets:Array[Node2D] = entity_detector_component.get_entities_random()
 	if targets.is_empty(): return
-	
-	
+
+
 	for target in targets: #minimum is already 1
 
 		var gravity_instance:GravityAbility = gravity_ability_scene.instantiate()
@@ -51,7 +51,7 @@ func on_timer_timeout():
 		gravity_instance.life_time = gravity_ability_life_time
 		gravity_instance.contraction_interval = gravity_ability_contraction_interval
 		gravity_instance.ability_scale = gravity_ability_scale
-		
+
 		gravity_instance.global_position = target.global_position
 
 

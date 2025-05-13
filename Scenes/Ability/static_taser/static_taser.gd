@@ -16,17 +16,17 @@ func _ready():
 	if line_texture == null:
 		print("[Debug/Fallback]: {%s} Line Texuture Not Assigned. Using Default Fallback Texture..."%self.name)
 		#line_texture = preload("res://icon.svg") # change this to actual fallback texture
-	
+
 	if capacitor_texture == null:
 		print("[Debug/Fallback]: {%s} Capacitor Texuture Not Assigned. Using Default Fallback Texture..."%self.name)
 		capacitor_texture = preload("res://icon.svg")
-		
+
 	$Timer.timeout.connect(on_timer_timeout)
-	
-	await get_tree().process_frame 
+
+	await get_tree().process_frame
 	spawn_capacitors()
-	
-	
+
+
 func get_target_global_position(targets:Array[Node2D])->Array[Vector2]:
 	if targets.is_empty(): return [] as Array[Vector2]
 	var target_positions:Array[Vector2]
@@ -34,10 +34,10 @@ func get_target_global_position(targets:Array[Node2D])->Array[Vector2]:
 		if target != null:
 			target_positions.append(target.global_position)
 	return target_positions
-	
+
 func spawn_capacitors():
 	if target_nodes.is_empty(): return
-	
+
 	line_points = get_target_global_position(target_nodes)
 
 
@@ -68,7 +68,7 @@ func spawn_capacitors():
 		''''''
 	await get_tree().create_timer(0.15).timeout
 	line.points = line_points.map(func(global_pos): return line.to_local(global_pos)) #line2D expects local pos
-	
+
 	for target in target_nodes:
 		if target != null:
 			target.health_component.damaged(damage)
@@ -77,7 +77,6 @@ func spawn_capacitors():
 			damage_text.global_position = target.global_position
 			damage_text.start("%.1f" % damage)
 	$Timer.start()
-	
+
 func on_timer_timeout():
 	queue_free()
-	

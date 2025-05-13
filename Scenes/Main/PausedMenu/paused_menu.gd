@@ -12,7 +12,7 @@ func _ready():
 	restart_button.pressed.connect(on_restart_pressed)
 	menu_button.pressed.connect(on_menu_pressed)
 	quit_button.pressed.connect(on_quit_pressed)
-	
+
 func on_resume_pressed():
 	if get_tree().paused:
 		get_tree().paused = false
@@ -25,7 +25,7 @@ func on_menu_pressed():
 	get_tree().paused = false
 	GameEvents.auto_mode = false
 	get_tree().change_scene_to_file("res://Scenes/Main/MainMenu/game_menu.tscn")
-	
+
 
 func on_restart_pressed():
 	get_tree().paused = false

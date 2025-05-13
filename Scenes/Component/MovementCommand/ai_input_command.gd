@@ -22,8 +22,8 @@ var idle_refresh_interval := 15
 func configure(_entity: Node2D, _detector: EntityDetectionComponent):
 	entity = _entity
 	detector = _detector
-	
-	
+
+
 func get_movement_vector() -> Vector2:
 	if target_entity == null and detector:
 		var candidates = detector.get_entities_random()
@@ -37,7 +37,7 @@ func get_movement_vector() -> Vector2:
 		return movement_cache
 
 	frame_counter = 0
-	
+
 	if target_entity:
 		var to_target:Vector2 = target_entity.global_position - entity.global_position
 		angle_to_target = to_target.angle()
@@ -47,19 +47,19 @@ func get_movement_vector() -> Vector2:
 			movement_cache = to_target.normalized()
 		elif distance_error > distance_tolerance:
 			movement_cache = (movement_cache+get_random_direction()*0.4).normalized()
-			
+
 		else:
 			movement_cache = -to_target.normalized() + Vector2(randf_range(-0.1,0.1), randf_range(-0.1,0.1))
 			#return Vector2.ZERO
-			
+
 	else:
 		increment_idle()
 
 	return movement_cache
-	
+
 func get_random_direction()->Vector2:
 	return Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()
-	
+
 func increment_idle():
 	idle_timer_frames += 1
 	if idle_timer_frames >= idle_refresh_interval:

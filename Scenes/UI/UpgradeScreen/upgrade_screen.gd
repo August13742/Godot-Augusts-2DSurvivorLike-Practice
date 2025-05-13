@@ -9,10 +9,10 @@ signal upgrade_chosen(upgrade:Ability)
 
 func _ready():
 	get_tree().paused = true
-	
-	
+
+
 func set_ability_upgrades(upgrades:Array[Ability],levels:Array[int]):
-	if upgrades.size() == 0: 
+	if upgrades.size() == 0:
 		get_tree().paused = false
 		queue_free()
 	for i in range(upgrades.size()):

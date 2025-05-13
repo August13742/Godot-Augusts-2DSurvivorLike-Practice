@@ -4,13 +4,13 @@ extends PanelContainer
 @onready var description_label:RichTextLabel = $VBoxContainer/MarginContainer/DescriptionLabel
 @onready var texture_rect:TextureRect = $VBoxContainer/TextureRect
 
-signal chosen 
+signal chosen
 func _ready():
 	gui_input.connect(on_gui_input)
 	mouse_entered.connect(on_mouse_entered)
 	mouse_exited.connect(on_mouse_exited)
-	
-	
+
+
 func set_ability_upgrade(upgrade:Ability, current_level:int):
 
 	if current_level == -1:
@@ -20,8 +20,8 @@ func set_ability_upgrade(upgrade:Ability, current_level:int):
 		name_label.text = upgrade.name + " +" + str(current_level+1)
 		description_label.text = "Increase Effectiveness of this Ability"
 	texture_rect.texture = upgrade.icon_texture
-	
-	
+
+
 func on_gui_input(event:InputEvent):
 	if event.is_action_pressed("left_click"):
 		chosen.emit()
@@ -34,7 +34,7 @@ func on_mouse_entered():
 
 func on_mouse_exited():
 	self.scale = Vector2.ONE
-	
+
 
 func _process(_delta):
 	'''

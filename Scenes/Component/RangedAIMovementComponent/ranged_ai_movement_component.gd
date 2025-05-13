@@ -13,27 +13,27 @@ func _ready():
 		if target_entity == null:
 			print("[Debug/Fallback]: {%s} Target not Set, Defaulting Target to Player"%self.name)
 			target_entity = get_tree().get_first_node_in_group("player")
-	
+
 	distance_to_keep = (Vector2.ONE * distance_to_keep).length()
 	distance_tolerance = (Vector2.ONE * distance_tolerance).length()
-		
+
 func get_direction_to_target(target:Node2D = target_entity):
 	if target == null: return Vector2.ZERO
-	
+
 	var distance_error:Vector2 = target.global_position - owner.global_position
 	var distance_error_length = distance_error.length()
 
 	if (distance_error_length > distance_tolerance) && (distance_error_length < distance_to_keep): # in between state
 		is_stationary = true
 		return Vector2.ZERO
-			
+
 	if distance_error_length > distance_to_keep:
 		is_stationary = false
 		return (distance_error).normalized()
 	if distance_error_length < distance_tolerance:
 		is_stationary = false
 		return -(distance_error).normalized()
-	
+
 	# should never trigger
 	is_stationary = true
 	return Vector2.ZERO
